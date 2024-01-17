@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="jspdf.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>formulario </h1>
+    <form action="" method="post">
+        <label for="numeroPrecontractual">numero planeacion Precontractual</label>
+        <input type="number" name="numeroPrecontractual" id="" >
+        <br>
+        <label for="dependencia">Dependencia</label>
+        <select name="dependencia" id="">
+            <option value="juridica">Juridica</option>
+            <option value="administrativa">Administrativa</option>
+        </select>
+        <br>
+        <label for="">tipo de contrato a celebrar</label>
+        <select name="tipoContrato" id="">
+            <option value="profesionales">Profesionales</option>
+            <option value="apoyoGestios">Apoyo a la gestion</option>
+        </select>
+        <br>
+        <label for="justificacion">justificacion actividad</label>
+        <br>    
+        <textarea name="justificacion" id="" cols="60" rows="15" placeholder="A partir de acá, se deberá de realizar la respectiva justificación de la necesidad que se esta presentando, misma que da origen al proceso de selección, a su vez, deberá de indicar como se pretende satisfacer o, por medio de que profesional ejecutará el futuro contrato.                                     Ahora bien, en el caso de futuros contratistas personas naturales profesionales con posgrados, deberá de justificar los motivos por medio de los cuales se requiere dicha especialidad para satisfacer la necesidad presentada
+        "></textarea>
+        <br>
+        <label for="">objeto de contrato a celebrar</label>
+        <br>
+        <textarea name="" id="" cols="30" rows="10" placeholder="Para definir el objeto deberá de tener en cuenta la tipología contractual a emplear, las obligaciones específicas, la meta o proyecto a ejecutar"></textarea>
+        <br>
+        <label for="plazoEjecucion">Plazo de ejecucion</label>
+        <input type="number" name="plazoEjecucion" id="">
+        <br>
+        <label for="valor">valor del contrato</label>
+        <input type="number" name="valor" id="">
+        <br>
+        <label for="formaPago">Forma de pago</label>
+        <br>
+        <label for="cantidadCuotas">cantidad de cuotas</label> <input type="number" name="cantidadCuotas" id="">
+        <p hidden >mostrar el valor de cada cuota </p>
+        <br>
+        <label for="frecuenciaPagos">frecuencia de pagos en dias</label><input type="number" name="frecuenciaPagos" id="">
+        <br>
+        <label for="cdp">numero CDP</label>
+        <input type="number" name="cdp" id="">
+        <br>
+        <label for="fechaCdp">fecha</label>
+        <input type="date" name="fechaCdp" id="">
+        2.6 continuar
+
+    </for>
+
+
+    
+    <a href="javascript:genPdf()">generar pdf</a>
+    <script type="text/javascript">
+        function genPdf(){
+            let doc = new jsPDF();
+            doc.text(20,20,"hola mundo por pdf bjbvlerbvlerhbvlerkvbrkjvberlkbvlaerkhbvehkrbvlerhkbvlerhbvlerhkbvkvbkfhbvrk");
+            doc.text()
+            doc.save('my.pdf');
+
+        }
+    </script>
+</body>
+</html>
