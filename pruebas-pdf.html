@@ -11,18 +11,65 @@
     <h1>generador de pdf</h1>
 
     <textarea name="" id="textCamp" cols="30" rows="10"></textarea>
+    <br>
     <button type="button" onclick="generarPDF()">generar pdf</button>
+
 </body>
 <script>
     function generarPDF(){
-        let text = document.getElementById('textCamp').value;
 
+        let text = document.getElementById('textCamp').value;
+        let contenido = {
+            text: "A lo Vivo Era un pueblecito rayano, Ribamoura, vivero de contrabandistas, donde esta profesión de riesgo y lucro hacía a la gente menos dormida de lo que suelen ser los pueblerinos. Abundaban los mozos de cabeza caliente, y se desdeñaba al que no era capaz de coger una escopeta y salir a la ganancia. Las mujeres, vestidas y adornadas con lo que da de sí el contrabando, lucían pendientes de ostentosa filigrana, patenas fastuosas, pañuelos de seda de colorines; en las casas no faltaba ron jamaiqueño ni queso de Flandes, y los hombres poseían armas inglesas, bolsas de piel y tabaco Virginia y Macuba. Al través de Portugal, Inglaterra enviaba sus productos, y de España pasaban otros, cruzando el caudaloso río. Algunos días del año se interrumpía el tráfico y la industria de Ribamoura. El pueblo entero se congregaba a celebrar las solemnidades consuetudinarias, que servían de pretexto para solaces y holgorio. Tal ocurría con el Carnaval, tal con la fiesta de la Patrona, tal con los días de la Semana Santa. A pesar de ser éstos de penitencia y mortificación, para los de Ribamoura tenían carácter de fiesta; en ellos se celebraba, en la iglesia principal, espacioso edificio de la época herreriana, la representación de la Pasión, con personajes de carne y hueso, y encargándose de los papeles gente del pueblo mismo. Venido de Oporto, un actor portugués, con el instinto dramático de la raza, organizaba y dirigía la representación; pero sin tomar parte en ella. Esto se hubiese considerado en Ribamoura irreverente. «Trabajaban» por devoción y por respeto tradicional a los misterios redentores; pero nunca hubiesen admitido a nadie mercenario, ni tolerado que hiciese los papeles nadie de mala reputación. Gente honrada, aunque contrabandease; que eso no deshonra. Ni por pecado lo daban en el confesionario los frailes."
+        };
         let pdfDocumet = {
+            header: function(currentPage, pageCount, pageSize) {
+                // you can apply any logic and return any valid pdfmake element
+                return [
+                    //alignment: (currentPage % 2) ? 'left' : 'right' para alternar la ubicacion del numero
+                    { 
+                        text: 'pagina '+currentPage+' de '+pageCount,
+                        alignment:'center',
+                    
+                    },
+                    {
+                        
+                    }
+                ]
+            },
             content: [
                 {
-                    text: text, fontSize: 12, margin:[0,10,10,]
+                    text:'titulo',
+                    fontSize: 20,
+                    style: 'header',
+                    alignment:'center'
+                    //bold: true
+                },
+                {
+                    text:  contenido.text,
+                    fontSize: 15,
+                    alignment: 'justify'
+                },
+                {
+                    text:  contenido.text,
+                    fontSize: 15,
+                    alignment: 'justify'
+                },
+                {
+                    text:  contenido.text,
+                    fontSize: 15,
+                    alignment: 'justify'
+                },
+                {
+                    text:  contenido.text,
+                    fontSize: 15,
+                    alignment: 'justify'
                 }
-            ]
+            ],
+            styles:{
+                
+            }
+            
         }
         // separator: ['2.1.'],
         const pdfDocGenerator = pdfMake.createPdf(pdfDocumet);
