@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="pdfmake.min.js"></script>
+    <script src="vfs_fonts.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>generador de pdf</h1>
+
+    <textarea name="" id="textCamp" cols="30" rows="10"></textarea>
+    <button type="button" onclick="generarPDF()">generar pdf</button>
+</body>
+<script>
+    function generarPDF(){
+        let text = document.getElementById('textCamp').value;
+
+        let pdfDocumet = {
+            content: [
+                {
+                    text: text, fontSize: 12, margin:[0,10,10,]
+                }
+            ]
+        }
+        // separator: ['2.1.'],
+        const pdfDocGenerator = pdfMake.createPdf(pdfDocumet);
+        pdfDocGenerator.open();
+    }
+</script>
+</html>
