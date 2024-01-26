@@ -36,8 +36,7 @@
                        
                                 width: 'auto',
                             table: {
-                                    // headers are automatically repeated if the table spans over multiple pages
-                                    // you can declare how many rows should be treated as headers
+                                    // Encabezado
                                 headerRows: 1,
                                 widths: [ 'auto','*','auto'],
                                 // alignment: 'center',
@@ -67,13 +66,12 @@
             content: [ 
                 {
                     text:[
-                    {text: 'ESTUDIOS PREVIOS\n\n', fontSize: 14,bold: true},
+                    {text: 'ESTUDIOS PREVIOS\n\n', fontSize: 12,bold: true},
                     {text: 'Fecha de de\n\n', fontSize: 12}, // adjuntar fecha automaticmente
                     {text: 'Planeación Precontractual Nro.\n\n', fontSize: 12}// numero dado por el usuario
                     ],
                     alignment: 'center'
                 },
-                
                 {
                    text:[
                     'El Departamento del Quindío, en cumplimiento de lo señalado el Estatuto General de Contratación de la Administración Pública y en especial lo preceptuado en el literal b) del numeral 3º del artículo 11 de la Ley 80 de 1993, así como lo indicado en los numerales 6º, 7º, 9º y 12º del artículo 87 de la Ley 1474 de 2011, este último numeral modificado por el artículo 87 de la Ley 1474 de 2011 y atendiendo lo señalado en los artículos 2.2.1.1.2.1.1 y 2.2.1.2.1.4.9 del Decreto 1082 de 2015 como lo referido en el Manual de Contratación de esta entidad territorial del orden Departamental, la ',
@@ -92,7 +90,7 @@
                     //alignment: 'justify',
                 },
                 {
-                    text: [ 'De conformidad con lo consagrado en la Constitución Política de Colombia, donde en su artículo 286 menciona: “Son ',
+                    text: [ 'De conformidad con lo consagrado en la Constitución Política de Colombia, donde en su artículo 286 menciona: “Son ',
                     { text:'entidades territoriales los departamentos',bold:true},
                     ', los distritos, los municipios y los territorios indígenas (…)” seguidamente en su artículo 287 se estableció que las Entidades Territoriales gozan de autonomía para la gestión de sus intereses, y dentro de los límites de la Constitución y la Ley. En tal virtud tendrán los siguientes derechos: “2. Ejercer las competencias que les correspondan”.\n\n',
                     'Con el fin de garantizar lo anterior, en el marco de lo contemplado en el artículo 2º numeral 3º y artículo 3º de la Ley 80 de 1993, se colige que articulado indicado anteriormente atiende lo relacionado con los deberes constitucionales, los fines de la Contratación Estatal corresponde al cumplimiento de los fines estatales y la continua y eficiente prestación de los servicios públicos, trayéndose a colación los siguientes presupuestos constitucionales:\n\n'
@@ -140,45 +138,97 @@
                 },
                 {
                     ol:[
-                        {text:'DESCRIPCION DEL OBJETO A CONTRATAR, CON SUS ESPECIFICACIONES Y LA IDENTIFICACION DEL CONTRATO A CELEBRAR:\n\n',style:'titulo'},
+                        {text:'DESCRIPCION DEL OBJETO A CONTRATAR, CON SUS ESPECIFICACIONES Y LA IDENTIFICACION DEL CONTRATO A CELEBRAR:\n\n',counter: 2,style:'titulo'},
                             {   
-                                //separator:['2.','.'],
+                                separator:['2.','.'],
                                 ol:[
 
                                     {text:[{text:'TIPO DE CONTRATO A CELEBRAR:',style:'titulo'},' De conformidad con las actividades u obligaciones que ejecutará el futuro contratista, y en razón a que serán realizadas con autonomía e independencia, se trata en este caso de la tipología contractual de ',{text:'CONTRATO DE PRESTACIÓN DE SERVICIOS ',style:'titulo'},
                                         {text:'(Deberá de incorporar si corresponde a un Contrato de Prestación de Servicios Profesionales o de Apoyo a la Gestión),select',color:'red'},/// insercion de datos del formulario
                                         ' nominado el numeral 3º del artículo 32 de la Ley 80 del año 1993, como también nominado en el artículo 2.2.1.2.1.4.9 del Decreto 1082 del año 2015, el cual determina: ',{text:'"Los servicios profesionales y de apoyo a la gestión corresponden a aquellos de naturaleza intelectual diferentes a los de consultoría que se derivan del cumplimiento de las funciones de la Entidad Estatal, así como los relacionados con actividades operativas, logísticas, o asistenciales".\n\n',
                                         italics:true}
-                                    ]},
+                                    ],bold: false},
                                     
                                     {text:[{text:'OBJETO DEL CONTRATO A CELEBRAR:',style:'titulo'},
                                         {text:' (Para definir el objeto deberá de tener en cuenta la tipología contractual a emplear, las obligaciones específicas, la meta o proyecto a ejecutar). manual',color: 'red'},
                                         '\n\n'
-                                    ]},
+                                    ],bold: false},
                                     
                                     {text:[ {text:'PLAZO DE EJECUCIÓN:',style: 'titulo'},' El plazo de ejecución del presente contrato será de ',
                                     {text:'_________ (_____)letra y numero',color: 'red'},// numero inresado por el ususario, tambien obtener su calor en letras 
                                     ' días calendario contados a partir de la suscripción del acta de inicio y cumplimiento de requisitos establecidos en el artículo 41 de la Ley 80 de 1993 modificada por el artículo 23 de la Ley 1150 de 2007, y en todo caso el acuerdo de voluntades a suscribir no podrá exceder la vigencia fiscal ',{text:contenido.fechaAutomatica},
                                     '\n\n'
-                                    ]},
+                                    ],bold: false},
 
                                     {text:[{text:'LUGAR DE EJECUCIÓN:',style:'titulo'},
-                                        {text:' El lugar de ejecución del presente contrato será en ___________________________________________. Auto\n\n',color:'red'}]},/// ubicacion de realizacion de contrato posiblemente ARMENIA
-                                    {text:['VALOR Y FORMA DE PAGO: El valor del presente contrato asciende a la suma de _________letras______________ ($________), incluido IVA, impuestos o descuentos. FORMA DE PAGO: El Departamento del Quindío cancelará el valor del futuro contrato mediante ___letras____ (___) pagos (Incluir como se realizarán los pagos, mensuales, parciales o cada periodo determinado), cada uno por valor de ______letras_____________ ($___________), incluido IVA, impuestos o descuentos, previa presentación del informe de actividades ejecutadas durante cada mes de prestación de servicios o periodo prestado, en el que debe de constar la acreditación del pago de aportes a seguridad social, pensión y riesgos laborales por el porcentaje señalado en la Ley.']},
-                                    {text:[]},
-                                    {text:[]},
-                                    {text:[]},
-                                ],
+                                        {text:' El lugar de ejecución del presente contrato será en ___________________________________________. Auto\n\n',color:'red'}
+                                    ],bold: false},/// ubicacion de realizacion de contrato posiblemente ARMENIA
+                                    {text:[
+                                        {text:'VALOR Y FORMA DE PAGO: ',style:'titulo'},
+                                        'El valor del presente contrato asciende a la suma de',
+                                        {text:' _________letras______________ ($________)'},// valor del contrato en letras y numeros
+                                        ', incluido IVA, impuestos o descuentos. ',
+                                        {text: 'FORMA DE PAGO:',style: 'titulo'},
+                                        ' El Departamento del Quindío cancelará el valor del futuro contrato mediante',
+                                        {text:' ___letras____ (_numero__)'},// cantidad de pagos en numero y letras
+                                        'pagos ',
+                                        {text:'(Incluir como se realizarán los pagos, mensuales, parciales o cada periodo determinado)'}, // forma de pago
+                                        ', cada uno por valor de',
+                                        {text:' ______letras_____________ ($___________)'},// valor de cada aporte
+                                        ', incluido IVA, impuestos o descuentos, previa presentación del informe de actividades ejecutadas durante cada mes de prestación de servicios o periodo prestado, en el que debe de constar la acreditación del pago de aportes a seguridad social, pensión y riesgos laborales por el porcentaje señalado en la Ley.',
+                                        '\n\n'
+                                        ],bold: false},
+                                    {text:[
+                                        {text:'CERTIFICADO DE DISPONIBILIDAD PRESUPUESTAL PARA ASUMIR LAS OBLIGACIONES ECONÓMICAS ANTES REFERIDAS:',style:'titulo'},
+                                        ' Para soportar el gasto antes referido, y garantizar el pago de las obligaciones económicas a cargo de esta Entidad derivadas del contrato a suscribirse; se ha solicitado el correspondiente ',
+                                        {text:'Certificado de Disponibilidad Presupuestal Nro. ',style: 'titulo'},
+                                        {},// numero cdp proporcionado por elusuario
+                                        ' expedido el día ',{},'de',{},'de',{},//fecha que fue proporcionado el cdp
+                                        ' por la Secretaria de Hacienda y Finanzas Públicas del Departamento del Quindío.',
+                                        '\n\n'
+                                        
+                                    ],bold: false},
+                                    {text:[
+                                        {text:'SUPERVISIÓN DEL CONTRATO:',style:'titulo'},
+                                        ' El control vigilancia y seguimiento del Contrato de Prestación de Servicios se realizará a través del ',
+                                        {text:'(Deberá de incluir solo el cargo select y grado 01 al 10 select de quien ejercerá a supervisión)',color:'red'},// cargo y grado select proporcionado por el usuario
+                                        ') quien tendrá a cargo todas las facultades, deberes, responsabilidades y obligaciones contenidas en el artículo 84 de la Ley 1474 de 2011.',
+                                        '\n\n'
+                                    ],bold: false},
+                                    {text:[
+                                        {text:'OBLIGACIONES DEL CONTRATO:',style:'titulo'},
+                                        '\n\n'
+                                    ]},
+                                    {
+                                        
+                                    }
+                                ]
+                                
                             },
+                            {
+                                separator:['2.8.','.'],
+                                ol:[
+                                    {text:'OBLIGACIONES ESPECÍFICAS DEL CONTRATISTA: ',style: 'titulo'},
+                                ]
+                            },
+                            {
+                                separator:['2.8.1.','.'],
+                                ol:[
+                                    {text:'jfh'},
+                                    {text:'hghjhj'}
+                                ],bold: false
+                                                
+                             }
+
                         
                     ],
-                    counter: 2,
-                    alignment: 'justify'
+                    alignment: 'justify',
+                    bold: true,
                 }
             ],
             styles:{
                 titulo:{
-                    fontSize: 14,
+                    fontSize: 12,
                     bold: true,
                 },
                 comillas:{
