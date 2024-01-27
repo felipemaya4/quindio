@@ -26,43 +26,69 @@
             fechaAutomatica: new Date().getFullYear().toString(),
             text: "A lo Vivo Era un pueblecito rayano, Ribamoura, vivero de contrabandistas, donde esta profesión de riesgo y lucro hacía a la gente menos dormida de lo que suelen ser los pueblerinos. Abundaban los mozos de cabeza caliente, y se desdeñaba al que no era capaz de coger una escopeta y salir a la ganancia. Las mujeres, vestidas y adornadas con lo que da de sí el contrabando, lucían pendientes de ostentosa filigrana, patenas fastuosas, pañuelos de seda de colorines; en las casas no faltaba ron jamaiqueño ni queso de Flandes, y los hombres poseían armas inglesas, bolsas de piel y tabaco Virginia y Macuba. Al través de Portugal, Inglaterra enviaba sus productos, y de España pasaban otros, cruzando el caudaloso río. Algunos días del año se interrumpía el tráfico y la industria de Ribamoura. El pueblo entero se congregaba a celebrar las solemnidades consuetudinarias, que servían de pretexto para solaces y holgorio. Tal ocurría con el Carnaval, tal con la fiesta de la Patrona, tal con los días de la Semana Santa. A pesar de ser éstos de penitencia y mortificación, para los de Ribamoura tenían carácter de fiesta; en ellos se celebraba, en la iglesia principal, espacioso edificio de la época herreriana, la representación de la Pasión, con personajes de carne y hueso, y encargándose de los papeles gente del pueblo mismo. Venido de Oporto, un actor portugués, con el instinto dramático de la raza, organizaba y dirigía la representación; pero sin tomar parte en ella. Esto se hubiese considerado en Ribamoura irreverente. «Trabajaban» por devoción y por respeto tradicional a los misterios redentores; pero nunca hubiesen admitido a nadie mercenario, ni tolerado que hiciese los papeles nadie de mala reputación. Gente honrada, aunque contrabandease; que eso no deshonra. Ni por pecado lo daban en el confesionario los frailes."
         };
-        
-        let pdfDocumet = {
 
+        let pdfDocumet = {
             pageSize: 'A4',
             pageMargins: [ 83, 145, 83, 80 ],// [left, top, right, bottom]
+            footer:function(currentPage, pageCount, pageSize){
+               // let footerContent=[]
+                
+                if(currentPage == 7){
+                    return[{
+                        text:[
+                            '_____________________________________\n',
+                            {text:'1',sup:true},
+                            {text: ' Ley 1150 del 2007 Artículo 2 Numeral 3.'},
+                        ],margin:[83,0,83,10],fontSize:8, alignment: 'left'
+                    }]
+                }
+                else if(currentPage == pageCount){
+                    return[{
+                        text:[
+                            '_____________________________________\n',
+                            {text:'2',sup:true},
+                            {text: ' www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=77653',color:'blue',link:true},
+                            '\n',
+                            {text:'3',sup:true},
+                            {text: ' colombiacompra.gov.co/sites/cce_public/files/cce_documents/manual_manejo_de_acuerdos_comerciales_24nov2021_1.pdf',color:'blue',link:true},
+                        ],
+                        margin:[83,0,83,10],fontSize:8, alignment: 'left'
+                    }]
+                }
+            },
             header: function(currentPage, pageCount, pageSize) {
-                // you can apply any logic and return any valid pdfmake element
                 return [
                     //alignment: (currentPage % 2) ? 'left' : 'right' para alternar la ubicacion del numero
                     {
-                       
-                                width: 'auto',
-                            table: {
-                                    // Encabezado
-                                headerRows: 1,
+                        table: {
                                 widths: [ 'auto','*','auto'],
-                                // alignment: 'center',
-                                // margin: [ 100, 80, 100, 80 ],
-                                    body: [
-                                        [{
-                                                rowSpan: 4, 
-                                                image: imgenQuindio,
-                                                width: 70,
-                                                margin: [10,5,10,5]
-                                            },
-                                            {text:'FORMATO',bold: true,fontSize: 12,alignment: 'center'},
-                                            {text:'Código: F-JUR-02',bold: true, fontSize: 10, alignment:'center'}
-                                        ],
-                                        ['',{rowSpan:3,text:'Estudios previos \nContrato de Prestación de \nServicios',bold: true, fontSize: 14, alignment: 'center',margin: [0,7,0,5]},
-                                            {text:'Versión: 05 \n Fecha: 11/01/2024',fontSize: 10, alignment: 'left'}],
-                                        ['','',{rowSpan:2,text: 'Página '+currentPage+' de '+pageCount, bold: true, fontSize: 12, alignment: 'center',margin: [0,7,0,5]}],
-                                        ['','','']
-                                    ]
-                                    
+                                body: [
+                                [
+                                    {
+                                        rowSpan: 4, 
+                                        image: imgenQuindio,
+                                        width: 70,
+                                        margin: [10,5,10,5]
+                                    },
+                                    {text:'FORMATO',bold: true,fontSize: 12,alignment: 'center'},
+                                    {text:'Código: F-JUR-02',bold: true, fontSize: 10, alignment:'center'}
+                                ],
+                                ['',{rowSpan:3,text:'Estudios previos \nContrato de Prestación de \nServicios',bold: true, fontSize: 14, alignment: 'center',margin: [0,7,0,5]},
+                                    {text:'Versión: 05 \n Fecha: 11/01/2024',fontSize: 10, alignment: 'left',margin:[0,3,0,3]}],
+                                ['','',{rowSpan:2,text: 'Página '+currentPage+' de '+pageCount, bold: true, fontSize: 12, alignment: 'center',margin: [0,5,0,5]}],
+                                ['','','']
+                            ]  
+                        },
+                        layout: {
+                            // Definir el estilo de los bordes
+                            hLineWidth: function (i, node) {
+                                return (i === 0 || i === node.table.body.length) ? 0.5 : 0.5;
                             },
-                            margin: [83,49,83,10]
-
+                            vLineWidth: function (i, node) {
+                                return (i === 0 || i === node.table.widths.length) ? 0.5 : 0.5;
+                            },
+                        },
+                        margin: [83,49,83,10]
                     }
                 ]
             },
@@ -272,21 +298,25 @@
                 {
                     ol:[
                         {text:'FUNDAMENTOS JURIDICOS QUE SOPORTAN LA MODALIDAD DE SELECCIÓN\n\n',counter:3,style:'titulo'}
-                    ]
+                    ],style:'defecto',bold:true
                 },
-                {
+                {   
+                    function(){return flag = true},
                     text:[
                         'La escogencia del contratista se efectuará a través de la modalidad de selección denominada: ',
                         {text:'“Contratación Directa” consagrada en el artículo 2º numeral 4º de la Ley 1150 de 2007 invocando como causal para su celebración la descrita en el Literal H: “prestación de servicios profesionales y de apoyo a la gestión”',italics:true},
                         '; reglamentada por el Decreto 1082 del año 2015, en su artículo 2.2.1.2.1.4.9, el cual determina:',
-                        {text:'“…Las entidades estatales pueden contratar bajo la modalidad de contratación directa la prestación de servicios profesionales y de apoyo a la gestión con la persona natural o jurídica que esté en capacidad de ejecutar el objeto del contrato, siempre y cuando la entidad estatal verifique la idoneidad o experiencia requerida y relacionada con el área de que se trate. En este caso, no es necesario que la entidad estatal haya obtenido previamente varias ofertas, de lo cual el ordenador del gasto debe dejar constancia escrita…” Los servicios la Ley 1150 del año 2007 en su y de apoyo a la gestión corresponden a aquellos de naturaleza intelectual diferentes a los de consultoría, que se derivan del cumplimiento de las funciones de la entidad estatal, así como los relacionados con actividades operativas, logísticas, o asistenciales.',italics:true},
+                        {text:'“…Las entidades estatales pueden contratar bajo la modalidad de contratación directa la prestación de servicios profesionales y de apoyo a la gestión con la persona natural o jurídica que esté en capacidad de ejecutar el objeto del contrato, siempre y cuando la entidad estatal verifique la idoneidad o experiencia requerida y relacionada con el área de que se trate. En este caso, no es necesario que la entidad estatal haya obtenido previamente varias ofertas, de lo cual el ordenador del gasto debe dejar constancia escrita…” Los servicios la Ley 1150 del año 2007 en su y de apoyo a la gestión corresponden a aquellos de naturaleza intelectual diferentes a los de consultoría',italics:true},{text:'1',sup:true,italics:true},{text:', que se derivan del cumplimiento de las funciones de la entidad estatal, así como los relacionados con actividades operativas, logísticas, o asistenciales.',italics:true},
                         '\n\n',
-                    ],style:'defecto'
+                    ],style:'defecto',
+                    footer:{
+                        text:'hola encabezado'
+                    }
                 },
                 {
                     ol:[
                         {text:'ANÁLISIS QUE SOPORTA EL VALOR ESTIMADO DEL FUTURO CONTRATO.\n\n',counter:4,style:'titulo'}
-                    ],style:'defecto'
+                    ],style:'defecto',bold:true
                 },
                 {
                     text:[
@@ -298,7 +328,7 @@
                 {
                     ol:[
                         {text:'CRITERIOS Y/O FACTORES PARA SELECCIONAR EL FUTURO CONTRATISTA\n\n',counter:5,style:'titulo'}
-                    ],style:'defecto'
+                    ],style:'defecto',bold:true
                 },
                 {
                     text:['Por tratarse de Contratos de Prestación de Servicios, no es necesario obtener varias ofertas y la selección se realizará teniendo en cuenta la experiencia y/o idoneidad del proponente para ejecutar el objeto contractual. Por lo tanto, en este caso, de acuerdo con el objeto del futuro contrato y las obligaciones específicas a cumplir, la Gobernación del Quindío determina que la persona natural oferente a contratar deberá acreditar los siguientes requisitos o perfil para proceder a la celebración del contrato:\n\n'],style:'defecto'
@@ -308,17 +338,17 @@
                         {   separator:['5.','.'],
                             ol:[
                                {text:[
-                                    {text:'IDONEIDAD:',style:'titulo'},' El futuro contratista deberá de acreditar ',
+                                    {text:'IDONEIDAD:',style:'titulo'},{text:' El futuro contratista deberá de acreditar ',bold:false},
                                     {text:'(Deberá de incluir que estudios que se solicitarán al futuro contratista, en caso de profesiones reguladas, deberá de solicitar la respectiva tarjeta profesional vigente).',color:'red'},// datos ingresados por el usuario
                                 ]},
                                 {text:[
-                                    {text:'EXPERIENCIA:',style:'titulo'},' El futuro contratista deberá de acreditar experiencia ',
+                                    {text:'EXPERIENCIA:',style:'titulo'},{text:' El futuro contratista deberá de acreditar experiencia ',bold:false},
                                     {text:'(Deberá de incluir la experiencia que se le solicitará al futuro contratista, esta puede ser laboral, profesional, relacionada, profesional relacionada, etc).manual',color:'red'},
                                     '\n\n'// datos ingresados por el usuario
                                 ]}
                             ]
                         }
-                    ],style:'defecto'
+                    ],style:'defecto',bold:true
                 },
                 {
                     text:'Además de lo anterior, debe cumplir con los siguientes requisitos:\n\n',style:'defecto'
@@ -340,11 +370,87 @@
                                {bold:false,text:'Antecedentes de la profesión.'},
                                {bold:false,text:'Entrevista de conocimiento sobre posibles inhabilidades e incompatibilidades.'},
                                {bold:false,text:'Examen medico preocupacional.'},
-                               {bold:false,text:'Los demás documentos solicitados en la invitación pública y lista de chequeo para contratos de prestación de servicios.'},
+                               {bold:false,text:'Los demás documentos solicitados en la invitación pública y lista de chequeo para contratos de prestación de servicios.\n\n'}
                               
                             ]
                         }
                     ],style:'defecto',bold:true
+                },
+                {
+                    ol:[
+                        {text:'TIPIFICACIÓN, ESTIMACIÓN, ASIGNACIÓN Y CUANTIFICACIÓN DE LOS RIESGOS PREVISIBLES QUE PUEDAN AFECTAR EL EQUILIBRIO ECONÓMICO DURANTE LA EJECUCIÓN DEL CONTRATO \n\n',style:'titulo',counter:6}
+                    ],style:'defecto',bold:true
+                },
+                {
+                    text:[
+                        'En razón al tipo de contrato a celebrar, a la forma en que se cumplirán las obligaciones, a la forma en que se cancelarán los honorarios a favor del contratista, esto es, previo al cumplimiento de las obligaciones contractuales y presentación de informes aprobados por la supervisión, no se vislumbra riesgo que amerite ser tipificado, cuantificado y asignado.\n\n'
+                    ],style:'defecto'
+                },
+                {
+                    text:[]
+                },
+                {
+                    ol:[
+                        {text:'ANÁLISIS QUE SUSTENTA LA EXIGENCIA DE GARANTÍAS DESTINADAS A AMPARAR LOS PERJUICIOS DE NATURALEZA CONTRACTUAL O EXTRACONTRACTUAL, DERIVADOS DEL INCUMPLIMIENTO DEL OFRECIMIENTO O DEL CONTRATO SEGÚN EL CASO. \n\n',style:'titulo',counter:7}
+                    ],style:'defecto',bold:true
+                },
+                {
+                    text:[
+                        'De conformidad con lo señalado en el artículo 2.2.1.2.1.4.5 del Decreto 1082 de 2015, establece que para la modalidad de contratación directa no resulta se necesario la exigencia de la garantía única, sin embargo, para el caso en concreto, no resulta de igual forma solicitar tal garantía, ello conforme al tipo de servicio que se pretende prestar como también al valor y forma de pagar el contratista los respectivos honorarios en contraprestación al servicio prestado. Así las cosas, no se considera pertinente ni necesario que el contratista constituya garantía única.\n\n'
+                    ],style:'defecto'
+                },
+                {
+                    ol:[
+                        {text:'INDICACIÓN SOBRE SI EL CONTRATO SE ENCUENTRA COBIJADO POR UN ACUERDO INTERNACIONAL O UN TRATADO DE LIBRE COMERCIO\n\n',counter:8,style:'titulo'}
+                    ],style:'defecto',bold:true
+                },
+                {
+                    text:[
+                        {text:'La Agencia Nacional de Contratación Pública: '},
+                        {text:'Colombia Compra Eficiente, ',italics:true},
+                        {text:'ha expedido: '},
+                        {text:'El Manual para el manejo de los Acuerdos Comerciales en Procesos de Contratación. ',italics:true},
+                        {text:'En dicho Manual, se hacen varias claridades a la forma como se deben aplicar los Acuerdos Comerciales, y recomienda que en cada proceso contractual la Entidad verifique si le aplica o no un Acuerdo Comercial, ello, conforme a lo dispuesto en el artículo 2.2.1.1.2.1.1. del Decreto 1082 del año 2015. Ahora bien, sobre la aplicación de los acuerdos comerciales a la modalidad de selección empleada para adelantar el presente procesos de selección, los propios tratados la han excluido de la aplicación de Acuerdos Comerciales, por lo tanto, al presente contrato no le es aplicable Acuerdo Comercial alguno. \n\n'},
+                        {text:'\n\nCordialmente,\n\n\n\n'}
+                    ],style:'defecto'
+                },
+                {
+                    text:[
+                        {text:'(Nombre del Ordenador del Gasto)',color:'red',bold:true},
+                        '\nSecretario de ',
+                        {text:'(Indicar el nombre de la Secretaria correspondiente)\n',color:'red'},
+                        'Departamento del Quindío\n\n\n\n',
+                    ],alignment:'center'
+                },
+                {
+                    text:[
+                    'Proyectó:\n',
+                    'Revisó:\n\n'
+                    ],fontSize:10,alignment:'left'
+                },
+                {
+                    table:{
+                        widths:['*','*','*'],
+                        body:[
+                            [{text:'ELABORACIÓN',bold:true},{text:'REVISIÓN',bold:true},{text:'APROBACIÓN',bold:true}],
+                            [{text:'ELABORACIÓN'},{text:'REVISIÓN'},{text:'APROBACIÓN'}],
+                            [
+                            {text:'Cargo: Jefe de Estudios Previos',fontSize:9},
+                            {text:'Cargo: Directora de Contratación',fontSize:9},
+                            {text:'Cargo: Secretaria de Despacho',fontSize:9}
+                            ]
+                        ]
+                        
+                    },
+                    layout: {
+                            // Definir el estilo de los bordes
+                            hLineWidth: function (i, node) {
+                                return (i === 0 || i === node.table.body.length) ? 0.5 : 0.5;
+                            },
+                            vLineWidth: function (i, node) {
+                                return (i === 0 || i === node.table.widths.length) ? 0.5 : 0.5;
+                            },
+                    }
                 }
 
             ],
@@ -362,6 +468,9 @@
                 defecto:{
                     fontSize: 12,
                     alignment: 'justify',
+                },
+                footer:{
+                    margin:[83,49,83,10]
                 }
             }
             
