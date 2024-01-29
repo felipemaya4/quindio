@@ -3,96 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="jspdf.min.js"></script>
+    <script type="text/javascript" src="pdfmake.min.js"></script>
     <title>Document</title>
 </head>
 <body>
     <h1>formulario de estudios previos contrato prestacion de servicios</h1>
-    <form action="" method="post">
-        <label for="numeroPrecontractual">numero planeacion Precontractual</label>
-        <input type="number" name="numeroPrecontractual" id="" >
-        <br>
-        <label for="dependencia">Dependencia</label>
-        <select name="dependencia" id="">
-            <option value="juridica">Juridica</option>
-            <option value="administrativa">Administrativa</option>
-        </select>
-        <br>
-        <label for="">tipo de contrato a celebrar</label>
-        <select name="tipoContrato" id="">
-            <option value="profesionales">Profesionales</option>
-            <option value="apoyoGestios">Apoyo a la gestion</option>
-        </select>
-        <br>
-        <label for="justificacion">justificacion actividad</label>
-        <br>    
-        <textarea name="justificacion" id="" cols="60" rows="15" placeholder="A partir de acá, se deberá de realizar la respectiva justificación de la necesidad que se esta presentando, misma que da origen al proceso de selección, a su vez, deberá de indicar como se pretende satisfacer o, por medio de que profesional ejecutará el futuro contrato.                                     Ahora bien, en el caso de futuros contratistas personas naturales profesionales con posgrados, deberá de justificar los motivos por medio de los cuales se requiere dicha especialidad para satisfacer la necesidad presentada
-        "></textarea>
-        <br>
-        <label for="">objeto de contrato a celebrar</label>
-        <br>
-        <textarea name="" id="" cols="30" rows="10" placeholder="Para definir el objeto deberá de tener en cuenta la tipología contractual a emplear, las obligaciones específicas, la meta o proyecto a ejecutar"></textarea>
-        <br>
-        <label for="plazoEjecucion">Plazo de ejecucion</label>
-        <input type="number" name="plazoEjecucion" id="">
-        <br>
-        <label for="valor">valor del contrato</label>
-        <input type="number" name="valor" id="">
-        <br>
-        <label for="formaPago">Forma de pago</label>
-        <br>
-        <label for="cantidadCuotas">cantidad de cuotas</label> <input type="number" name="cantidadCuotas" id="">
-        <p hidden >mostrar el valor de cada cuota </p>
-        <br>
-        <label for="frecuenciaPagos">frecuencia de pagos en dias</label><input type="number" name="frecuenciaPagos" id="">
-        <br>
-        <label for="cdp">numero CDP</label>
-        <input type="number" name="cdp" id="">
-        <br>
-        <label for="fechaCdp">fecha</label>
-        <input type="date" name="fechaCdp" id="">
-        <label for="cargo">Cargo</label>
-        <select name="cargo">
-            <option value="">pendiente</option>
-        </select>
-        <label for="grado">Grado</label>
-        <select name="grado" >
-            <option value="01">01</option>
-            <option value="01">02</option>
-            <option value="01">03</option>
-            <option value="01">04</option>
-            <option value="01">05</option>
-            <option value="01">06</option>
-            <option value="01">07</option>
-            <option value="01">08</option>
-            <option value="01">09</option>
-            <option value="01">10</option>    
-        </select>
-        <br>
-        <label for="obligacionesContratista">Obligaciones del contratista</label>
-        <br>
-        <label for="item">1.  </label><input type="text">
-        <br>
-        <label for="idoneidad">Idoneidad</label>
-        <br>
-        <textarea name="idoneidad" id="" cols="30" rows="10" placeholder="Deberá de incluir que estudios que se solicitarán al futuro contratista, en caso de profesiones reguladas, deberá de solicitar la respectiva tarjeta profesional vigente"></textarea>
-        <br>
-        <label for="experiencia">Experiencia</label>
-        <br>
-        <textarea name="experiencia" id="" cols="30" rows="10" placeholder="Deberá de incluir la experiencia que se le solicitará al futuro contratista, esta puede ser laboral, profesional, relacionada, profesional relacionada, etc" ></textarea>
-        <br>
-        <label for="nombreOrdenador">Nombre del ordenador del gasto</label>
-        <br>
-        <input type="text" name="nombreOrdenador" id="">
-    </form>
+    <div>
+        <form action="" method="post">
+            <label for="numeroPrecontractual">numero planeacion Precontractual</label>
+            <input type="number" name="numeroPrecontractual" id="" >
+            <br>
+            <label for="dependencia">Dependencia</label>
+            <select name="dependencia" id="">
+                <option value="juridica">Juridica</option>
+                <option value="administrativa">Administrativa</option>
+            </select>
+            <br>
+            <label for="">tipo de contrato a celebrar</label>
+            <select name="tipoContrato" id="">
+                <option value="profesionales">Profesionales</option>
+                <option value="apoyoGestios">Apoyo a la gestion</option>
+            </select>
+            <br>
+            <label for="justificacion">justificacion actividad</label>
+            <br>    
+            <textarea name="justificacion" id="" cols="60" rows="15" placeholder="A partir de acá, se deberá de realizar la respectiva justificación de la necesidad que se esta presentando, misma que da origen al proceso de selección, a su vez, deberá de indicar como se pretende satisfacer o, por medio de que profesional ejecutará el futuro contrato.                                     Ahora bien, en el caso de futuros contratistas personas naturales profesionales con posgrados, deberá de justificar los motivos por medio de los cuales se requiere dicha especialidad para satisfacer la necesidad presentada
+            "></textarea>
+            <br>
+            <label for="">objeto de contrato a celebrar</label>
+            <br>
+            <textarea name="" id="" cols="30" rows="10" placeholder="Para definir el objeto deberá de tener en cuenta la tipología contractual a emplear, las obligaciones específicas, la meta o proyecto a ejecutar"></textarea>
+            <br>
+            <label for="plazoEjecucion">Plazo de ejecucion</label>
+            <input type="number" name="plazoEjecucion" id="">
+            <br>
+            <label for="valor">valor del contrato</label>
+            <input type="number" name="valor" id="">
+            <br>
+            <label for="formaPago">Forma de pago</label>
+            <br>
+            <label for="cantidadCuotas">cantidad de cuotas</label> <input type="number" name="cantidadCuotas" id="">
+            <p hidden >mostrar el valor de cada cuota </p>
+            <br>
+            <label for="frecuenciaPagos">frecuencia de pagos en dias</label><input type="number" name="frecuenciaPagos" id="">
+            <br>
+            <label for="cdp">numero CDP</label>
+            <input type="number" name="cdp" id="">
+            <br>
+            <label for="fechaCdp">fecha</label>
+            <input type="date" name="fechaCdp" id="">
+            <label for="cargo">Cargo</label>
+            <select name="cargo">
+                <option value="">pendiente</option>
+            </select>
+            <label for="grado">Grado</label>
+            <select name="grado" >
+                <option value="01">01</option>
+                <option value="01">02</option>
+                <option value="01">03</option>
+                <option value="01">04</option>
+                <option value="01">05</option>
+                <option value="01">06</option>
+                <option value="01">07</option>
+                <option value="01">08</option>
+                <option value="01">09</option>
+                <option value="01">10</option>    
+            </select>
+            <br>
+            <label for="obligacionesContratista">Obligaciones del contratista</label>
+            <br>
+            <label for="item">1.  </label><input type="text">
+            <br>
+            <label for="idoneidad">Idoneidad</label>
+            <br>
+            <textarea name="idoneidad" id="" cols="30" rows="10" placeholder="Deberá de incluir que estudios que se solicitarán al futuro contratista, en caso de profesiones reguladas, deberá de solicitar la respectiva tarjeta profesional vigente"></textarea>
+            <br>
+            <label for="experiencia">Experiencia</label>
+            <br>
+            <textarea name="experiencia" id="" cols="30" rows="10" placeholder="Deberá de incluir la experiencia que se le solicitará al futuro contratista, esta puede ser laboral, profesional, relacionada, profesional relacionada, etc" ></textarea>
+            <br>
+            <label for="nombreOrdenador">Nombre del ordenador del gasto</label>
+            <br>
+            <input type="text" name="nombreOrdenador" id="">
+        </form>
 
-
+    </div>
     
     <a href="javascript:genPdf()">generar pdf</a>
     <script type="text/javascript">
         function genPdf(){
             let doc = new jsPDF();
-            doc.text(20,20,"hola mundo por pdf bjbvlerbvlerhbvlerkvbrkjvberlkbvlaerkhbvehkrbvlerhkbvlerhbvlerhkbvkvbkfhbvrk");
+            doc.text(20,20,"hola mundo");
             doc.text()
             doc.save('my.pdf');
 
