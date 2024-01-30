@@ -71,9 +71,10 @@
             <br>
             <label for="obligacionesContratista">Obligaciones del contratista</label>
             <br>
-            <ol id="lista">
-                <li id="lista1" value="123456">huyg</li>
-                <li id="lista2" value="098765">iguh</li>
+            <input type="text" name="obligacionesContratista" id="obligacionesContratista" placeholder="ingrese aquí una a una las obligaciones del contratista" required>
+            <input type="button" id="agregarObligacion"  value="agregar">
+            <br>
+            <ol id="listaObligaciones">
             </ol>
             <br>
             <label for="idoneidad">Idoneidad</label>
@@ -102,19 +103,34 @@
 
         }*/
         let formulario =document.getElementById('formulario');
+        let agregarObligacion = document.getElementById('agregarObligacion');
+        let obligacionesContratista = document.getElementById('obligacionesContratista');
+        let listaObligaciones = document.getElementById('listaObligaciones');
+       
 
         formulario.addEventListener('submit', function(e){
             e.preventDefault();
             let datos = new FormData(formulario);
-            console.log(datos);
-
+            //console.log(datos);
             const value = Object.fromEntries(datos.entries());
-            const json =JSON.stringify(value, null, 2);
-            const lista = document.getElementById('lista')
+            const json =JSON.stringify(value, null, 2)
+            //console.log(json);
+        });
 
-            console.log(lista);
+        agregarObligacion.addEventListener('click', function(e){
+            e.preventDefault();
+            if(obligacionesContratista.value == '')
+            {
+                console.log('inserte datos');
+            }else{
+                let nuevaObligacion = document.createElement('li');
+                nuevaObligacion.textContent  = obligacionesContratista.value;
+                console.log(nuevaObligacion);
+                listaObligaciones.appendChild(nuevaObligacion);
+                obligacionesContratista.value='';
 
-            console.log(json);
+            }
+           
         })
     </script>
 </body>
