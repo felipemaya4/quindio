@@ -4,34 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="pdfmake.min.js"></script>
-    <title>Document</title>
+    <title>Formulario de estudios previos contrato prestacion de servicios</title>
 </head>
 <body>
     <h1>Formulario de estudios previos contrato prestacion de servicios</h1>
     <div>
         <form id="formulario" action="" method="post">
             <label for="numeroPrecontractual">numero planeacion Precontractual</label>
-            <input type="number" name="numeroPrecontractual" id="" >
+            <input type="number" name="numeroPrecontractual" id="numeroPrecontractual" >
             <br>
             <label for="dependencia">Dependencia</label>
-            <select name="dependencia" id="">
+            <select name="dependencia" id="dependencia">
                 <option value="juridica">Juridica</option>
                 <option value="administrativa">Administrativa</option>
             </select>
             <br>
             <label for="">tipo de contrato a celebrar</label>
-            <select name="tipoContrato" id="">
+            <select name="tipoContrato" id="tipoContrato">
                 <option value="profesionales">Profesionales</option>
                 <option value="apoyoGestios">Apoyo a la gestion</option>
             </select>
             <br>
             <label for="justificacion">justificacion actividad</label>
             <br>    
-            <textarea name="justificacion" id="" cols="60" rows="15" placeholder="A partir de acá, se deberá de realizar la respectiva justificación de la necesidad que se esta presentando, misma que da origen al proceso de selección, a su vez, deberá de indicar como se pretende satisfacer o, por medio de que profesional ejecutará el futuro contrato.&nbsp;Ahora bien, en el caso de futuros contratistas personas naturales profesionales con posgrados, deberá de justificar los motivos por medio de los cuales se requiere dicha especialidad para satisfacer la necesidad presentada"></textarea>
+            <textarea name="justificacion" id="justificacion" cols="60" rows="15" placeholder="A partir de acá, se deberá de realizar la respectiva justificación de la necesidad que se esta presentando, misma que da origen al proceso de selección, a su vez, deberá de indicar como se pretende satisfacer o, por medio de que profesional ejecutará el futuro contrato.&nbsp;Ahora bien, en el caso de futuros contratistas personas naturales profesionales con posgrados, deberá de justificar los motivos por medio de los cuales se requiere dicha especialidad para satisfacer la necesidad presentada"></textarea>
             <br>
-            <label for="">objeto de contrato a celebrar</label>
+            <label for="objetocontrato">objeto de contrato a celebrar</label>
             <br>
-            <textarea name="" id="" cols="30" rows="10" placeholder="Para definir el objeto deberá de tener en cuenta la tipología contractual a emplear, las obligaciones específicas, la meta o proyecto a ejecutar"></textarea>
+            <textarea name="objetocontrato" id="" cols="30" rows="10" placeholder="Para definir el objeto deberá de tener en cuenta la tipología contractual a emplear, las obligaciones específicas, la meta o proyecto a ejecutar"></textarea>
             <br>
             <label for="plazoEjecucion">Plazo de ejecucion</label>
             <input type="number" name="plazoEjecucion" id="">
@@ -58,15 +58,15 @@
             <label for="grado">Grado</label>
             <select name="grado" >
                 <option value="01">01</option>
-                <option value="01">02</option>
-                <option value="01">03</option>
-                <option value="01">04</option>
-                <option value="01">05</option>
-                <option value="01">06</option>
-                <option value="01">07</option>
-                <option value="01">08</option>
-                <option value="01">09</option>
-                <option value="01">10</option>    
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>    
             </select>
             <br>
             <label for="obligacionesContratista">Obligaciones del contratista</label>
@@ -108,17 +108,20 @@
         let obligacionesContratista = document.getElementById('obligacionesContratista');
         let listaObligaciones = document.getElementById('listaObligaciones');
         let obligacionesValues = [];
+        let indice = 0;
        
-
+        //obtener datos del formulario
         formulario.addEventListener('submit', function(e){
             e.preventDefault();
-            let datos = new FormData(formulario);
-            //console.log(datos);
-            const value = Object.fromEntries(datos.entries());
-            const json =JSON.stringify(value, null, 2)
-            //console.log(json);
-        });
+            let contenidoFormulario ={
 
+            numeroPrecontractual : document.getElementById('numeroPrecontractual').value,
+            dependencia : document.getElementById('dependencia').value,
+            tipoContrato : document.getElementById('tipoContrato').value,
+            }
+            console.log('contenidoFormulario :>> ', contenidoFormulario);
+        });
+        //agregar item a la lista de obligaciones conboton de borrar
         agregarObligacion.addEventListener('click', function(e){
             e.preventDefault();
             if(obligacionesContratista.value == '')
@@ -128,28 +131,39 @@
                 // creacion de elementos li y button
                 let nuevaObligacion = document.createElement('li');
                 let botonBorrar = document.createElement('button');
-                // insecion de valores en li y array para manipulacion txt de nueva obligacion
+                // insercion de valores en li y array para manipulacion txt de nueva obligacion
                 nuevaObligacion.textContent  = obligacionesContratista.value;
-                nuevaObligacion.name = 'obligacion';
-                obligacionesValues.push(obligacionesContratista.value);
+                nuevaObligacion.id = 'obligacion'+ indice.toString();
                 //configuracion de boton de borrado
                 botonBorrar.textContent = 'borrar';
                 botonBorrar.id = 'borrar';
-                botonBorrar.value = obligacionesValues.length-1;
+                botonBorrar.value = indice;
+                botonBorrar.onclick = function(e){
+                    e.preventDefault();
+                    let nodo = document.getElementById('listaObligaciones'); // nodo padre
+                    let item = document.getElementById(nuevaObligacion.id); // nodo hijo 
+                    nodo.removeChild(item); // eliminacion de nodo hijo del padre
+                }
+                indice ++;
+                console.log(nuevaObligacion,indice);
 
-                nuevaObligacion.id = obligacionesValues.length-1;
-                nuevaObligacion.className = 'obligacion'+nuevaObligacion.id.toString();
-
-                console.log(nuevaObligacion,obligacionesValues);
+                //insercion de elementos en la lista "ol"
                 listaObligaciones.appendChild(nuevaObligacion).appendChild(botonBorrar);
+                //se borrar el valor del input para evitar entradas repetidas
                 obligacionesContratista.value='';
 
             }
            
         })
-
+        //evento para borrar un item de la lista de obligaciones
+        
         function borrarElemento(id) {
-
+            /*
+            const nodo = document.getElementById('listaObligaciones');
+            const item = document.getElementById('obligacion'+id.toString());
+            nodo.removeChild(item);
+            */
+            
         }
 
 
