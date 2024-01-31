@@ -29,34 +29,34 @@
             <br>    
             <textarea name="justificacion" id="justificacion" cols="60" rows="15" placeholder="A partir de acá, se deberá de realizar la respectiva justificación de la necesidad que se esta presentando, misma que da origen al proceso de selección, a su vez, deberá de indicar como se pretende satisfacer o, por medio de que profesional ejecutará el futuro contrato.&nbsp;Ahora bien, en el caso de futuros contratistas personas naturales profesionales con posgrados, deberá de justificar los motivos por medio de los cuales se requiere dicha especialidad para satisfacer la necesidad presentada"></textarea>
             <br>
-            <label for="objetocontrato">objeto de contrato a celebrar</label>
+            <label for="objetoContrato">objeto de contrato a celebrar</label>
             <br>
-            <textarea name="objetocontrato" id="" cols="30" rows="10" placeholder="Para definir el objeto deberá de tener en cuenta la tipología contractual a emplear, las obligaciones específicas, la meta o proyecto a ejecutar"></textarea>
+            <textarea name="objetoContrato" id="objetoContrato" cols="30" rows="10" placeholder="Para definir el objeto deberá de tener en cuenta la tipología contractual a emplear, las obligaciones específicas, la meta o proyecto a ejecutar"></textarea>
             <br>
             <label for="plazoEjecucion">Plazo de ejecucion</label>
-            <input type="number" name="plazoEjecucion" id="">
+            <input type="number" name="plazoEjecucion" id="plazoEjecucion">
             <br>
-            <label for="valor">valor del contrato</label>
-            <input type="number" name="valor" id="">
+            <label for="valorContrato">valor del contrato</label>
+            <input type="number" name="valorContrato" id="valorContrato">
             <br>
             <label for="formaPago">Forma de pago</label>
             <br>
-            <label for="cantidadCuotas">cantidad de cuotas</label> <input type="number" name="cantidadCuotas" id="">
+            <label for="cantidadCuotas">cantidad de cuotas</label> <input type="number" name="cantidadCuotas" id="cantidadCuotas">
             <p hidden >mostrar el valor de cada cuota </p>
             <br>
-            <label for="frecuenciaPagos">frecuencia de pagos en dias</label><input type="number" name="frecuenciaPagos" id="">
+            <label for="frecuenciaPagos">frecuencia de pagos en dias</label><input type="number" name="frecuenciaPagos" id="frecuenciaPagos">
             <br>
             <label for="cdp">numero CDP</label>
-            <input type="number" name="cdp" id="">
+            <input type="number" name="cdp" id="cdp">
             <br>
             <label for="fechaCdp">fecha</label>
-            <input type="date" name="fechaCdp" id="">
-            <label for="cargo">Cargo</label>
-            <select name="cargo">
-                <option value="">pendiente</option>
+            <input type="date" name="fechaCdp" id="fechaCdp">
+            <label for="cargoFuncionario">Cargo</label>
+            <select name="cargoFuncionario" id="cargoFuncionario">
+                <option value="pendiente">pendiente</option>
             </select>
-            <label for="grado">Grado</label>
-            <select name="grado" >
+            <label for="gradoFuncionario">Grado</label>
+            <select name="gradoFuncionario" id="gradoFuncionario">
                 <option value="01">01</option>
                 <option value="02">02</option>
                 <option value="03">03</option>
@@ -71,7 +71,7 @@
             <br>
             <label for="obligacionesContratista">Obligaciones del contratista</label>
             <br>
-            <input type="text" name="obligacionesContratista" id="obligacionesContratista" placeholder="ingrese aquí una a una las obligaciones del contratista" required>
+            <input type="text" name="obligacionesContratista" id="obligacionesContratista" placeholder="ingrese aquí una a una las obligaciones del contratista" >
             <input type="button" id="agregarObligacion"  value="agregar">
             <br>
             <ol id="listaObligaciones">
@@ -79,16 +79,16 @@
             <br>
             <label for="idoneidad">Idoneidad</label>
             <br>
-            <textarea name="idoneidad" id="" cols="30" rows="10" placeholder="Deberá de incluir que estudios que se solicitarán al futuro contratista, en caso de profesiones reguladas, deberá de solicitar la respectiva tarjeta profesional vigente"></textarea>
+            <textarea name="idoneidad" id="idoneidad" cols="30" rows="10" placeholder="Deberá de incluir que estudios que se solicitarán al futuro contratista, en caso de profesiones reguladas, deberá de solicitar la respectiva tarjeta profesional vigente"></textarea>
             <br>
             <label for="experiencia">Experiencia</label>
             <br>
-            <textarea name="experiencia" id="" cols="30" rows="10" placeholder="Deberá de incluir la experiencia que se le solicitará al futuro contratista, esta puede ser laboral, profesional, relacionada, profesional relacionada, etc" ></textarea>
+            <textarea name="experiencia" id="experiencia" cols="30" rows="10" placeholder="Deberá de incluir la experiencia que se le solicitará al futuro contratista, esta puede ser laboral, profesional, relacionada, profesional relacionada, etc" ></textarea>
             <br>
             <label for="nombreOrdenador">Nombre del ordenador del gasto</label>
             <br>
-            <input type="text" name="nombreOrdenador" id="">
-            <input type="submit" value="enviar">
+            <input type="text" name="nombreOrdenador" id="nombreOrdenador">
+            <input type="submit" value="Generar Documento">
            
         </form>
 
@@ -113,12 +113,35 @@
         //obtener datos del formulario
         formulario.addEventListener('submit', function(e){
             e.preventDefault();
+            
             let contenidoFormulario ={
 
-            numeroPrecontractual : document.getElementById('numeroPrecontractual').value,
-            dependencia : document.getElementById('dependencia').value,
-            tipoContrato : document.getElementById('tipoContrato').value,
+                numeroPrecontractual : document.getElementById('numeroPrecontractual').value,
+                dependencia : document.getElementById('dependencia').value,
+                tipoContrato : document.getElementById('tipoContrato').value,
+                objetoContrato : document.getElementById('objetoContrato').value,
+                plazoEjecucion : document.getElementById('plazoEjecucion').value,
+                valorContrato : document.getElementById('valorContrato').value,
+                catidadCuotas : document.getElementById('cantidadCuotas').value,
+                frecuenciaPagos : document.getElementById('frecuenciaPagos').value,
+                cdp : document.getElementById('cdp').value,
+                fechaCdp : document.getElementById('fechaCdp').value,
+                cargoFuncionario : document.getElementById('cargoFuncionario').value,
+                gradoFuncionario : document.getElementById('gradoFuncionario').value,
+                listaObligaciones : [],
+                idoneidad : document.getElementById('idoneidad').value,
+                experiencia : document.getElementById('experiencia').value,
+                nombreOrdenador : document.getElementById('nombreOrdenador').value
+
             }
+
+            let lista = document.querySelectorAll('li')
+            // obtener los valores de la lista de obligaciones para insertar en el objeto del formulario
+            lista.forEach(function (li) {
+                let text = li.firstChild.textContent; 
+                contenidoFormulario.listaObligaciones.push({text});
+                console.log('text >> ',text);
+            })
             console.log('contenidoFormulario :>> ', contenidoFormulario);
         });
         //agregar item a la lista de obligaciones conboton de borrar
