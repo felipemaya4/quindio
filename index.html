@@ -89,6 +89,7 @@
             <br>
             <input type="text" name="nombreOrdenador" id="">
             <input type="submit" value="enviar">
+           
         </form>
 
     </div>
@@ -106,6 +107,7 @@
         let agregarObligacion = document.getElementById('agregarObligacion');
         let obligacionesContratista = document.getElementById('obligacionesContratista');
         let listaObligaciones = document.getElementById('listaObligaciones');
+        let obligacionesValues = [];
        
 
         formulario.addEventListener('submit', function(e){
@@ -123,15 +125,34 @@
             {
                 console.log('inserte datos');
             }else{
+                // creacion de elementos li y button
                 let nuevaObligacion = document.createElement('li');
+                let botonBorrar = document.createElement('button');
+                // insecion de valores en li y array para manipulacion txt de nueva obligacion
                 nuevaObligacion.textContent  = obligacionesContratista.value;
-                console.log(nuevaObligacion);
-                listaObligaciones.appendChild(nuevaObligacion);
+                nuevaObligacion.name = 'obligacion';
+                obligacionesValues.push(obligacionesContratista.value);
+                //configuracion de boton de borrado
+                botonBorrar.textContent = 'borrar';
+                botonBorrar.id = 'borrar';
+                botonBorrar.value = obligacionesValues.length-1;
+
+                nuevaObligacion.id = obligacionesValues.length-1;
+                nuevaObligacion.className = 'obligacion'+nuevaObligacion.id.toString();
+
+                console.log(nuevaObligacion,obligacionesValues);
+                listaObligaciones.appendChild(nuevaObligacion).appendChild(botonBorrar);
                 obligacionesContratista.value='';
 
             }
            
         })
+
+        function borrarElemento(id) {
+
+        }
+
+
     </script>
 </body>
 </html>
