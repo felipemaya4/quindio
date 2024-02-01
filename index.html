@@ -109,11 +109,61 @@
         let listaObligaciones = document.getElementById('listaObligaciones');
         let obligacionesValues = [];
         let indice = 0;
-       
+        function fechaCdp(fecha) {
+
+            let year = fecha.slice(0,4);
+            let month = fecha.slice(5,7);
+            let day = fecha.slice(8);
+            let fechaCDP;
+            switch (month) {
+                case '01':
+                    month ='enero'
+                    break;
+                case '02':
+                    month ='febrero'
+                    break;
+                case '03':
+                    month ='marzo'
+                    break;
+                case '04':
+                    month ='abril'
+                    break;
+                case '05':
+                    month ='mayo'
+                    break;
+                case '06':
+                    month ='junio'
+                    break;
+                case '07':
+                    month ='julio'
+                    break;
+                case '08':
+                    month ='agosto'
+                    break;
+                case '09':
+                    month ='septiembre'
+                    break;
+                case '10':
+                    month ='octubre'
+                    break;
+                case '11':
+                    month ='noviembre'
+                    break;
+                case '12':
+                    month ='diciembre'
+                    break;
+                default:
+                    break;
+            }
+            fechaCDP = day + ' de '+month+' de '+ year;
+            console.log(fechaCDP);
+            return fechaCDP
+        }
+        
         //obtener datos del formulario
         formulario.addEventListener('submit', function(e){
             e.preventDefault();
-            
+            let fecha = fechaCdp(document.getElementById('fechaCdp').value)
             let contenidoFormulario ={
 
                 numeroPrecontractual : document.getElementById('numeroPrecontractual').value,
@@ -125,13 +175,14 @@
                 catidadCuotas : document.getElementById('cantidadCuotas').value,
                 frecuenciaPagos : document.getElementById('frecuenciaPagos').value,
                 cdp : document.getElementById('cdp').value,
-                fechaCdp : document.getElementById('fechaCdp').value,
+                fechaCdp :fecha,
                 cargoFuncionario : document.getElementById('cargoFuncionario').value,
                 gradoFuncionario : document.getElementById('gradoFuncionario').value,
                 listaObligaciones : [],
                 idoneidad : document.getElementById('idoneidad').value,
                 experiencia : document.getElementById('experiencia').value,
-                nombreOrdenador : document.getElementById('nombreOrdenador').value
+                nombreOrdenador : document.getElementById('nombreOrdenador').value,
+                vigenciaFiscal : new Date().getFullYear().toString(),
 
             }
 
@@ -139,11 +190,11 @@
             // obtener los valores de la lista de obligaciones para insertar en el objeto del formulario
             lista.forEach(function (li) {
                 let text = li.firstChild.textContent; 
-                contenidoFormulario.listaObligaciones.push({text});
-                console.log('text >> ',text);
+                contenidoFormulario.listaObligaciones.push({text:text,bold:false});
             })
             console.log('contenidoFormulario :>> ', contenidoFormulario);
         });
+
         //agregar item a la lista de obligaciones conboton de borrar
         agregarObligacion.addEventListener('click', function(e){
             e.preventDefault();
@@ -178,16 +229,6 @@
             }
            
         })
-        //evento para borrar un item de la lista de obligaciones
-        
-        function borrarElemento(id) {
-            /*
-            const nodo = document.getElementById('listaObligaciones');
-            const item = document.getElementById('obligacion'+id.toString());
-            nodo.removeChild(item);
-            */
-            
-        }
 
 
     </script>
