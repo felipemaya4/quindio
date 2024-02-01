@@ -22,7 +22,7 @@
             <label for="">tipo de contrato a celebrar</label>
             <select name="tipoContrato" id="tipoContrato">
                 <option value="profesionales">Profesionales</option>
-                <option value="apoyoGestios">Apoyo a la gestion</option>
+                <option value="apoyo a la gestion">Apoyo a la gestion</option>
             </select>
             <br>
             <label for="justificacion">justificacion actividad</label>
@@ -109,7 +109,7 @@
         let listaObligaciones = document.getElementById('listaObligaciones');
         let obligacionesValues = [];
         let indice = 0;
-
+        //devuelve en letras el mes dado en numeros
         function mes(m){
             switch (m) {
                 case '01':
@@ -148,12 +148,39 @@
                 case '12':
                     return 'diciembre'
                     break;
+                case '1':
+                    return 'enero'
+                    break;
+                case '2':
+                    return 'febrero'
+                    break;
+                case '3':
+                    return 'marzo'
+                    break;
+                case '4':
+                    return 'abril'
+                    break;
+                case '5':
+                    return 'mayo'
+                    break;
+                case '6':
+                    return 'junio'
+                    break;
+                case '7':
+                    return 'julio'
+                    break;
+                case '8':
+                    return 'agosto'
+                    break;
+                case '9':
+                    return 'septiembre'
+                    break;
                 default:
                     break;
             }
         }
         // fecha en formato " dia de mes de año"
-        function fechaCdp(fecha) {
+        function fechaCDP(fecha) {
 
             let year = fecha.slice(0,4);
             let month = fecha.slice(5,7);
@@ -161,17 +188,20 @@
             let fechaCDP;
             let mesLetras = mes(month);
             fechaCDP = day + ' de '+mesLetras+' de '+ year;
-            console.log(fechaCDP);
             return fechaCDP
         }
         
         //obtener datos del formulario
         formulario.addEventListener('submit', function(e){
             e.preventDefault();
-            let fecha = fechaCdp(document.getElementById('fechaCdp').value)
+            let fechaCdp = fechaCDP(document.getElementById('fechaCdp').value)
+            let fechaRealizacion = new Date();
+            let mesRealizacion = mes(fechaRealizacion.getMonth().toString());
+            let fechaRealizacionLetras = fechaRealizacion.getDay().toString()+' de '+ mesRealizacion  +' de '+fechaRealizacion.getFullYear().toString();
             let contenidoFormulario ={
 
                 numeroPrecontractual : document.getElementById('numeroPrecontractual').value,
+                fechaRealizacion : fechaRealizacionLetras,
                 dependencia : document.getElementById('dependencia').value,
                 tipoContrato : document.getElementById('tipoContrato').value,
                 objetoContrato : document.getElementById('objetoContrato').value,
@@ -180,7 +210,7 @@
                 catidadCuotas : document.getElementById('cantidadCuotas').value,
                 frecuenciaPagos : document.getElementById('frecuenciaPagos').value,
                 cdp : document.getElementById('cdp').value,
-                fechaCdp :fecha,
+                fechaCdp :fechaCdp,
                 cargoFuncionario : document.getElementById('cargoFuncionario').value,
                 gradoFuncionario : document.getElementById('gradoFuncionario').value,
                 listaObligaciones : [],
