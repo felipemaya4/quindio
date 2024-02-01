@@ -109,53 +109,58 @@
         let listaObligaciones = document.getElementById('listaObligaciones');
         let obligacionesValues = [];
         let indice = 0;
+
+        function mes(m){
+            switch (m) {
+                case '01':
+                    return 'enero'
+                    break;
+                case '02':
+                    return 'febrero'
+                    break;
+                case '03':
+                    return 'marzo'
+                    break;
+                case '04':
+                    return 'abril'
+                    break;
+                case '05':
+                    return 'mayo'
+                    break;
+                case '06':
+                    return 'junio'
+                    break;
+                case '07':
+                    return 'julio'
+                    break;
+                case '08':
+                    return 'agosto'
+                    break;
+                case '09':
+                    return 'septiembre'
+                    break;
+                case '10':
+                    return 'octubre'
+                    break;
+                case '11':
+                    return 'noviembre'
+                    break;
+                case '12':
+                    return 'diciembre'
+                    break;
+                default:
+                    break;
+            }
+        }
+        // fecha en formato " dia de mes de año"
         function fechaCdp(fecha) {
 
             let year = fecha.slice(0,4);
             let month = fecha.slice(5,7);
             let day = fecha.slice(8);
             let fechaCDP;
-            switch (month) {
-                case '01':
-                    month ='enero'
-                    break;
-                case '02':
-                    month ='febrero'
-                    break;
-                case '03':
-                    month ='marzo'
-                    break;
-                case '04':
-                    month ='abril'
-                    break;
-                case '05':
-                    month ='mayo'
-                    break;
-                case '06':
-                    month ='junio'
-                    break;
-                case '07':
-                    month ='julio'
-                    break;
-                case '08':
-                    month ='agosto'
-                    break;
-                case '09':
-                    month ='septiembre'
-                    break;
-                case '10':
-                    month ='octubre'
-                    break;
-                case '11':
-                    month ='noviembre'
-                    break;
-                case '12':
-                    month ='diciembre'
-                    break;
-                default:
-                    break;
-            }
-            fechaCDP = day + ' de '+month+' de '+ year;
+            let mesLetras = mes(month);
+            fechaCDP = day + ' de '+mesLetras+' de '+ year;
             console.log(fechaCDP);
             return fechaCDP
         }
