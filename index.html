@@ -307,7 +307,7 @@
                     {
                         text:[
                         {text: 'ESTUDIOS PREVIOS\n\n', fontSize: 12,bold: true},
-                        {text: 'Fecha \n\n', fontSize: 12},
+                        {text: 'Fecha ', fontSize: 12},
                         {text: contenidoFormulario.fechaRealizacion, fontSize: 12,color:'red'}, // fecha dada por el sistema automaticamente
                         {text: '\n\n', fontSize: 12},
                         {text: 'Planeación Precontractual Nro. ', fontSize: 12},
@@ -371,10 +371,10 @@
                         text:[
                             'El Departamento del Quindío, como entidad Estatal conforme lo indicado en el artículo 2º y 11º de la Ley 80 de 1993, cuenta con capacidad para celebrar contratos y de conformidad con la misión encargada Constitucional y Legalmente a dichos organismos territoriales, requiere la acción no sólo en temas de carácter misional que apunten al cumplimiento de los diferentes metas y líneas estratégicas contenidas en el Plan de Desarrollo Departamental, como también lo registrado en el Banco de Programas y Proyectos de Inversión, sino que de igual forma estará en la obligación de atender las diferentes actividades administrativas y de funcionamiento, esto con el fin de garantizarle a los administrados una correcta atención ciudadana y buena prestación de los servicios prestados por parte de esta entidad territorial.\n\n',
                             {text: contenidoFormulario.justificacion, color:'red'}, // datos    que ingresa el usuario
-                            '\n\nAunado a lo anterior y de conformidad con lo dispuesto en el numeral 3° del artículo 32 de la Ley 80 de 1993, el Director (a)  Administrativo (a) de Talento Humano del Departamento el Quindío, certifica que en la Planta actual de personal de la entidad, no se dispone de personal suficiente que puedan ejecutar el objeto y las obligaciones del contrato que se pretende celebrar, por lo que se considera procedente celebrar en forma directa Contrato de Prestación de Servicios con una persona que acredite la idoneidad y experiencia necesaria para cumplir con las obligaciones contractuales.\n\n',
+                            'Aunado a lo anterior y de conformidad con lo dispuesto en el numeral 3° del artículo 32 de la Ley 80 de 1993, el Director (a)  Administrativo (a) de Talento Humano del Departamento el Quindío, certifica que en la Planta actual de personal de la entidad, no se dispone de personal suficiente que puedan ejecutar el objeto y las obligaciones del contrato que se pretende celebrar, por lo que se considera procedente celebrar en forma directa Contrato de Prestación de Servicios con una persona que acredite la idoneidad y experiencia necesaria para cumplir con las obligaciones contractuales.\n\n',
                             'Es necesario indicar que, dando cumplimiento a lo señalado en el artículo 74 de la Ley 1474 de 2011 y conforme con lo expresado en el artículo 2.2.1.1.1.4.1 del Decreto de 1082 de 2015 que hablan con respecto a los Planes de Acciones de las entidades Públicas y los planes anuales de adquisiones, es necesario indicar que la presente contratación se encuentra debidamente incluida en el Plan Anual de Adquisiciones del Departamento del Quindío para la vigencia fiscal ',
                             {text:contenidoFormulario.vigenciaFiscal, color: 'red'},
-                            '\n\n',
+                            '.\n\n',
                             'Finalmente, y en consonancia con lo desarrollado en el presente acápite, por tratarse de un Contrato de Prestación de Servicios, NO se requiere la obtención de varias ofertas, conforme a lo dispuesto por el articulo 2.2.1.2.1.4.9 del Decreto 1082 del año 2015, situación revalidada por el Honorable Consejo de Estado en la Sentencia Nro. 37044 de fecha 07 de marzo del año 2011, por lo tanto, bastará con recibir únicamente la oferta de la persona natural o jurídica a quien la Entidad le haya enviado la Invitación respectiva. No obstante, la selección del futuro contratista debe obedecer a criterios de Idoneidad (formación académica) y de experiencia (laboral o profesional) del oferente para ejecutar el objeto, las obligaciones específicas y generales que se han determinado en el Estudio Previo, mismas que obedecerán a las que se plasmen en el contrato o minuta contractual.',
                             '\n\n',
                         ],
@@ -400,11 +400,10 @@
                                         
                                         {text:[ {text:'PLAZO DE EJECUCIÓN:',style: 'titulo'},' El plazo de ejecución del presente contrato será de ',
                                         {text:'_________letra(',color: 'red'},// numero ingresado por el ususario, tambien obtener su valor en letras 
-
                                         {text:contenidoFormulario.plazoEjecucion,color: 'red'},// numero ingresado por el ususario, tambien obtener su calor en letras 
                                         ') días calendario contados a partir de la suscripción del acta de inicio y cumplimiento de requisitos establecidos en el artículo 41 de la Ley 80 de 1993 modificada por el artículo 23 de la Ley 1150 de 2007, y en todo caso el acuerdo de voluntades a suscribir no podrá exceder la vigencia fiscal ',
                                         {text:contenidoFormulario.vigenciaFiscal, color:'red'},
-                                        '\n\n'
+                                        '.\n\n'
                                         ],bold: false},
 
                                         {text:[
@@ -534,9 +533,7 @@
                             {text:'“…Las entidades estatales pueden contratar bajo la modalidad de contratación directa la prestación de servicios profesionales y de apoyo a la gestión con la persona natural o jurídica que esté en capacidad de ejecutar el objeto del contrato, siempre y cuando la entidad estatal verifique la idoneidad o experiencia requerida y relacionada con el área de que se trate. En este caso, no es necesario que la entidad estatal haya obtenido previamente varias ofertas, de lo cual el ordenador del gasto debe dejar constancia escrita…” Los servicios la Ley 1150 del año 2007 en su y de apoyo a la gestión corresponden a aquellos de naturaleza intelectual diferentes a los de consultoría',italics:true},{text:'1',sup:true,italics:true},{text:', que se derivan del cumplimiento de las funciones de la entidad estatal, así como los relacionados con actividades operativas, logísticas, o asistenciales.',italics:true},
                             '\n\n',
                         ],style:'defecto',
-                        footer:{
-                            text:'hola encabezado'
-                        }
+                        
                     },
                     {
                         ol:[
@@ -565,7 +562,8 @@
                                 ol:[
                                 {text:[
                                         {text:'IDONEIDAD:',style:'titulo'},{text:' El futuro contratista deberá de acreditar ',bold:false},
-                                        {text:contenidoFormulario.idoneidad,color:'red'},// datos ingresados por el usuario
+                                        {text:contenidoFormulario.idoneidad,color:'red'},
+                                        '\n\n'// datos ingresados por el usuario
                                     ]},
                                     {text:[
                                         {text:'EXPERIENCIA:',style:'titulo'},{text:' El futuro contratista deberá de acreditar experiencia ',bold:false},
@@ -643,9 +641,9 @@
                     {
                         text:[
                             {text:contenidoFormulario.nombreOrdenador,color:'red',bold:true},
-                            '\nSecretario(a) de ',
+                            '\nSecretario(a) ',
                             {text:contenidoFormulario.dependencia,color:'red'},
-                            'Departamento del Quindío\n\n\n\n',
+                            '\nDepartamento del Quindío\n\n\n\n',
                         ],alignment:'center'
                     },
                     {
