@@ -104,6 +104,7 @@
         let agregarObligacion = document.getElementById('agregarObligacion');
         let obligacionesContratista = document.getElementById('obligacionesContratista');
         let listaObligaciones = document.getElementById('listaObligaciones');
+        let valorContrato = document.getElementById('valorContrato');
         let obligacionesValues = [];
         let indice = 0;
         //devuelve en letras el mes dado en numeros
@@ -708,6 +709,16 @@
             pdfDocGenerator.open();
         });
 
+        //insertar el punto de valor numerico pesos
+        valorContrato.oninput = function (e) {
+            e.preventDefault();
+            let cifra =valorContrato.value
+            let longitudCifra = cifra.length
+            if(longitudCifra == 4){
+            }else
+
+            console.log(cifra);
+        }
         //agregar item a la lista de obligaciones conboton de borrar
         agregarObligacion.addEventListener('click', function(e){
             e.preventDefault();
