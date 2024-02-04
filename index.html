@@ -712,9 +712,10 @@
         //insertar el punto de valor numerico pesos
         valorContrato.oninput = function (e) {
             e.preventDefault();
-            let cifra =valorContrato.value
+            let cifra =Array.from(valorContrato.value)
             let longitudCifra = cifra.length
             if(longitudCifra == 4){
+              cifra.unshift('.')
             }else
 
             console.log(cifra);
@@ -753,7 +754,9 @@
             }
            
         })
-
+        const numero = "1234567891011121";
+        const result = numero.match(/.{1,4}/g).join(" ");
+        console.log(result);
 
     </script>
 </body>
