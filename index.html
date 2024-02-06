@@ -712,13 +712,11 @@
         //insertar el punto de valor numerico pesos
         valorContrato.oninput = function (e) {
             e.preventDefault();
-            let cifra =Array.from(valorContrato.value)
-            let longitudCifra = cifra.length
-            if(longitudCifra == 4){
-              cifra.unshift('.')
-            }else
+            let cifra = this.value;
+            let precio = new Intl.NumberFormat('en-DE').format(cifra);
+           // this.value = precio;
 
-            console.log(cifra);
+            console.log(cifra,'precio',precio);
         }
         //agregar item a la lista de obligaciones conboton de borrar
         agregarObligacion.addEventListener('click', function(e){
@@ -754,9 +752,10 @@
             }
            
         })
+        /*
         const numero = "1234567891011121";
         const result = numero.match(/.{1,4}/g).join(" ");
-        console.log(result);
+        console.log(result);*/
 
     </script>
 </body>
