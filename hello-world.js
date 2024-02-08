@@ -111,13 +111,13 @@ agregarObligacion.addEventListener('click', function(e){
         let botonBorrar = document.createElement('button');
         // insercion de valores en li y array para manipulacion txt de nueva obligacion
         nuevaObligacion.textContent  = obligacionesContratista.value;
-        nuevaObligacion.className ='mb-3';
+        nuevaObligacion.className ='list-group-item d-grid gap-2 d-md-flex';
         nuevaObligacion.id = 'obligacion'+ indice.toString();
         //configuracion de boton de borrado
         botonBorrar.textContent = 'borrar';
         botonBorrar.id = 'borrar';
         botonBorrar.value = indice;
-        botonBorrar.className = 'btn btn-outline-secondary';
+        botonBorrar.className = 'btn btn-outline-secondary btn-sm';
         botonBorrar.onclick = function(e){
             e.preventDefault();
             let nodo = document.getElementById('listaObligaciones'); // nodo padre
@@ -152,7 +152,7 @@ formulario.addEventListener('submit', function(e){
     // obtener los valores de la lista de obligaciones para insertar en el objeto del formulario
     lista.forEach((li)=> {
         let text = li.firstChild.textContent; 
-        listaObligaciones.push({text:text,bold:false});
+        listaObligaciones.push({text:[{text:text,bold:false},{text:'\n'}]});
     })
 
     let contenidoFormulario ={
@@ -314,7 +314,7 @@ formulario.addEventListener('submit', function(e){
                 text:[
                     'El Departamento del Quindío, como entidad Estatal conforme lo indicado en el artículo 2º y 11º de la Ley 80 de 1993, cuenta con capacidad para celebrar contratos y de conformidad con la misión encargada Constitucional y Legalmente a dichos organismos territoriales, requiere la acción no sólo en temas de carácter misional que apunten al cumplimiento de los diferentes metas y líneas estratégicas contenidas en el Plan de Desarrollo Departamental, como también lo registrado en el Banco de Programas y Proyectos de Inversión, sino que de igual forma estará en la obligación de atender las diferentes actividades administrativas y de funcionamiento, esto con el fin de garantizarle a los administrados una correcta atención ciudadana y buena prestación de los servicios prestados por parte de esta entidad territorial.\n\n',
                     {text: contenidoFormulario.justificacion, color:'red'}, // datos    que ingresa el usuario
-                    'Aunado a lo anterior y de conformidad con lo dispuesto en el numeral 3° del artículo 32 de la Ley 80 de 1993, el Director (a)  Administrativo (a) de Talento Humano del Departamento el Quindío, certifica que en la Planta actual de personal de la entidad, no se dispone de personal suficiente que puedan ejecutar el objeto y las obligaciones del contrato que se pretende celebrar, por lo que se considera procedente celebrar en forma directa Contrato de Prestación de Servicios con una persona que acredite la idoneidad y experiencia necesaria para cumplir con las obligaciones contractuales.\n\n',
+                    '\n\nAunado a lo anterior y de conformidad con lo dispuesto en el numeral 3° del artículo 32 de la Ley 80 de 1993, el Director (a)  Administrativo (a) de Talento Humano del Departamento el Quindío, certifica que en la Planta actual de personal de la entidad, no se dispone de personal suficiente que puedan ejecutar el objeto y las obligaciones del contrato que se pretende celebrar, por lo que se considera procedente celebrar en forma directa Contrato de Prestación de Servicios con una persona que acredite la idoneidad y experiencia necesaria para cumplir con las obligaciones contractuales.\n\n',
                     'Es necesario indicar que, dando cumplimiento a lo señalado en el artículo 74 de la Ley 1474 de 2011 y conforme con lo expresado en el artículo 2.2.1.1.1.4.1 del Decreto de 1082 de 2015 que hablan con respecto a los Planes de Acciones de las entidades Públicas y los planes anuales de adquisiones, es necesario indicar que la presente contratación se encuentra debidamente incluida en el Plan Anual de Adquisiciones del Departamento del Quindío para la vigencia fiscal ',
                     {text:contenidoFormulario.vigenciaFiscal, color: 'red'},
                     '.\n\n',
@@ -336,7 +336,7 @@ formulario.addEventListener('submit', function(e){
                                     italics:true}
                                 ],bold: false},
                                 
-                                {text:[{text:'OBJETO DEL CONTRATO A CELEBRAR:',style:'titulo'},
+                                {text:[{text:'OBJETO DEL CONTRATO A CELEBRAR: ',style:'titulo'},
                                     {text:contenidoFormulario.objetoContrato,color: 'red'},
                                     '\n\n'
                                 ],bold: false},
@@ -345,7 +345,7 @@ formulario.addEventListener('submit', function(e){
                                 {text:'_________letra(',color: 'red'},// numero ingresado por el ususario, tambien obtener su valor en letras 
                                 {text:contenidoFormulario.plazoEjecucion,color: 'red'},// numero ingresado por el ususario, tambien obtener su calor en letras 
                                 ') días calendario contados a partir de la suscripción del acta de inicio y cumplimiento de requisitos establecidos en el artículo 41 de la Ley 80 de 1993 modificada por el artículo 23 de la Ley 1150 de 2007, y en todo caso el acuerdo de voluntades a suscribir no podrá exceder la vigencia fiscal ',
-                                {text:contenidoFormulario.vigenciaFiscal, color:'red'},
+                                {text:contenidoFormulario.vigenciaFiscal},
                                 '.\n\n'
                                 ],bold: false},
 
@@ -357,17 +357,17 @@ formulario.addEventListener('submit', function(e){
                                 ],bold: false},/// ubicacion de realizacion de contrato
                                 {text:[
                                     {text:'VALOR Y FORMA DE PAGO: ',style:'titulo'},
-                                    'El valor del presente contrato asciende a la suma de',
-                                    {text:' _________letras '},// valor del contrato en letras
+                                    'El valor del presente contrato asciende a la suma de ',
+                                    {text:' _________letras ',color: 'red'},// valor del contrato en letras
                                     {text:contenidoFormulario.valorContrato,color:'red'},// valor del contrato en numeros
                                     ', incluido IVA, impuestos o descuentos. ',
                                     {text: 'FORMA DE PAGO:',style: 'titulo'},
-                                    ' El Departamento del Quindío cancelará el valor del futuro contrato mediante',
+                                    ' El Departamento del Quindío cancelará el valor del futuro contrato mediante ',
                                     {text:' ___letras____'},// cantidad de pagos en numero y letras
                                     {text:contenidoFormulario.catidadCuotas,color:'red'},// cantidad de pagos en numero y letras
-                                    'pagos cada ',
+                                    ' pagos cada ',
                                     {text:contenidoFormulario.frecuenciaPagos,color:'red'}, // forma de pago
-                                    'días calendario, cada uno por valor de',
+                                    ' días calendario, cada uno por valor de ',
                                     {text:' ______letras_____'},// valor de cada aporte
                                     {text:contenidoFormulario.valorCuotas,color:'red'},// valor de cada aporte
                                     ', incluido IVA, impuestos o descuentos, previa presentación del informe de actividades ejecutadas durante cada mes de prestación de servicios o periodo prestado, en el que debe de constar la acreditación del pago de aportes a seguridad social, pensión y riesgos laborales por el porcentaje señalado en la Ley.',
@@ -392,7 +392,7 @@ formulario.addEventListener('submit', function(e){
                                     '\n\n'
                                 ],bold: false},
                                 {text:[
-                                    {text:'OBLIGACIONES DEL CONTRATO:',style:'titulo'},
+                                    {text:'OBLIGACIONES DEL CONTRATO: ',style:'titulo'},
                                     '\n\n'
                                 ]},
                                 {
@@ -408,10 +408,18 @@ formulario.addEventListener('submit', function(e){
                             ]
                         },
                         {
-                        separator:['2.8.1.','.'],
-                        ol:contenidoFormulario.listaObligaciones // datos ingresados desde el formulario 
-                                            
+                            separator:['2.8.1.','.'],
+                            ol:contenidoFormulario.listaObligaciones,// datos ingresados desde el formulario 
+                                           
                         },
+                ],style: 'defecto',
+                bold: true,
+            },
+            {
+                text:' '
+            },
+            {
+                ol:[
                         {
                             separator:['2.8.','.'],
                             ol:[
@@ -485,7 +493,7 @@ formulario.addEventListener('submit', function(e){
             },
             {
                 text:[
-                    'El valor del contrato a celebrar se fija de conformidad con las distintas variables mencionadas en el Estudio del Sector, esto conforme con los requisitos de idoneidad y experiencia solicitados en el presente Estudio Previo. Así las cosas, se ha determinado que el valor de los honorarios a cancelar al futuro contratista ascenderá a la suma de:',
+                    'El valor del contrato a celebrar se fija de conformidad con las distintas variables mencionadas en el Estudio del Sector, esto conforme con los requisitos de idoneidad y experiencia solicitados en el presente Estudio Previo. Así las cosas, se ha determinado que el valor de los honorarios a cancelar al futuro contratista ascenderá a la suma de: ',
                     {text:'valor contrato en letras',color:'red'},
                     {text:contenidoFormulario.valorContrato,color:'red'},
                     'incluido IVA, impuestos o descuentos.\n\n'
@@ -592,18 +600,34 @@ formulario.addEventListener('submit', function(e){
             {
                 text:[
                 'Proyectó:\n',
-                'Revisó:\n\n'
+                'Revisó:\n\n\n\n'
                 ],fontSize:10,alignment:'left'
             },
             {
                 table:{
                     widths:['*','*','*'],
                     body:[
-                        [{text:'ELABORACIÓN',bold:true},{text:'REVISIÓN',bold:true},{text:'APROBACIÓN',bold:true}],
+                        [{text:'ELABORACIÓN',bold:true,fontSize:9},{text:'REVISIÓN',bold:true,fontSize:9},{text:'APROBACIÓN',bold:true,fontSize:9}],
                         [
-                            {text:'Elaborado por:',alignment:'left'},
-                            {text:'Rvisado por:'},
-                            {text:'Aprobado por:'}
+                            {text:[
+                                {text:'Elaborado por:',alignment:'left'},
+                                '\n\n\n',
+                                {text:'Andrés Felipe Duarte Rojas',alignment:'center'},
+                                ],fontSize: 9
+                            },
+                            {text:[
+                                {text:'Revisado por:',alignment:'left'},
+                                '\n\n\n',
+                                {text:'Leidy Cecilia Valencia Camargo',alignment:'center'},
+                                ],fontSize: 9
+                            },
+                            {
+                                text:[
+                                    {text:'Elaborado por:',alignment:'left'},
+                                    '\n\n\n',
+                                    {text:'Leidy Cecilia Valencia Camargo',alignment:'center'},
+                                ],fontSize: 9
+                            }
                         ],
                         [
                         {text:'Cargo: Jefe de Estudios Previos',fontSize:9},

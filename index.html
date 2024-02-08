@@ -64,19 +64,19 @@
             <div class="row justify-content-lg-left">
                 <div class="col-md-6 mb-3">
                     <label for="valorContrato">Valor del contrato:  </label>
-                    <input class="form-control" type="number" name="valorContrato" id="valorContrato">
+                    <input class="form-control" type="number" name="valorContrato" id="valorContrato" required>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="cantidadCuotas">Cantidad de cuotas:  </label> 
-                    <input class="form-control" type="number" name="cantidadCuotas" id="cantidadCuotas">
+                    <input class="form-control" type="number" name="cantidadCuotas" id="cantidadCuotas" required>
                 </div>
                 <div class="col-md-6 mb-3 order-last">
                     <label for="valorCuota">Valor cuota: </label>
-                    <input class="form-control" type="number" name="valorCuota" id="valorCuota">
+                    <input class="form-control" type="number" name="valorCuota" id="valorCuota" disabled readonly>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="frecuenciaPagos">Frecuencia de pagos en días: </label>
-                    <input class="form-control" type="number" name="frecuenciaPagos" id="frecuenciaPagos">
+                    <input class="form-control" type="number" name="frecuenciaPagos" id="frecuenciaPagos" required>
                 </div>
             </div>
             <div class="row justify-content-lg-left">
@@ -122,12 +122,12 @@
                 <input class="form-control" type="text" name="obligacionesContratista" id="obligacionesContratista" placeholder="ingrese aquí una a una las obligaciones del contratista" >
                 <input class="btn btn-outline-secondary" type="button" id="agregarObligacion"  value="agregar">
             </div>
-            <div class="row justify-content-lg-center">
-                <ol id="listaObligaciones" class="list-group list-group-numbered b-none">
-                    <li class="mb-3 list-group-item d-grid gap-2 d-md-flex">
-                        HOLA mundo felipe maya <button type="button" id="borrar" value="0" class="btn btn-outline-secondary btn-sm">borrar</button>
-                    </li>
-                </ol>
+            <div class="m-3">
+                <div class="row justify-content-lg-center">
+                    <ol id="listaObligaciones" class="list-group list-group-numbered b-none">
+                        
+                    </ol>
+                </div>
             </div>
             <div class="row">
                 <div class="col-lg-6 mb-3">
