@@ -8,7 +8,182 @@ let listaObligaciones = document.getElementById('listaObligaciones');
 let obligacionesValues = [];
 let indice = 0;
 //funcion para calcular valor de cuota de pago
+let cantidadDeCuotas = document.getElementById('cantidadCuotas');
+let valorContrato = document.getElementById('valorContrato');
+let valorCuota = document.getElementById('valorCuota');
+//recibe dos valores en string, comprueba que no esten vacios o con numero 0 luego los convierte a number y los opera y retorna
+function calcularValorCuota(total,cantidad) {
+    if(cantidad == '' || total == ''|| total == '0' || cantidad == '0'){
+        return '';
+    }
+    else{
+        
+        let res = parseInt(total,0)/parseInt(cantidad,0);
+        return  String(res);
+    }
+    
+}
+cantidadDeCuotas.addEventListener('input', function (e){
+    e.preventDefault()
+   valorCuota.value = calcularValorCuota(valorContrato.value,this.value);
+})
+valorContrato.addEventListener('input',function (e) {
+    e.preventDefault();
+    valorCuota.value = calcularValorCuota(this.value,cantidadDeCuotas.value)
+})
+//devolver su valor literal de un numero
+function valorEnLetras(numero) {
+    let cadenaNumero = Array.from(numero);
+    let valorEnLetras =[];
+    let unidad = '9';
+    let decena = '0';
+    let centena = '1';
+    switch (unidad) {
+        case '0':
+            
+            break;
+        case '1':
+            if (decena == '1') {
+                break;
+            }else
+                valorEnLetras.unshift('uno');
+            break;
+        case '2':
+            if (decena == '1') {
+                break;
+            }else
+                valorEnLetras.unshift('dos');
+            break;
+        case '3':
+            if (decena == '1') {
+                break;
+            }else
+                valorEnLetras.unshift('tres');
+            break;
+        case '4':
+            if (decena == '1') {
+                break;
+            }else
+                valorEnLetras.unshift('cuatro');
+            break;
+        case '5':
+            if (decena == '1') {
+                break;
+            }else
+                valorEnLetras.unshift('cinco');
+            break;
+        case '6':
+            valorEnLetras.unshift('seis');
+            break;
+        case '7':
+            valorEnLetras.unshift('siete');
+            break;
+        case '8':
+            valorEnLetras.unshift('ocho');
+            break;
+        case '9':
+            valorEnLetras.unshift('nueve');
+            break;
+        default:
+            break;
+    }
+    switch (decena) {
+        case '1':
+            switch (unidad) {
+                case '0':
+                    valorEnLetras.unshift('diez');
+                    break;
+                case '1':
+                    valorEnLetras.unshift('once');
+                    break;
+                case '2':
+                    valorEnLetras.unshift('doce');
+                     break;
+                case '3':
+                    valorEnLetras.unshift('trece');
+                    break;
+                case '4':
+                    valorEnLetras.unshift('catorce');
+                    break;
+                case '5':
+                    valorEnLetras.unshift('quince');
+                    break;
+                default:
+                    break;
+            }
+            valorEnLetras.unshift('dieci')
+            break;
+        case '2':
+            unidad == '0' ? valorEnLetras.unshift('veinte'): valorEnLetras.unshift('venti');
+            break;
+        case '3':
+            unidad == '0'? valorEnLetras.unshift('treinta'): valorEnLetras.unshift('treinta y ');
+            break;
+        case '4':
+            unidad == '0'? valorEnLetras.unshift('cuarenta'): valorEnLetras.unshift('cuarenta y ');
+            break;            
+        case '5':
+            unidad == '0'? valorEnLetras.unshift('cincuenta'): valorEnLetras.unshift('cincuenta y ');
+            break;            
+        case '6':
+            unidad == '0'? valorEnLetras.unshift('sesenta'): valorEnLetras.unshift('sesenta y ');
+            break;            
+        case '7':
+            unidad == '0'? valorEnLetras.unshift('setenta'): valorEnLetras.unshift('setenta y ');
+            break;            
+        case '8':
+            unidad == '0'? valorEnLetras.unshift('ochenta'): valorEnLetras.unshift('ochenta y ');
+            break;            
+        case '9':
+            unidad == '0'? valorEnLetras.unshift('noventa'): valorEnLetras.unshift('noventa y ');
+            break;
+        case '0':
 
+            break;            
+        default:
+            break;
+    }
+    switch (centena) {
+        case '1':
+            if(decena == '0' && unidad == '0'){
+                valorEnLetras.unshift('cien ');
+            }else
+                valorEnLetras.unshift('ciento ');
+            break;
+        case '2':
+            valorEnLetras.unshift('docientos ');
+            break;
+        case '3':
+            valorEnLetras.unshift('trecientos ');
+            break;
+        case '4':
+            valorEnLetras.unshift('cuatrocientos ');
+            break;
+        case '5':
+            valorEnLetras.unshift('quinientos ');
+            break;
+        case '6':
+            valorEnLetras.unshift('seiscientos ');
+            break;
+        case '7':
+            valorEnLetras.unshift('setecientos ');
+            break;
+        case '8':
+            valorEnLetras.unshift('ochoocientos ');
+            break;
+        case '9':
+            valorEnLetras.unshift('novecientos ');
+            break;
+        case '0':
+            break;
+        default:
+            break;
+    }
+    console.log(valorEnLetras.join(''));
+    
+}
+
+valorEnLetras('990');
 //devuelve en letras el mes dado en numeros
 function mes(m){
     switch (m) {
@@ -99,6 +274,8 @@ function fechaCDP(fecha) {
     fechaCDP = day + ' de '+mesLetras+' de '+ year;
     return fechaCDP
 }
+// mostrar el valor de cada cuota en el campo
+
 //agregar item a la lista de obligaciones conboton de borrar
 agregarObligacion.addEventListener('click', function(e){
     e.preventDefault();
@@ -110,7 +287,7 @@ agregarObligacion.addEventListener('click', function(e){
         let nuevaObligacion = document.createElement('li');
         let botonBorrar = document.createElement('button');
         // insercion de valores en li y array para manipulacion txt de nueva obligacion
-        nuevaObligacion.textContent  = obligacionesContratista.value;
+        nuevaObligacion.textContent  = obligacionesContratista.value+'.';
         nuevaObligacion.className ='list-group-item d-grid gap-2 d-md-flex';
         nuevaObligacion.id = 'obligacion'+ indice.toString();
         //configuracion de boton de borrado
@@ -252,10 +429,10 @@ formulario.addEventListener('submit', function(e){
                 {text: 'ESTUDIOS PREVIOS\n\n', fontSize: 12,bold: true},
                 {text: 'Fecha ', fontSize: 12},
                 {text: contenidoFormulario.fechaRealizacion, fontSize: 12,color:'red'}, // fecha dada por el sistema automaticamente
-                {text: '\n\n', fontSize: 12},
+                {text: '.\n\n', fontSize: 12},
                 {text: 'Planeación Precontractual Nro. ', fontSize: 12},
                 {text: contenidoFormulario.numeroPrecontractual, fontSize: 12,color:'red'},// numero dado por el usuario
-                {text: '\n\n', fontSize: 12}
+                {text: '.\n\n', fontSize: 12}
                 ],
                 alignment: 'center'
             },
@@ -313,7 +490,8 @@ formulario.addEventListener('submit', function(e){
             {
                 text:[
                     'El Departamento del Quindío, como entidad Estatal conforme lo indicado en el artículo 2º y 11º de la Ley 80 de 1993, cuenta con capacidad para celebrar contratos y de conformidad con la misión encargada Constitucional y Legalmente a dichos organismos territoriales, requiere la acción no sólo en temas de carácter misional que apunten al cumplimiento de los diferentes metas y líneas estratégicas contenidas en el Plan de Desarrollo Departamental, como también lo registrado en el Banco de Programas y Proyectos de Inversión, sino que de igual forma estará en la obligación de atender las diferentes actividades administrativas y de funcionamiento, esto con el fin de garantizarle a los administrados una correcta atención ciudadana y buena prestación de los servicios prestados por parte de esta entidad territorial.\n\n',
-                    {text: contenidoFormulario.justificacion, color:'red'}, // datos    que ingresa el usuario
+                    {text: contenidoFormulario.justificacion, color:'red'},
+                    {text:'.'}, // datos    que ingresa el usuario
                     '\n\nAunado a lo anterior y de conformidad con lo dispuesto en el numeral 3° del artículo 32 de la Ley 80 de 1993, el Director (a)  Administrativo (a) de Talento Humano del Departamento el Quindío, certifica que en la Planta actual de personal de la entidad, no se dispone de personal suficiente que puedan ejecutar el objeto y las obligaciones del contrato que se pretende celebrar, por lo que se considera procedente celebrar en forma directa Contrato de Prestación de Servicios con una persona que acredite la idoneidad y experiencia necesaria para cumplir con las obligaciones contractuales.\n\n',
                     'Es necesario indicar que, dando cumplimiento a lo señalado en el artículo 74 de la Ley 1474 de 2011 y conforme con lo expresado en el artículo 2.2.1.1.1.4.1 del Decreto de 1082 de 2015 que hablan con respecto a los Planes de Acciones de las entidades Públicas y los planes anuales de adquisiones, es necesario indicar que la presente contratación se encuentra debidamente incluida en el Plan Anual de Adquisiciones del Departamento del Quindío para la vigencia fiscal ',
                     {text:contenidoFormulario.vigenciaFiscal, color: 'red'},
@@ -353,7 +531,7 @@ formulario.addEventListener('submit', function(e){
                                         {text:'LUGAR DE EJECUCIÓN:',style:'titulo'},
                                         {text:' El lugar de ejecución del presente contrato será en '},
                                         {text:contenidoFormulario.ubicacion, color: 'red'},
-                                        {text:'\n\n'}
+                                        {text:'.\n\n'}
                                 ],bold: false},/// ubicacion de realizacion de contrato
                                 {text:[
                                     {text:'VALOR Y FORMA DE PAGO: ',style:'titulo'},
@@ -368,7 +546,7 @@ formulario.addEventListener('submit', function(e){
                                     ' pagos cada ',
                                     {text:contenidoFormulario.frecuenciaPagos,color:'red'}, // forma de pago
                                     ' días calendario, cada uno por valor de ',
-                                    {text:' ______letras_____'},// valor de cada aporte
+                                    {text:' ______letras_____',color:'red'},// valor de cada aporte
                                     {text:contenidoFormulario.valorCuotas,color:'red'},// valor de cada aporte
                                     ', incluido IVA, impuestos o descuentos, previa presentación del informe de actividades ejecutadas durante cada mes de prestación de servicios o periodo prestado, en el que debe de constar la acreditación del pago de aportes a seguridad social, pensión y riesgos laborales por el porcentaje señalado en la Ley.',
                                     '\n\n'
@@ -387,8 +565,8 @@ formulario.addEventListener('submit', function(e){
                                 {text:[
                                     {text:'SUPERVISIÓN DEL CONTRATO:',style:'titulo'},
                                     ' El control vigilancia y seguimiento del Contrato de Prestación de Servicios se realizará a través del ',
-                                    {text:'(Deberá de incluir solo el cargo select y grado 01 al 10 select de quien ejercerá a supervisión)',color:'red'},// cargo y grado select proporcionado por el usuario
-                                    ') quien tendrá a cargo todas las facultades, deberes, responsabilidades y obligaciones contenidas en el artículo 84 de la Ley 1474 de 2011.',
+                                    {text: cargoFuncionario,color:'red'},// cargo y grado select proporcionado por el usuario
+                                    ' quien tendrá a cargo todas las facultades, deberes, responsabilidades y obligaciones contenidas en el artículo 84 de la Ley 1474 de 2011.',
                                     '\n\n'
                                 ],bold: false},
                                 {text:[
@@ -514,12 +692,12 @@ formulario.addEventListener('submit', function(e){
                         {text:[
                                 {text:'IDONEIDAD:',style:'titulo'},{text:' El futuro contratista deberá de acreditar ',bold:false},
                                 {text:contenidoFormulario.idoneidad,color:'red'},
-                                '\n\n'// datos ingresados por el usuario
+                                '.\n\n'// datos ingresados por el usuario
                             ]},
                             {text:[
                                 {text:'EXPERIENCIA:',style:'titulo'},{text:' El futuro contratista deberá de acreditar experiencia ',bold:false},
                                 {text:contenidoFormulario.experiencia,color:'red'},
-                                '\n\n'// datos ingresados por el usuario
+                                '.\n\n'// datos ingresados por el usuario
                             ]}
                         ]
                     }
@@ -592,9 +770,9 @@ formulario.addEventListener('submit', function(e){
             {
                 text:[
                     {text:contenidoFormulario.nombreOrdenador,color:'red',bold:true},
-                    '\nSecretario(a) ',
+                    '.\nSecretario(a) ',
                     {text:contenidoFormulario.dependencia,color:'red'},
-                    '\nDepartamento del Quindío\n\n\n\n',
+                    '\nDepartamento del Quindío.\n\n\n\n',
                 ],alignment:'center'
             },
             {

@@ -20,18 +20,18 @@
         <form id="formulario" action="" method="post">
             <div class="row justify-content-lg-center">    
                 <div class="col-12 col-md-4 mb-3">
-                    <label for="numeroPrecontractual">Número planeacion Precontractual:  </label>
-                    <input class="form-control" type="number" name="numeroPrecontractual" id="numeroPrecontractual" >
+                    <label for="numeroPrecontractual">Planeacion Precontractual </label>
+                    <input class="form-control" type="number" name="numeroPrecontractual" id="numeroPrecontractual" placeholder="Número">
                 </div>
-                <div class="col-6 col-md-4  mb-3">
-                    <label for="dependencia">Dependencia:  </label>
+                <div class="col-12 col-md-4  mb-3">
+                    <label for="dependencia">Dependencia </label>
                     <select class="form-select" name="dependencia" id="dependencia">
                         <option value="juridica">Juridica</option>
                         <option value="administrativa">Administrativa</option>
                     </select>
                 </div>
-                <div class="col-6 col-md-4  mb-3">
-                    <label for="">Tipo de contrato a celebrar:   </label>
+                <div class="col-12 col-md-4  mb-3">
+                    <label for="">Tipo de contrato a celebrar </label>
                     <select class="form-select" name="tipoContrato" id="tipoContrato">
                         <option value="profesionales">Profesionales</option>
                         <option value="de apoyo a la gestion">Apoyo a la gestion</option>
@@ -53,46 +53,49 @@
                 </div>
             </div>
             <div class="row justify-content-lg-left">
-                <div class="col-md-6 mb-3">
-                    <label for="plazoEjecucion">Plazo de ejecucion: </label>
-                    <input class="form-control" type="number" name="plazoEjecucion" id="plazoEjecucion">
-                </div>
+                
             </div>
-            <div class="mb-2">
-                <label for="formaPago">Forma de pago</label>
-            </div>
-            <div class="row justify-content-lg-left">
-                <div class="col-md-6 mb-3">
-                    <label for="valorContrato">Valor del contrato:  </label>
-                    <input class="form-control" type="number" name="valorContrato" id="valorContrato" required>
+            
+            <div class="row justify-content-lg-left mb-3 p-1 border rounded">
+                <div class="mb-2">
+                    <label for="formaPago">Forma de pago</label>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label for="cantidadCuotas">Cantidad de cuotas:  </label> 
-                    <input class="form-control" type="number" name="cantidadCuotas" id="cantidadCuotas" required>
+                    <label for="valorContrato">Valor del contrato </label>
+                    <input class="form-control" type="number" name="valorContrato" id="valorContrato">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="cantidadCuotas">Cantidad de cuotas </label> 
+                    <input class="form-control" type="number" name="cantidadCuotas" id="cantidadCuotas">
                 </div>
                 <div class="col-md-6 mb-3 order-last">
                     <label for="valorCuota">Valor cuota: </label>
                     <input class="form-control" type="number" name="valorCuota" id="valorCuota" disabled readonly>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label for="frecuenciaPagos">Frecuencia de pagos en días: </label>
-                    <input class="form-control" type="number" name="frecuenciaPagos" id="frecuenciaPagos" required>
+                    <label for="frecuenciaPagos">Frecuencia de pagos en días</label>
+                    <input class="form-control" type="number" name="frecuenciaPagos" id="frecuenciaPagos">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="plazoEjecucion">Plazo de ejecucion en días</label>
+                    <input class="form-control" type="number" name="plazoEjecucion" id="plazoEjecucion">
                 </div>
             </div>
-            <div class="row justify-content-lg-left">
+            <div class="row justify-content-lg-left mb-3 p-1 border rounded">
                 <div class="col-md-6 mb-3">
-                    <label for="cdp">Numero CDP:  </label>
+                    <label for="cdp">Certificado disponibilidad presupuestal</label>
                     <input class="form-control" type="number" name="cdp" id="cdp">
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label for="fechaCdp">Fecha:  </label>
+                    <label for="fechaCdp">Fecha de CDP</label>
                     <input class="form-control"  type="date" name="fechaCdp" id="fechaCdp">
                 </div>
             </div>    
-            <div class="mb-2">
-                <label for="formaPago">Supervision del contrato</label>
-            </div>
-            <div class="row justify-content-lg-left">
+            
+            <div class="row justify-content-lg-left mb-3 p-1 border rounded">
+                <div class="mb-2">
+                    <label for="formaPago">Supervision del contrato</label>
+                </div>
                 <div class="col-md-6 mb-3">
                     <label for="cargoFuncionario">Cargo</label>
                     <select class="form-select" name="cargoFuncionario" id="cargoFuncionario">
@@ -116,7 +119,7 @@
                 </div>
             </div>
             <div class="mb-2">
-                <label for="obligacionesContratista">Obligaciones del contratista: </label>
+                <label for="obligacionesContratista">Obligaciones del contratista</label>
             </div>
             <div class="mb-3 input-group">
                 <input class="form-control" type="text" name="obligacionesContratista" id="obligacionesContratista" placeholder="ingrese aquí una a una las obligaciones del contratista" >
@@ -131,13 +134,13 @@
             </div>
             <div class="row">
                 <div class="col-lg-6 mb-3">
-                    <label for="idoneidad">Idoneidad:</label>
+                    <label for="idoneidad">Idoneidad</label>
                     <br>
                     <textarea class="form-control" name="idoneidad" id="idoneidad" cols="30" rows="10" placeholder="Deberá de incluir que estudios que se solicitarán al futuro contratista, en caso de profesiones reguladas, deberá de solicitar la respectiva tarjeta profesional vigente"></textarea>
                     <br>
                 </div>
                 <div class="col-lg-6 mb-3">
-                    <label for="experiencia">Experiencia:</label>
+                    <label for="experiencia">Experiencia</label>
                     <br>
                     <textarea class="form-control" name="experiencia" id="experiencia" cols="30" rows="10" placeholder="Deberá de incluir la experiencia que se le solicitará al futuro contratista, esta puede ser laboral, profesional, relacionada, profesional relacionada, etc" ></textarea>
                     <br>
@@ -145,7 +148,7 @@
             </div>
             
             <div class="mb-3">
-                <label for="nombreOrdenador">Nombre del ordenador del gasto:  </label>
+                <label for="nombreOrdenador">Nombre del ordenador del gasto</label>
                 <input class="form-control" type="text" name="nombreOrdenador" id="nombreOrdenador">
             </div>
             <div class="mb-3 text-center">
@@ -154,9 +157,6 @@
         </form>
 
     </div>
-    
-    <a href="javascript:genPdf()">generar pdf</a>
-
    <script type="text/javascript" src="hello-world.js"></script>
 </body>
 </html>
