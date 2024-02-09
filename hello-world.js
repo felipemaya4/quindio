@@ -360,7 +360,7 @@ formulario.addEventListener('submit', function(e){
 
     /////////////////////////////////////////////////////////////
     let pdfDocumet = {
-        pageSize: 'A4',
+        pageSize: 'FOLIO',
         pageMargins: [ 83, 145, 83, 80 ],// [left, top, right, bottom]
         footer:function(currentPage, pageCount, pageSize){
         // let footerContent=[]
@@ -398,7 +398,7 @@ formulario.addEventListener('submit', function(e){
                                 {
                                     rowSpan: 4, 
                                     image: imgenQuindio,
-                                    width: 70,
+                                    width: 72,
                                     margin: [10,5,10,5]
                                 },
                                 {text:'FORMATO',bold: true,fontSize: 12,alignment: 'center'},
@@ -565,7 +565,9 @@ formulario.addEventListener('submit', function(e){
                                 {text:[
                                     {text:'SUPERVISIÓN DEL CONTRATO:',style:'titulo'},
                                     ' El control vigilancia y seguimiento del Contrato de Prestación de Servicios se realizará a través del ',
-                                    {text: cargoFuncionario,color:'red'},// cargo y grado select proporcionado por el usuario
+                                    {text:contenidoFormulario.cargoFuncionario,color:'red'},
+                                    'de grado ',
+                                    {text:contenidoFormulario.gradoFuncionario,color:'red'},// cargo y grado select proporcionado por el usuario
                                     ' quien tendrá a cargo todas las facultades, deberes, responsabilidades y obligaciones contenidas en el artículo 84 de la Ley 1474 de 2011.',
                                     '\n\n'
                                 ],bold: false},
