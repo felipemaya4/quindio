@@ -766,26 +766,30 @@ formulario.addEventListener('submit', function(e){
                     {text:'ha expedido: '},
                     {text:'El Manual para el manejo de los Acuerdos Comerciales en Procesos de Contratación. ',italics:true},
                     {text:'En dicho Manual, se hacen varias claridades a la forma como se deben aplicar los Acuerdos Comerciales, y recomienda que en cada proceso contractual la Entidad verifique si le aplica o no un Acuerdo Comercial, ello, conforme a lo dispuesto en el artículo 2.2.1.1.2.1.1. del Decreto 1082 del año 2015. Ahora bien, sobre la aplicación de los acuerdos comerciales a la modalidad de selección empleada para adelantar el presente procesos de selección, los propios tratados la han excluido de la aplicación de Acuerdos Comerciales, por lo tanto, al presente contrato no le es aplicable Acuerdo Comercial alguno. \n\n'},
-                    {text:'\n\nCordialmente,\n\n\n\n'}
+                    
                 ],style:'defecto'
             },
             {
                 text:[
-                    {text:contenidoFormulario.nombreOrdenador,color:'red',bold:true},
-                    '.\nSecretario(a) ',
-                    {text:contenidoFormulario.dependencia,color:'red'},
-                    '\nDepartamento del Quindío.\n\n\n\n',
-                ],alignment:'center'
+                    {text:'\n\nCordialmente,\n\n\n\n',alignment: 'left'},
+                    {text:contenidoFormulario.nombreOrdenador,color:'red',bold:true,alignment: 'center'},
+                    {text:'.\nSecretario(a) ',alignment: 'center'},
+                    {text:contenidoFormulario.dependencia,color:'red',alignment: 'center'},
+                    {text:'\nDepartamento del Quindío.\n\n\n\n',alignment: 'center'},
+                ],headlineLevel: 1,pageBreak: 'before'
             },
             {
                 text:[
                 'Proyectó:\n',
                 'Revisó:\n\n\n\n'
-                ],fontSize:10,alignment:'left'
+                ,{
+                    
+                }
+                ],fontSize:10,alignment:'left',headlineLevel: 1
             },
             {
                 table:{
-                    widths:['*','*','*'],
+                    widths:['*','*','*'],headlineLevel: 1,
                     body:[
                         [{text:'ELABORACIÓN',bold:true,fontSize:9},{text:'REVISIÓN',bold:true,fontSize:9},{text:'APROBACIÓN',bold:true,fontSize:9}],
                         [
@@ -829,6 +833,9 @@ formulario.addEventListener('submit', function(e){
             }
 
         ],
+        pageBreakBefore: function(currentNode, followingNodesOnPage, nodesOnNextPage, previousNodesOnPage) {
+            return currentNode.headlineLevel === 1 && followingNodesOnPage.length === 0;
+         },
         styles:{
             titulo:{
                 fontSize: 12,
@@ -870,5 +877,5 @@ valorContrato.oninput = function (e) {
 
 /*
 const numero = "1234567891011121";
-const result = numero.match(/.{1,4}/g).join(" ");
+const result = numero.match(/.{1,3}/g).join(".");
 console.log(result);*/
