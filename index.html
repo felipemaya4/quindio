@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!--pdfmake-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.9/pdfmake.min.js" integrity="sha512-5wC3oH3tojdOtHBV6B4TXjlGc0E2uk3YViSrWnv1VUmmVlQDAs1lcupsqqpwjh8jIuodzADYK5xCL5Dkg/ving==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.9/vfs_fonts.min.js" integrity="sha512-EFlschXPq/G5zunGPRSYqazR1CMKj0cQc8v6eMrQwybxgIbhsfoO5NAMQX3xFDQIbFlViv53o7Hy+yCWw6iZxA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!--css-->
@@ -64,19 +66,19 @@
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="valorContrato">Valor del contrato </label>
-                    <input class="form-control" type="number" name="valorContrato" id="valorContrato">
+                    <input class="form-control" type="text" name="valorContrato" id="valorContrato" data-type="currency" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" >
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="cantidadCuotas">Cantidad de cuotas </label> 
-                    <input class="form-control" type="number" name="cantidadCuotas" id="cantidadCuotas">
+                    <input class="form-control" type="text" name="cantidadCuotas" id="cantidadCuotas" data-type="currency" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" >
                 </div>
                 <div class="col-md-6 mb-3 order-last">
                     <label for="valorCuota">Valor cuota: </label>
-                    <input class="form-control" type="number" name="valorCuota" id="valorCuota" disabled readonly>
+                    <input class="form-control" type="number" name="valorCuota" id="valorCuota" disabled readonly data-type="currency" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" >
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="frecuenciaPagos">Frecuencia de pagos en días</label>
-                    <input class="form-control" type="number" name="frecuenciaPagos" id="frecuenciaPagos">
+                    <input class="form-control" type="number" name="frecuenciaPagos" id="frecuenciaPagos"data-type="currency" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" >
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="plazoEjecucion">Plazo de ejecucion en días</label>
@@ -157,6 +159,12 @@
         </form>
 
     </div>
+    <!--JQuery
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+
    <script type="text/javascript" src="hello-world.js"></script>
 </body>
 </html>
