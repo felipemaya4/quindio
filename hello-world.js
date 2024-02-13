@@ -12,6 +12,11 @@ let cantidadDeCuotas = document.getElementById('cantidadCuotas');
 let valorContrato = document.getElementById('valorContrato');
 let valorCuota = document.getElementById('valorCuota');
 
+function formatNumber(n) {
+    // format number 1000000 to 1,234,567
+    return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+}
+
 $(document).ready(function(){
     
 $("input[data-type='currency']").on({
@@ -22,12 +27,6 @@ $("input[data-type='currency']").on({
       formatCurrency($(this), "blur");
     }
 });
-
-
-function formatNumber(n) {
-  // format number 1000000 to 1,234,567
-  return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-}
 
 
 function formatCurrency(input, blur) {
@@ -50,6 +49,7 @@ function formatCurrency(input, blur) {
   var caret_pos = input.prop("selectionStart");
     
   // check for decimal
+  /*
   if (input_val.indexOf(".") >= 0) {
 
     // get position of first decimal
@@ -78,7 +78,7 @@ function formatCurrency(input, blur) {
     // join number by .
     input_val = "$" + left_side + "." + right_side;
 
-  } else {
+  } else {*/
     // no decimal entered
     // add commas to number
     // remove all non-digits
@@ -89,7 +89,7 @@ function formatCurrency(input, blur) {
     if (blur === "blur") {
       input_val;
     }
-  }
+ // }
   
   // send updated string to input
   input.val(input_val);
@@ -104,13 +104,17 @@ function formatCurrency(input, blur) {
 })
 //recibe dos valores en string, comprueba que no esten vacios o con numero 0 luego los convierte a number y los opera y retorna
 function calcularValorCuota(total,cantidad) {
+    let totalClean = total.replaceAll(',','');
+    let cantidadClean = cantidad.replaceAll(',','');
+
     if(cantidad == '' || total == ''|| total == '0' || cantidad == '0'){
         return '';
     }
     else{
         
-        let res = parseInt(total,0)/parseInt(cantidad,0);
-        return  String(res);
+        let res = parseInt(totalClean,0)/parseInt(cantidadClean,0);
+        res = Math.trunc(res)
+        return  String(formatNumber(String(res)));
     }
     
 }
@@ -123,12 +127,13 @@ valorContrato.addEventListener('input',function (e) {
     valorCuota.value = calcularValorCuota(this.value,cantidadDeCuotas.value)
 })
 //devolver su valor literal de un numero
+
 function valorEnLetras(numero) {
-    let cadenaNumero = Array.from(numero);
+    let cadenaNumero = Array.from(numero).reverse();
     let valorEnLetras =[];
-    let unidad = '9';
-    let decena = '0';
-    let centena = '1';
+    let unidad = cadenaNumero[0];
+    let decena = cadenaNumero[1];
+    let centena = cadenaNumero[2];
     switch (unidad) {
         case '0':
             
@@ -200,9 +205,9 @@ function valorEnLetras(numero) {
                     valorEnLetras.unshift('quince');
                     break;
                 default:
+                    valorEnLetras.unshift('dieci')
                     break;
             }
-            valorEnLetras.unshift('dieci')
             break;
         case '2':
             unidad == '0' ? valorEnLetras.unshift('veinte'): valorEnLetras.unshift('venti');
@@ -270,11 +275,64 @@ function valorEnLetras(numero) {
         default:
             break;
     }
-    console.log(valorEnLetras.join(''));
+    const res = valorEnLetras.join(' ')
+    return res;
+}
+function ordenNumero(n){
+    arregloNumero = n.split(',');
+    let enLetras = [];
+    let seperador =[];
+    arregloNumero.forEach(element => {
+        enLetras.push(valorEnLetras(element));
+    });
+
+    enLetras.forEach((value,index,arreglo) => {
+        switch (index) {
+            case 0:
+                if(value == 'uno'){
+                    console.log('un'); 
+                    arreglo[0] = 'un'
+                }
+                break;
+            case 1:
+                if(value == 'uno'){
+                    console.log('un'); 
+                    arreglo[index] = 'un'
+                }
+                seperador.unshift('mil');
+                break;
+            case 2:
+                seperador.unshift('millones');
+                break;
+            case 3:
+                seperador.unshift('mil');
+                break;
+            case 4:
+                seperador.unshift('billones');
+                break;
+            case 5:
+                seperador.unshift('mil');
+                break;
+            case 6:
+                seperador.unshift('trillones');
+                break;
+            case 7:
+                seperador.push('mil');
+                break;
+            case 8:
+                seperador.push('cuatrillones');
+                break;
+            default:
+                break;
+        }
+    }
+    );
     
+    console.log(enLetras);
+    console.log(seperador);
 }
 
-valorEnLetras('990');
+ordenNumero('1,001,000');
 //devuelve en letras el mes dado en numeros
 function mes(m){
     switch (m) {
@@ -370,8 +428,8 @@ function fechaCDP(fecha) {
 //agregar item a la lista de obligaciones conboton de borrar
 agregarObligacion.addEventListener('click', function(e){
     e.preventDefault();
-    if(obligacionesContratista.value == '')
-    {
+    console.log(e);
+    if(obligacionesContratista.value == ''){
         console.log('inserte datos');
     }else{
         // creacion de elementos li y button
@@ -414,9 +472,9 @@ formulario.addEventListener('submit', function(e){
     let lista = document.querySelectorAll('li');
     let listaObligaciones = [];
     
-    let valorContrato = parseInt( document.getElementById('valorContrato').value, 0);
-    let cantidadCuotas= parseInt( document.getElementById('cantidadCuotas').value, 0);
-    let valorCuota = new Intl.NumberFormat('en-DE').format(valorContrato/cantidadCuotas);
+    let valorContrato = document.getElementById('valorContrato').value;
+    let cantidadCuotas= document.getElementById('cantidadCuotas').value;
+    let valorCuota = document.getElementById('valorCuota').value;
     // obtener los valores de la lista de obligaciones para insertar en el objeto del formulario
     lista.forEach((li)=> {
         let text = li.firstChild.textContent; 
@@ -433,8 +491,8 @@ formulario.addEventListener('submit', function(e){
         objetoContrato : document.getElementById('objetoContrato').value,
         plazoEjecucion : document.getElementById('plazoEjecucion').value,
         ubicacion: 'Quindio',
-        valorContrato : String(Intl.NumberFormat('en-DE').format(parseInt(document.getElementById('valorContrato').value,0))),
-        catidadCuotas : String(Intl.NumberFormat('en-DE').format(parseInt(document.getElementById('cantidadCuotas').value,0))),
+        valorContrato : valorContrato,
+        catidadCuotas : cantidadCuotas,
         frecuenciaPagos : document.getElementById('frecuenciaPagos').value,
         valorCuotas: String(valorCuota),
         cdp : document.getElementById('cdp').value,

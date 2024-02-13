@@ -19,8 +19,8 @@
     <title>Formulario de estudios previos contrato prestacion de servicios</title>
 </head>
 <body>
-    <h1 class="h1 text-center">Formulario de estudios previos contrato prestacion de servicios</h1>
     <div class="container d-grid gap-3">
+        <h1 class="h1 text-center">Formulario de estudios previos contrato prestacion de servicios</h1>
         <form id="formulario" action="" method="post">
             <div class="row justify-content-lg-center">    
                 <div class="col-12 col-md-4 mb-3">
@@ -66,23 +66,23 @@
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="valorContrato">Valor del contrato </label>
-                    <input class="form-control" type="text" name="valorContrato" id="valorContrato" data-type="currency" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" >
+                    <input class="form-control" type="text" name="valorContrato" id="valorContrato" data-type="currency" pattern="^\d{1,3}(,\d{3})*(\.\d+)?$" >
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="cantidadCuotas">Cantidad de cuotas </label> 
-                    <input class="form-control" type="text" name="cantidadCuotas" id="cantidadCuotas" data-type="currency" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" >
+                    <input class="form-control" type="text" name="cantidadCuotas" id="cantidadCuotas" data-type="currency" pattern="^\d{1,3}(,\d{3})*(\.\d+)?$" >
                 </div>
                 <div class="col-md-6 mb-3 order-last">
                     <label for="valorCuota">Valor cuota: </label>
-                    <input class="form-control" type="number" name="valorCuota" id="valorCuota" disabled readonly data-type="currency" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" >
+                    <input class="form-control" type="text" name="valorCuota" id="valorCuota" disabled readonly pattern="^\d{1,3}(,\d{3})*(\.\d+)?$" >
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="frecuenciaPagos">Frecuencia de pagos en días</label>
-                    <input class="form-control" type="number" name="frecuenciaPagos" id="frecuenciaPagos"data-type="currency" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" >
+                    <input class="form-control" type="text" name="frecuenciaPagos" id="frecuenciaPagos"data-type="currency" pattern="^\d{1,3}(,\d{3})*(\.\d+)?$" >
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="plazoEjecucion">Plazo de ejecucion en días</label>
-                    <input class="form-control" type="number" name="plazoEjecucion" id="plazoEjecucion">
+                    <input class="form-control" type="text" name="plazoEjecucion" id="plazoEjecucion" data-type="currency" pattern="^\d{1,3}(,\d{3})*(\.\d+)?$">
                 </div>
             </div>
             <div class="row justify-content-lg-left mb-3 p-1 border rounded">
