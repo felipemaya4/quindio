@@ -39,6 +39,9 @@ function formatCurrency(input, blur) {
   
   // don't validate empty input
   if (input_val === "") { return; }
+  else if(input_val === "0"){
+    input_val = "";
+  }
   
   // original length
   var original_len = input_val.length;
