@@ -265,7 +265,7 @@ function valorEnLetras(numero) {
             valorEnLetras.unshift('setecientos ');
             break;
         case '8':
-            valorEnLetras.unshift('ochoocientos ');
+            valorEnLetras.unshift('ochocientos ');
             break;
         case '9':
             valorEnLetras.unshift('novecientos ');
@@ -279,60 +279,61 @@ function valorEnLetras(numero) {
     return res;
 }
 function ordenNumero(n){
-    arregloNumero = n.split(',');
+    let arregloNumero = n.split(',');
     let enLetras = [];
-    let seperador =[];
+    let separador =[];
+    let valorFinal =[];
     arregloNumero.forEach(element => {
         enLetras.push(valorEnLetras(element));
     });
-
+    enLetras.reverse();
     enLetras.forEach((value,index,arreglo) => {
         switch (index) {
             case 0:
-                if(value == 'uno'){
-                    console.log('un'); 
-                    arreglo[0] = 'un'
-                }
+        
                 break;
             case 1:
-                if(value == 'uno'){
-                    console.log('un'); 
-                    arreglo[index] = 'un'
-                }
-                seperador.unshift('mil');
+                separador.unshift('mil');
                 break;
             case 2:
-                seperador.unshift('millones');
+                separador.unshift('millones');
                 break;
             case 3:
-                seperador.unshift('mil');
+                separador.unshift('mil');
                 break;
             case 4:
-                seperador.unshift('billones');
+                separador.unshift('billones');
                 break;
             case 5:
-                seperador.unshift('mil');
+                separador.unshift('mil');
                 break;
             case 6:
-                seperador.unshift('trillones');
+                separador.unshift('trillones');
                 break;
             case 7:
-                seperador.push('mil');
+                separador.push('mil');
                 break;
             case 8:
-                seperador.push('cuatrillones');
+                separador.push('cuatrillones');
                 break;
             default:
                 break;
         }
     }
     );
-    
+    separador.reverse();
     console.log(enLetras);
-    console.log(seperador);
+    console.log(separador);
+
+    enLetras.forEach((value,index,arreglo) =>{
+        console.log(value);
+        if(index < separador.length)
+                console.log(separador[index]);
+    });
+
 }
 
-ordenNumero('1,001,000');
+ordenNumero('1,002,000,000,000,000,000');
 //devuelve en letras el mes dado en numeros
 function mes(m){
     switch (m) {
@@ -399,8 +400,6 @@ function mes(m){
         case 8  :
             return 'septiembre'
             break;
-        default:
-            break;
         case 9  :
             return 'octubre'
             break;
@@ -410,6 +409,8 @@ function mes(m){
         case 11 :
             return 'diciembre'
             break;
+        default:
+             break;
     }
 }
 // fecha en formato " dia de mes de año"
