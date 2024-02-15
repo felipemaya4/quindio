@@ -142,7 +142,7 @@ function valorEnLetras(numero) {
             if (decena == '1') {
                 break;
             }else
-                valorEnLetras.unshift('uno');
+                valorEnLetras.unshift('un');
             break;
         case '2':
             if (decena == '1') {
@@ -275,7 +275,7 @@ function valorEnLetras(numero) {
         default:
             break;
     }
-    const res = valorEnLetras.join(' ')
+    const res = valorEnLetras.join('')
     return res;
 }
 function ordenNumero(n){
@@ -321,19 +321,54 @@ function ordenNumero(n){
         }
     }
     );
-    separador.reverse();
+    enLetras.reverse();
     console.log(enLetras);
     console.log(separador);
 
     enLetras.forEach((value,index,arreglo) =>{
-        console.log(value);
-        if(index < separador.length)
-                console.log(separador[index]);
-    });
+        if( index === 0 && value === 'un'){
+            switch (separador[0]) {
+                case 'cuatrillones':
+                    valorFinal.push(value);
+                    valorFinal.push('cuatrillón')
+                    break;
+                case 'trillones':
+                    valorFinal.push(value);
+                    valorFinal.push('trillón')
+                    break;
+                case 'billones':
+                    valorFinal.push(value);
+                    valorFinal.push('billón')
+                    break;
+                case 'millones':
+                    valorFinal.push(value);
+                    valorFinal.push('millón')
+                    break;
+                case 'mil':
+                    valorFinal.push('mil')
+                default:
+                    break;
+            }
 
+
+        }
+        else if(value == '' && arreglo[index-1]== ''){
+
+        }
+        else if(value == '' && separador[index]=='mil'){
+
+            }
+        else{
+            valorFinal.push(arreglo[index]);
+            valorFinal.push(separador[index]);
+            
+        }
+        
+    });
+    console.log(valorFinal.join(' '));
 }
 
-ordenNumero('1,002,000,000,000,000,000');
+ordenNumero('1,010,000,000,001');
 //devuelve en letras el mes dado en numeros
 function mes(m){
     switch (m) {
