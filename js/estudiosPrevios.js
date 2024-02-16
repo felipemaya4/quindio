@@ -12,96 +12,6 @@ let cantidadDeCuotas = document.getElementById('cantidadCuotas');
 let valorContrato = document.getElementById('valorContrato');
 let valorCuota = document.getElementById('valorCuota');
 
-function formatNumber(n) {
-    // format number 1000000 to 1,234,567
-    return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-}
-
-$(document).ready(function(){
-    
-$("input[data-type='currency']").on({
-    keyup: function() {
-      formatCurrency($(this));
-    },
-    blur: function() { 
-      formatCurrency($(this), "blur");
-    }
-});
-
-
-function formatCurrency(input, blur) {
-  // appends $ to value, validates decimal side
-  // and puts cursor back in right position.
-  
-  // get input value
-  var input_val = input.val();
-  
-  // don't validate empty input
-  if (input_val === "") { return; }
-  else if(input_val === "0"){
-    input_val = "";
-  }
-  
-  // original length
-  var original_len = input_val.length;
-
-  // initial caret position 
-  var caret_pos = input.prop("selectionStart");
-    
-  // check for decimal
-  /*
-  if (input_val.indexOf(".") >= 0) {
-
-    // get position of first decimal
-    // this prevents multiple decimals from
-    // being entered
-    var decimal_pos = input_val.indexOf(".");
-
-    // split number by decimal point
-    var left_side = input_val.substring(0, decimal_pos);
-    var right_side = input_val.substring(decimal_pos);
-
-    // add commas to left side of number
-    left_side = formatNumber(left_side);
-
-    // validate right side
-    right_side = formatNumber(right_side);
-    
-    // On blur make sure 2 numbers after decimal
-    if (blur === "blur") {
-      right_side += "00";
-    }
-    
-    // Limit decimal to only 2 digits
-    right_side = right_side.substring(0, 2);
-
-    // join number by .
-    input_val = "$" + left_side + "." + right_side;
-
-  } else {*/
-    // no decimal entered
-    // add commas to number
-    // remove all non-digits
-    input_val = formatNumber(input_val);
-    input_val = input_val;
-    
-    // final formatting
-    if (blur === "blur") {
-      input_val;
-    }
- // }
-  
-  // send updated string to input
-  input.val(input_val);
-
-  // put caret back in the right position
-  var updated_len = input_val.length;
-  caret_pos = updated_len - original_len + caret_pos;
-  input[0].setSelectionRange(caret_pos, caret_pos);
-}
-
-
-})
 //recibe dos valores en string, comprueba que no esten vacios o con numero 0 luego los convierte a number y los opera y retorna
 function calcularValorCuota(total,cantidad) {
     let totalClean = total.replaceAll(',','');
@@ -126,339 +36,8 @@ valorContrato.addEventListener('input',function (e) {
     e.preventDefault();
     valorCuota.value = calcularValorCuota(this.value,cantidadDeCuotas.value)
 })
-//devolver su valor literal de un numero
 
-function valorEnLetras(numero) {
-    let cadenaNumero = Array.from(numero).reverse();
-    let valorEnLetras =[];
-    let unidad = cadenaNumero[0];
-    let decena = cadenaNumero[1];
-    let centena = cadenaNumero[2];
-    switch (unidad) {
-        case '0':
-            
-            break;
-        case '1':
-            if (decena == '1') {
-                break;
-            }else
-                valorEnLetras.unshift('un');
-            break;
-        case '2':
-            if (decena == '1') {
-                break;
-            }else
-                valorEnLetras.unshift('dos');
-            break;
-        case '3':
-            if (decena == '1') {
-                break;
-            }else
-                valorEnLetras.unshift('tres');
-            break;
-        case '4':
-            if (decena == '1') {
-                break;
-            }else
-                valorEnLetras.unshift('cuatro');
-            break;
-        case '5':
-            if (decena == '1') {
-                break;
-            }else
-                valorEnLetras.unshift('cinco');
-            break;
-        case '6':
-            valorEnLetras.unshift('seis');
-            break;
-        case '7':
-            valorEnLetras.unshift('siete');
-            break;
-        case '8':
-            valorEnLetras.unshift('ocho');
-            break;
-        case '9':
-            valorEnLetras.unshift('nueve');
-            break;
-        default:
-            break;
-    }
-    switch (decena) {
-        case '1':
-            switch (unidad) {
-                case '0':
-                    valorEnLetras.unshift('diez');
-                    break;
-                case '1':
-                    valorEnLetras.unshift('once');
-                    break;
-                case '2':
-                    valorEnLetras.unshift('doce');
-                     break;
-                case '3':
-                    valorEnLetras.unshift('trece');
-                    break;
-                case '4':
-                    valorEnLetras.unshift('catorce');
-                    break;
-                case '5':
-                    valorEnLetras.unshift('quince');
-                    break;
-                default:
-                    valorEnLetras.unshift('dieci')
-                    break;
-            }
-            break;
-        case '2':
-            unidad == '0' ? valorEnLetras.unshift('veinte'): valorEnLetras.unshift('venti');
-            break;
-        case '3':
-            unidad == '0'? valorEnLetras.unshift('treinta'): valorEnLetras.unshift('treinta y ');
-            break;
-        case '4':
-            unidad == '0'? valorEnLetras.unshift('cuarenta'): valorEnLetras.unshift('cuarenta y ');
-            break;            
-        case '5':
-            unidad == '0'? valorEnLetras.unshift('cincuenta'): valorEnLetras.unshift('cincuenta y ');
-            break;            
-        case '6':
-            unidad == '0'? valorEnLetras.unshift('sesenta'): valorEnLetras.unshift('sesenta y ');
-            break;            
-        case '7':
-            unidad == '0'? valorEnLetras.unshift('setenta'): valorEnLetras.unshift('setenta y ');
-            break;            
-        case '8':
-            unidad == '0'? valorEnLetras.unshift('ochenta'): valorEnLetras.unshift('ochenta y ');
-            break;            
-        case '9':
-            unidad == '0'? valorEnLetras.unshift('noventa'): valorEnLetras.unshift('noventa y ');
-            break;
-        case '0':
-
-            break;            
-        default:
-            break;
-    }
-    switch (centena) {
-        case '1':
-            if(decena == '0' && unidad == '0'){
-                valorEnLetras.unshift('cien ');
-            }else
-                valorEnLetras.unshift('ciento ');
-            break;
-        case '2':
-            valorEnLetras.unshift('docientos ');
-            break;
-        case '3':
-            valorEnLetras.unshift('trecientos ');
-            break;
-        case '4':
-            valorEnLetras.unshift('cuatrocientos ');
-            break;
-        case '5':
-            valorEnLetras.unshift('quinientos ');
-            break;
-        case '6':
-            valorEnLetras.unshift('seiscientos ');
-            break;
-        case '7':
-            valorEnLetras.unshift('setecientos ');
-            break;
-        case '8':
-            valorEnLetras.unshift('ochocientos ');
-            break;
-        case '9':
-            valorEnLetras.unshift('novecientos ');
-            break;
-        case '0':
-            break;
-        default:
-            break;
-    }
-    const res = valorEnLetras.join('')
-    return res;
-}
-function ordenNumero(n){
-    let arregloNumero = n.split(',');
-    let enLetras = [];
-    let separador =[];
-    let valorFinal =[];
-    arregloNumero.forEach(element => {
-        enLetras.push(valorEnLetras(element));
-    });
-    enLetras.reverse();
-    enLetras.forEach((value,index,arreglo) => {
-        switch (index) {
-            case 0:
-        
-                break;
-            case 1:
-                separador.unshift('mil');
-                break;
-            case 2:
-                separador.unshift('millones');
-                break;
-            case 3:
-                separador.unshift('mil');
-                break;
-            case 4:
-                separador.unshift('billones');
-                break;
-            case 5:
-                separador.unshift('mil');
-                break;
-            case 6:
-                separador.unshift('trillones');
-                break;
-            case 7:
-                separador.push('mil');
-                break;
-            case 8:
-                separador.push('cuatrillones');
-                break;
-            default:
-                break;
-        }
-    }
-    );
-    enLetras.reverse();
-    console.log(enLetras);
-    console.log(separador);
-
-    enLetras.forEach((value,index,arreglo) =>{
-        if( index === 0 && value === 'un'){
-            switch (separador[0]) {
-                case 'cuatrillones':
-                    valorFinal.push(value);
-                    valorFinal.push('cuatrillón')
-                    break;
-                case 'trillones':
-                    valorFinal.push(value);
-                    valorFinal.push('trillón')
-                    break;
-                case 'billones':
-                    valorFinal.push(value);
-                    valorFinal.push('billón')
-                    break;
-                case 'millones':
-                    valorFinal.push(value);
-                    valorFinal.push('millón')
-                    break;
-                case 'mil':
-                    valorFinal.push('mil')
-                default:
-                    break;
-            }
-
-
-        }
-        else if(value == '' && arreglo[index-1]== ''){
-
-        }
-        else if(value == '' && separador[index]=='mil'){
-
-            }
-        else{
-            valorFinal.push(arreglo[index]);
-            valorFinal.push(separador[index]);
-            
-        }
-        
-    });
-    console.log(valorFinal.join(' '));
-}
-
-ordenNumero('1,010,000,000,001');
-//devuelve en letras el mes dado en numeros
-function mes(m){
-    switch (m) {
-        case '01':
-            return 'enero'
-            break;
-        case '02':
-            return 'febrero'
-            break;
-        case '03':
-            return 'marzo'
-            break;
-        case '04':
-            return 'abril'
-            break;
-        case '05':
-            return 'mayo'
-            break;
-        case '06':
-            return 'junio'
-            break;
-        case '07':
-            return 'julio'
-            break;
-        case '08':
-            return 'agosto'
-            break;
-        case '09':
-            return 'septiembre'
-            break;
-        case '10':
-            return 'octubre'
-            break;
-        case '11':
-            return 'noviembre'
-            break;
-        case '12':
-            return 'diciembre'
-            break;
-        case 0  :
-            return 'enero'
-            break;
-        case 1  :
-            return 'febrero'
-            break;
-        case 2  :
-            return 'marzo'
-            break;
-        case 3  :
-            return 'abril'
-            break;
-        case 4  :
-            return 'mayo'
-            break;
-        case 5  :
-            return 'junio'
-            break;
-        case 6  :
-            return 'julio'
-            break;
-        case 7  :
-            return 'agosto'
-            break;
-        case 8  :
-            return 'septiembre'
-            break;
-        case 9  :
-            return 'octubre'
-            break;
-        case 10 :
-            return 'noviembre'
-            break;
-        case 11 :
-            return 'diciembre'
-            break;
-        default:
-             break;
-    }
-}
-// fecha en formato " dia de mes de año"
-function fechaCDP(fecha) {
-
-    let year = fecha.slice(0,4);
-    let month = fecha.slice(5,7);
-    let day = fecha.slice(8);
-    let fechaCDP;
-    let mesLetras = mes(month);
-    fechaCDP = day + ' de '+mesLetras+' de '+ year;
-    return fechaCDP
-}
+console.log(generarNumeroEnletras('101,202,001,000,001'));
 // mostrar el valor de cada cuota en el campo
 
 //agregar item a la lista de obligaciones conboton de borrar
@@ -503,14 +82,11 @@ formulario.addEventListener('submit', function(e){
     e.preventDefault();
     
     let fechaRealizacion = new Date();
-    let mesRealizacion = mes(fechaRealizacion.getMonth());
+    let mesRealizacion = mesNombre(fechaRealizacion.getMonth());
     let fechaRealizacionLetras = fechaRealizacion.getDate().toString()+' de '+ mesRealizacion  +' de '+fechaRealizacion.getFullYear().toString();
     let lista = document.querySelectorAll('li');
     let listaObligaciones = [];
-    
-    let valorContrato = document.getElementById('valorContrato').value;
-    let cantidadCuotas= document.getElementById('cantidadCuotas').value;
-    let valorCuota = document.getElementById('valorCuota').value;
+
     // obtener los valores de la lista de obligaciones para insertar en el objeto del formulario
     lista.forEach((li)=> {
         let text = li.firstChild.textContent; 
@@ -521,18 +97,23 @@ formulario.addEventListener('submit', function(e){
 
         numeroPrecontractual : document.getElementById('numeroPrecontractual').value,
         fechaRealizacion : fechaRealizacionLetras,
-        dependencia : document.getElementById('dependencia').value,
+        dependencia :document.getElementById('dependencia').value,
         tipoContrato : document.getElementById('tipoContrato').value,
         justificacion : document.getElementById('justificacion').value,
         objetoContrato : document.getElementById('objetoContrato').value,
         plazoEjecucion : document.getElementById('plazoEjecucion').value,
+        plazoEjecucionLiteral: generarNumeroEnletras(document.getElementById('plazoEjecucion').value),
         ubicacion: 'Quindio',
-        valorContrato : valorContrato,
-        catidadCuotas : cantidadCuotas,
+        valorContrato : document.getElementById('valorContrato').value,
+        valorContratoLiteral:generarNumeroEnletras(document.getElementById('valorContrato').value),
+        catidadCuotas : document.getElementById('cantidadCuotas').value,
+        cantidadCuotasLiteral:generarNumeroEnletras(document.getElementById('cantidadCuotas').value),
         frecuenciaPagos : document.getElementById('frecuenciaPagos').value,
-        valorCuotas: String(valorCuota),
+        frecuenciaPagosLiteral: generarNumeroEnletras(document.getElementById('frecuenciaPagos').value),
+        valorCuota: document.getElementById('valorCuota').value,
+        valorCuotaLiteral: generarNumeroEnletras(document.getElementById('valorCuota').value),
         cdp : document.getElementById('cdp').value,
-        fechaCdp : fechaCDP(document.getElementById('fechaCdp').value),
+        fechaCdp : fechaFormat(document.getElementById('fechaCdp').value),
         cargoFuncionario : document.getElementById('cargoFuncionario').value,
         gradoFuncionario : document.getElementById('gradoFuncionario').value,
         listaObligaciones : listaObligaciones,
@@ -542,10 +123,6 @@ formulario.addEventListener('submit', function(e){
         vigenciaFiscal : new Date().getFullYear().toString(),
     }
     console.log('contenidoFormulario :>> ', contenidoFormulario);
-
-    ////////////////////////////////////////////////////////
-    
-    ///////////////////////////////////////////////////////
 
     /////////////////////////////////////////////////////////////
     let pdfDocumet = {
@@ -698,7 +275,7 @@ formulario.addEventListener('submit', function(e){
                             ol:[
 
                                 {text:[{text:'TIPO DE CONTRATO A CELEBRAR:',style:'titulo'},' De conformidad con las actividades u obligaciones que ejecutará el futuro contratista, y en razón a que serán realizadas con autonomía e independencia, se trata en este caso de la tipología contractual de ',{text:'CONTRATO DE PRESTACIÓN DE SERVICIOS ',style:'titulo'},
-                                    {text:contenidoFormulario.tipoContrato,color:'red'},/// insercion de datos del formulario
+                                    {text:contenidoFormulario.tipoContrato,color:'red',bold:true},/// insercion de datos del formulario
                                     ' nominado el numeral 3º del artículo 32 de la Ley 80 del año 1993, como también nominado en el artículo 2.2.1.2.1.4.9 del Decreto 1082 del año 2015, el cual determina: ',{text:'"Los servicios profesionales y de apoyo a la gestión corresponden a aquellos de naturaleza intelectual diferentes a los de consultoría que se derivan del cumplimiento de las funciones de la Entidad Estatal, así como los relacionados con actividades operativas, logísticas, o asistenciales".\n\n',
                                     italics:true}
                                 ],bold: false},
@@ -709,9 +286,10 @@ formulario.addEventListener('submit', function(e){
                                 ],bold: false},
                                 
                                 {text:[ {text:'PLAZO DE EJECUCIÓN:',style: 'titulo'},' El plazo de ejecución del presente contrato será de ',
-                                {text:'_________letra(',color: 'red'},// numero ingresado por el ususario, tambien obtener su valor en letras 
+                                {text:contenidoFormulario.plazoEjecucionLiteral,color: 'red'},
+                                '(',// numero ingresado por el ususario, tambien obtener su valor en letras 
                                 {text:contenidoFormulario.plazoEjecucion,color: 'red'},// numero ingresado por el ususario, tambien obtener su calor en letras 
-                                ') días calendario contados a partir de la suscripción del acta de inicio y cumplimiento de requisitos establecidos en el artículo 41 de la Ley 80 de 1993 modificada por el artículo 23 de la Ley 1150 de 2007, y en todo caso el acuerdo de voluntades a suscribir no podrá exceder la vigencia fiscal ',
+                                ') DÍAS CALENDARIO contados a partir de la suscripción del acta de inicio y cumplimiento de requisitos establecidos en el artículo 41 de la Ley 80 de 1993 modificada por el artículo 23 de la Ley 1150 de 2007, y en todo caso el acuerdo de voluntades a suscribir no podrá exceder la vigencia fiscal ',
                                 {text:contenidoFormulario.vigenciaFiscal},
                                 '.\n\n'
                                 ],bold: false},
@@ -725,19 +303,24 @@ formulario.addEventListener('submit', function(e){
                                 {text:[
                                     {text:'VALOR Y FORMA DE PAGO: ',style:'titulo'},
                                     'El valor del presente contrato asciende a la suma de ',
-                                    {text:' _________letras ',color: 'red'},// valor del contrato en letras
+                                    {text:contenidoFormulario.valorContratoLiteral,color: 'red'},
+                                    'DE PESOS (',// valor del contrato en letras
                                     {text:contenidoFormulario.valorContrato,color:'red'},// valor del contrato en numeros
-                                    ', incluido IVA, impuestos o descuentos. ',
+                                    '), incluido IVA, impuestos o descuentos. ',
                                     {text: 'FORMA DE PAGO:',style: 'titulo'},
                                     ' El Departamento del Quindío cancelará el valor del futuro contrato mediante ',
-                                    {text:' ___letras____'},// cantidad de pagos en numero y letras
+                                    {text:contenidoFormulario.cantidadCuotasLiteral,color:'red'},
+                                    ' (',// cantidad de pagos en numero y letras
                                     {text:contenidoFormulario.catidadCuotas,color:'red'},// cantidad de pagos en numero y letras
-                                    ' pagos cada ',
+                                    ') pagos cada ',
+                                    {text:contenidoFormulario.frecuenciaPagosLiteral,color:'red'},
+                                    ' (',
                                     {text:contenidoFormulario.frecuenciaPagos,color:'red'}, // forma de pago
-                                    ' días calendario, cada uno por valor de ',
-                                    {text:' ______letras_____',color:'red'},// valor de cada aporte
-                                    {text:contenidoFormulario.valorCuotas,color:'red'},// valor de cada aporte
-                                    ', incluido IVA, impuestos o descuentos, previa presentación del informe de actividades ejecutadas durante cada mes de prestación de servicios o periodo prestado, en el que debe de constar la acreditación del pago de aportes a seguridad social, pensión y riesgos laborales por el porcentaje señalado en la Ley.',
+                                    ') DÍAS CALENDARIO, cada uno por valor de ',
+                                    {text:contenidoFormulario.valorCuotaLiteral,color:'red'},
+                                    'DE PESOS (',// valor de cada aporte
+                                    {text:contenidoFormulario.valorCuota,color:'red'},// valor de cada aporte
+                                    '), incluido IVA, impuestos o descuentos, previa presentación del informe de actividades ejecutadas durante cada mes de prestación de servicios o periodo prestado, en el que debe de constar la acreditación del pago de aportes a seguridad social, pensión y riesgos laborales por el porcentaje señalado en la Ley.',
                                     '\n\n'
                                     ],bold: false},
                                 {text:[
@@ -755,7 +338,7 @@ formulario.addEventListener('submit', function(e){
                                     {text:'SUPERVISIÓN DEL CONTRATO:',style:'titulo'},
                                     ' El control vigilancia y seguimiento del Contrato de Prestación de Servicios se realizará a través del ',
                                     {text:contenidoFormulario.cargoFuncionario,color:'red'},
-                                    'de grado ',
+                                    ' de grado ',
                                     {text:contenidoFormulario.gradoFuncionario,color:'red'},// cargo y grado select proporcionado por el usuario
                                     ' quien tendrá a cargo todas las facultades, deberes, responsabilidades y obligaciones contenidas en el artículo 84 de la Ley 1474 de 2011.',
                                     '\n\n'
@@ -863,9 +446,10 @@ formulario.addEventListener('submit', function(e){
             {
                 text:[
                     'El valor del contrato a celebrar se fija de conformidad con las distintas variables mencionadas en el Estudio del Sector, esto conforme con los requisitos de idoneidad y experiencia solicitados en el presente Estudio Previo. Así las cosas, se ha determinado que el valor de los honorarios a cancelar al futuro contratista ascenderá a la suma de: ',
-                    {text:'valor contrato en letras',color:'red'},
+                    {text:contenidoFormulario.valorContratoLiteral,color:'red'},
+                    ' DE PESOS (',
                     {text:contenidoFormulario.valorContrato,color:'red'},
-                    'incluido IVA, impuestos o descuentos.\n\n'
+                    '), incluido IVA, impuestos o descuentos.\n\n'
                 ],style:'defecto'
             },
             {
@@ -1051,20 +635,3 @@ formulario.addEventListener('submit', function(e){
     pdfDocGenerator.open();
     //pdfDocGenerator.download('estudios previos.pdf');
 });
-
-//insertar el punto de valor numerico pesos
-/*
-valorContrato.oninput = function (e) {
-    e.preventDefault();
-    let cifra = this.value;
-    let precio = new Intl.NumberFormat('en-DE').format(cifra);
-   // this.value = precio;
-
-    console.log(cifra,'precio',precio);
-}*/
-
-
-/*
-const numero = "1234567891011121";
-const result = numero.match(/.{1,3}/g).join(".");
-console.log(result);*/
