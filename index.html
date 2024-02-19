@@ -35,14 +35,29 @@
                     <label for="dependencia">Dependencia </label>
                     <select class="form-select" name="dependencia" id="dependencia" required>
                         <option value="">Seleccione una</option>
-                        <option value="juridica">Juridica</option>
-                        <option value="administrativa">Administrativa</option>
+                        <option value="Administrativa">Administrativa</option>
+                        <option value="Aguas e infraestructura">Aguas e infraestructura</option>
+                        <option value="Agricultura">Agricultura</option>
+                        <option value="Control interno diciplinario">Control interno diciplinario</option>
+                        <option value="Control interno de gestión">Control interno de gestión</option>
+                        <option value="Cultura">Cultura</option>
+                        <option value="Educación">Educación</option>
+                        <option value="Familia">Familia</option>
+                        <option value="Hacienda">Hacienda</option>
+                        <option value="Interior">Interior</option>
+                        <option value="Jurídica y contratación">Juridica y contratación</option>
+                        <option value="Planeación">Planeación</option>
+                        <option value="Privada">Privada</option>
+                        <option value="Representación judicial y defensa">Representacion judicial y defensa</option>
+                        <option value="Salud">Salud</option>
+                        <option value="TIC">TIC</option>
+                        <option value="Turismo">Turismo</option>
                         
                     </select>
                 </div>
                 <div class="col-12 col-md-4  mb-3">
                     <label for="">Tipo de contrato a celebrar </label>
-                    <select class="form-select" name="tipoContrato" id="tipoContrato">
+                    <select class="form-select" name="tipoContrato" id="tipoContrato" required>
                         <option value="">Seleccione una</option>
                         <option value="profesionales">Profesionales</option>
                         <option value="de apoyo a la gestión">Apoyo a la gestion</option>
@@ -53,13 +68,13 @@
                 <div class="col-lg-6 mb-3">
                     <label for="justificacion">Justificacion actividad</label>
                     <br>    
-                    <textarea class="form-control"  name="justificacion" id="justificacion" cols="30" rows="10" placeholder="A partir de acá, se deberá de realizar la respectiva justificación de la necesidad que se esta presentando, misma que da origen al proceso de selección, a su vez, deberá de indicar como se pretende satisfacer o, por medio de que profesional ejecutará el futuro contrato.&nbsp;Ahora bien, en el caso de futuros contratistas personas naturales profesionales con posgrados, deberá de justificar los motivos por medio de los cuales se requiere dicha especialidad para satisfacer la necesidad presentada"></textarea>
+                    <textarea class="form-control"  name="justificacion" id="justificacion" cols="30" rows="10" placeholder="A partir de acá, se deberá de realizar la respectiva justificación de la necesidad que se esta presentando, misma que da origen al proceso de selección, a su vez, deberá de indicar como se pretende satisfacer o, por medio de que profesional ejecutará el futuro contrato.&nbsp;Ahora bien, en el caso de futuros contratistas personas naturales profesionales con posgrados, deberá de justificar los motivos por medio de los cuales se requiere dicha especialidad para satisfacer la necesidad presentada" required></textarea>
                     <br>
                 </div>
                 <div class="col-lg-6 mb-3">
                     <label for="objetoContrato">Objeto de contrato a celebrar</label>
                     <br>
-                     <textarea class="form-control" name="objetoContrato" id="objetoContrato" cols="30" rows="10" placeholder="Para definir el objeto deberá de tener en cuenta la tipología contractual a emplear, las obligaciones específicas, la meta o proyecto a ejecutar"></textarea>
+                     <textarea class="form-control" name="objetoContrato" id="objetoContrato" cols="30" rows="10" placeholder="Para definir el objeto deberá de tener en cuenta la tipología contractual a emplear, las obligaciones específicas, la meta o proyecto a ejecutar" required></textarea>
                      <br>
                 </div>
             </div>
@@ -73,11 +88,11 @@
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="valorContrato">Valor del contrato </label>
-                    <input class="form-control" type="text" name="valorContrato" id="valorContrato" data-type="currency" pattern="^\d{1,3}(,\d{3})*(\.\d+)?$" >
+                    <input class="form-control" type="text" name="valorContrato" id="valorContrato" data-type="currency" pattern="^\d{1,3}(,\d{3})*(\.\d+)?$" required>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="cantidadCuotas">Cantidad de cuotas </label> 
-                    <input class="form-control" type="text" name="cantidadCuotas" id="cantidadCuotas" data-type="currency" pattern="^\d{1,3}(,\d{3})*(\.\d+)?$" >
+                    <input class="form-control" type="text" name="cantidadCuotas" id="cantidadCuotas" data-type="currency" pattern="^\d{1,3}(,\d{3})*(\.\d+)?$" required>
                 </div>
                 <div class="col-md-6 mb-3 order-last">
                     <label for="valorCuota">Valor cuota: </label>
@@ -85,21 +100,21 @@
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="frecuenciaPagos">Frecuencia de pagos en días</label>
-                    <input class="form-control" type="text" name="frecuenciaPagos" id="frecuenciaPagos"data-type="currency" pattern="^\d{1,3}(,\d{3})*(\.\d+)?$" >
+                    <input class="form-control" type="text" name="frecuenciaPagos" id="frecuenciaPagos"data-type="currency" pattern="^\d{1,3}(,\d{3})*(\.\d+)?$" required>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="plazoEjecucion">Plazo de ejecucion en días</label>
-                    <input class="form-control" type="text" name="plazoEjecucion" id="plazoEjecucion" data-type="currency" pattern="^\d{1,3}(,\d{3})*(\.\d+)?$">
+                    <input class="form-control" type="text" name="plazoEjecucion" id="plazoEjecucion" data-type="currency" pattern="^\d{1,3}(,\d{3})*(\.\d+)?$" required>
                 </div>
             </div>
             <div class="row justify-content-lg-left mb-3 p-1 border rounded">
                 <div class="col-md-6 mb-3">
                     <label for="cdp">Certificado disponibilidad presupuestal</label>
-                    <input class="form-control" type="number" name="cdp" id="cdp">
+                    <input class="form-control" type="number" name="cdp" id="cdp" required>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="fechaCdp">Fecha de CDP</label>
-                    <input class="form-control"  type="date" name="fechaCdp" id="fechaCdp">
+                    <input class="form-control"  type="date" name="fechaCdp" id="fechaCdp" required>
                 </div>
             </div>    
             
@@ -107,13 +122,18 @@
                 <div class="mb-2">
                     <label for="formaPago">Supervision del contrato</label>
                 </div>
-                <div class="col-md-6 mb-3">
-                    <label for="cargoFuncionario">Cargo</label>
-                    <input class="form-control" type="text"  name="cargoFuncionario" id="cargoFuncionario">
+                <div class="col-md-5 mb-3">
+                    <label for="codigoCargo">Código</label>
+                    <input class="form-control" type="text"  name="codigoCargo" id="codigoCargo" required>
                 </div>
-                <div class="col-md-6 mb-3">
+                <div class="col-md-5 mb-3">
+                    <label for="cargoFuncionario">Cargo</label>
+                    <input class="form-control" type="text"  name="cargoFuncionario" id="cargoFuncionario" required>
+                </div>
+                <div class="col-md-2 mb-3">
                     <label for="gradoFuncionario">Grado</label>
-                    <select class="form-select" name="gradoFuncionario" id="gradoFuncionario">
+                    <select class="form-select" name="gradoFuncionario" id="gradoFuncionario" required>
+                        <option value="">Seleccione uno</option>
                         <option value="01">01</option>
                         <option value="02">02</option>
                         <option value="03">03</option>
@@ -145,20 +165,30 @@
                 <div class="col-lg-6 mb-3">
                     <label for="idoneidad">Idoneidad</label>
                     <br>
-                    <textarea class="form-control" name="idoneidad" id="idoneidad" cols="30" rows="10" placeholder="Deberá de incluir que estudios que se solicitarán al futuro contratista, en caso de profesiones reguladas, deberá de solicitar la respectiva tarjeta profesional vigente"></textarea>
+                    <textarea class="form-control" name="idoneidad" id="idoneidad" cols="30" rows="10" placeholder="Deberá de incluir que estudios que se solicitarán al futuro contratista, en caso de profesiones reguladas, deberá de solicitar la respectiva tarjeta profesional vigente" required></textarea>
                     <br>
                 </div>
                 <div class="col-lg-6 mb-3">
                     <label for="experiencia">Experiencia</label>
                     <br>
-                    <textarea class="form-control" name="experiencia" id="experiencia" cols="30" rows="10" placeholder="Deberá de incluir la experiencia que se le solicitará al futuro contratista, esta puede ser laboral, profesional, relacionada, profesional relacionada, etc" ></textarea>
+                    <textarea class="form-control" name="experiencia" id="experiencia" cols="30" rows="10" placeholder="Deberá de incluir la experiencia que se le solicitará al futuro contratista, esta puede ser laboral, profesional, relacionada, profesional relacionada, etc" required></textarea>
                     <br>
                 </div>    
             </div>
             
             <div class="mb-3">
                 <label for="nombreOrdenador">Nombre del ordenador del gasto</label>
-                <input class="form-control" type="text" name="nombreOrdenador" id="nombreOrdenador">
+                <input class="form-control" type="text" name="nombreOrdenador" id="nombreOrdenador" required>
+            </div>
+            <div class="row justify-content-lg-center">    
+                <div class="col-12 col-md-6 mb-3">
+                    <label for="proyector">Proyectó</label>
+                    <input class="form-control" type="text" name="proyector" id="proyector" placeholder="Ingrese nombre del proyector" required>
+                </div>
+                <div class="col-12 col-md-6 mb-3">
+                    <label for="revisor">Revisó</label>
+                    <input class="form-control" type="tex" name="revisor" id="revisor" placeholder="Ingrese nombre del revisor" required>
+                </div>
             </div>
             <div class="mb-3 text-center">
                 <input class="btn btn-outline-secondary" type="submit" value="Generar Documento">

@@ -80,7 +80,6 @@ agregarObligacion.addEventListener('click', function(e){
 //obtener datos del formulario
 formulario.addEventListener('submit', function(e){
     e.preventDefault();
-    
     let fechaRealizacion = new Date();
     let mesRealizacion = mesNombre(fechaRealizacion.getMonth());
     let fechaRealizacionLetras = fechaRealizacion.getDate().toString()+' de '+ mesRealizacion  +' de '+fechaRealizacion.getFullYear().toString();
@@ -545,9 +544,9 @@ formulario.addEventListener('submit', function(e){
             {
                 text:[
                     {text:'\n\nCordialmente,\n\n\n\n',alignment: 'left'},
-                    {text:contenidoFormulario.nombreOrdenador,color:'red',bold:true,alignment: 'center'},
+                    {text:contenidoFormulario.nombreOrdenador,bold:true,alignment: 'center'},
                     {text:'.\nSecretario(a) ',alignment: 'center'},
-                    {text:contenidoFormulario.dependencia,color:'red',alignment: 'center'},
+                    {text:contenidoFormulario.dependencia,alignment: 'center'},
                     {text:'\nDepartamento del Quindío.\n\n\n\n',alignment: 'center'},
                 ],headlineLevel: 1,pageBreak: 'before'
             },
