@@ -103,7 +103,6 @@ formulario.addEventListener('submit', function(e){
         objetoContrato : document.getElementById('objetoContrato').value,
         plazoEjecucion : document.getElementById('plazoEjecucion').value,
         plazoEjecucionLiteral: generarNumeroEnletras(document.getElementById('plazoEjecucion').value),
-        ubicacion: 'Quindio',
         valorContrato : document.getElementById('valorContrato').value,
         valorContratoLiteral:generarNumeroEnletras(document.getElementById('valorContrato').value),
         catidadCuotas : document.getElementById('cantidadCuotas').value,
@@ -121,6 +120,7 @@ formulario.addEventListener('submit', function(e){
         experiencia : document.getElementById('experiencia').value,
         nombreOrdenador : document.getElementById('nombreOrdenador').value,
         vigenciaFiscal : new Date().getFullYear().toString(),
+        ubicacion : 'el Departamento del Quidío',
     }
     console.log('contenidoFormulario :>> ', contenidoFormulario);
 
@@ -194,20 +194,20 @@ formulario.addEventListener('submit', function(e){
                 text:[
                 {text: 'ESTUDIOS PREVIOS\n\n', fontSize: 12,bold: true},
                 {text: 'Fecha ', fontSize: 12},
-                {text: contenidoFormulario.fechaRealizacion, fontSize: 12,color:'red'}, // fecha dada por el sistema automaticamente
+                {text: contenidoFormulario.fechaRealizacion, fontSize: 12}, // fecha dada por el sistema automaticamente
                 {text: '.\n\n', fontSize: 12},
                 {text: 'Planeación Precontractual Nro. ', fontSize: 12},
-                {text: contenidoFormulario.numeroPrecontractual, fontSize: 12,color:'red'},// numero dado por el usuario
+                {text: contenidoFormulario.numeroPrecontractual, fontSize: 12},// numero dado por el usuario
                 {text: '.\n\n', fontSize: 12}
                 ],
                 alignment: 'center'
             },
             {
             text:[
-                'El Departamento del Quindío, en cumplimiento de lo señalado el Estatuto General de Contratación de la Administración Pública y en especial lo preceptuado en el literal b) del numeral 3º del artículo 11 de la Ley 80 de 1993, así como lo indicado en los numerales 6º, 7º, 9º y 12º del artículo 87 de la Ley 1474 de 2011, este último numeral modificado por el artículo 87 de la Ley 1474 de 2011 y atendiendo lo señalado en los artículos 2.2.1.1.2.1.1 y 2.2.1.2.1.4.9 del Decreto 1082 de 2015 como lo referido en el Manual de Contratación de esta entidad territorial del orden Departamental, la secretaria ',
-                {text:contenidoFormulario.dependencia,color:'red'}, // select secretarias existentes
-                'del Departamento del Quindío, procede a elaborar los presentes estudios previos para justificar la celebración de un Contrato de Prestación de Servicios ',
-                {text:contenidoFormulario.tipoContrato,color:'red'},// select entre esas dos opciones
+                'El Departamento del Quindío, en cumplimiento de lo señalado el Estatuto General de Contratación de la Administración Pública y en especial lo preceptuado en el literal b) del numeral 3º del artículo 11 de la Ley 80 de 1993, así como lo indicado en los numerales 6º, 7º y 12º del artículo 25 ibidem, este último numeral modificado por el artículo 87 de la Ley 1474 de 2011 y atendiendo lo señalado en los artículos 2.2.1.1.2.1.1 y 2.2.1.2.1.4.9 del Decreto 1082 de 2015 como lo referido en el Manual de Contratación de esta entidad territorial del orden Departamental, la secretaria ',
+                {text:contenidoFormulario.dependencia}, // select secretarias existentes
+                ' del Departamento del Quindío, procede a elaborar los presentes estudios previos para justificar la celebración de un Contrato de Prestación de Servicios ',
+                {text:contenidoFormulario.tipoContrato},// select entre esas dos opciones
                 ' bajo el siguiente desarrollo:\n\n'
             ],
             style: 'defecto',
@@ -256,11 +256,11 @@ formulario.addEventListener('submit', function(e){
             {
                 text:[
                     'El Departamento del Quindío, como entidad Estatal conforme lo indicado en el artículo 2º y 11º de la Ley 80 de 1993, cuenta con capacidad para celebrar contratos y de conformidad con la misión encargada Constitucional y Legalmente a dichos organismos territoriales, requiere la acción no sólo en temas de carácter misional que apunten al cumplimiento de los diferentes metas y líneas estratégicas contenidas en el Plan de Desarrollo Departamental, como también lo registrado en el Banco de Programas y Proyectos de Inversión, sino que de igual forma estará en la obligación de atender las diferentes actividades administrativas y de funcionamiento, esto con el fin de garantizarle a los administrados una correcta atención ciudadana y buena prestación de los servicios prestados por parte de esta entidad territorial.\n\n',
-                    {text: contenidoFormulario.justificacion, color:'red'},
+                    {text: contenidoFormulario.justificacion},
                     {text:'.'}, // datos    que ingresa el usuario
                     '\n\nAunado a lo anterior y de conformidad con lo dispuesto en el numeral 3° del artículo 32 de la Ley 80 de 1993, el Director (a)  Administrativo (a) de Talento Humano del Departamento el Quindío, certifica que en la Planta actual de personal de la entidad, no se dispone de personal suficiente que puedan ejecutar el objeto y las obligaciones del contrato que se pretende celebrar, por lo que se considera procedente celebrar en forma directa Contrato de Prestación de Servicios con una persona que acredite la idoneidad y experiencia necesaria para cumplir con las obligaciones contractuales.\n\n',
                     'Es necesario indicar que, dando cumplimiento a lo señalado en el artículo 74 de la Ley 1474 de 2011 y conforme con lo expresado en el artículo 2.2.1.1.1.4.1 del Decreto de 1082 de 2015 que hablan con respecto a los Planes de Acciones de las entidades Públicas y los planes anuales de adquisiones, es necesario indicar que la presente contratación se encuentra debidamente incluida en el Plan Anual de Adquisiciones del Departamento del Quindío para la vigencia fiscal ',
-                    {text:contenidoFormulario.vigenciaFiscal, color: 'red'},
+                    {text:contenidoFormulario.vigenciaFiscal},
                     '.\n\n',
                     'Finalmente, y en consonancia con lo desarrollado en el presente acápite, por tratarse de un Contrato de Prestación de Servicios, NO se requiere la obtención de varias ofertas, conforme a lo dispuesto por el articulo 2.2.1.2.1.4.9 del Decreto 1082 del año 2015, situación revalidada por el Honorable Consejo de Estado en la Sentencia Nro. 37044 de fecha 07 de marzo del año 2011, por lo tanto, bastará con recibir únicamente la oferta de la persona natural o jurídica a quien la Entidad le haya enviado la Invitación respectiva. No obstante, la selección del futuro contratista debe obedecer a criterios de Idoneidad (formación académica) y de experiencia (laboral o profesional) del oferente para ejecutar el objeto, las obligaciones específicas y generales que se han determinado en el Estudio Previo, mismas que obedecerán a las que se plasmen en el contrato o minuta contractual.',
                     '\n\n',
@@ -275,20 +275,20 @@ formulario.addEventListener('submit', function(e){
                             ol:[
 
                                 {text:[{text:'TIPO DE CONTRATO A CELEBRAR:',style:'titulo'},' De conformidad con las actividades u obligaciones que ejecutará el futuro contratista, y en razón a que serán realizadas con autonomía e independencia, se trata en este caso de la tipología contractual de ',{text:'CONTRATO DE PRESTACIÓN DE SERVICIOS ',style:'titulo'},
-                                    {text:contenidoFormulario.tipoContrato,color:'red',bold:true},/// insercion de datos del formulario
+                                    {text:contenidoFormulario.tipoContrato,bold:true},/// insercion de datos del formulario
                                     ' nominado el numeral 3º del artículo 32 de la Ley 80 del año 1993, como también nominado en el artículo 2.2.1.2.1.4.9 del Decreto 1082 del año 2015, el cual determina: ',{text:'"Los servicios profesionales y de apoyo a la gestión corresponden a aquellos de naturaleza intelectual diferentes a los de consultoría que se derivan del cumplimiento de las funciones de la Entidad Estatal, así como los relacionados con actividades operativas, logísticas, o asistenciales".\n\n',
                                     italics:true}
                                 ],bold: false},
                                 
                                 {text:[{text:'OBJETO DEL CONTRATO A CELEBRAR: ',style:'titulo'},
-                                    {text:contenidoFormulario.objetoContrato,color: 'red'},
+                                    {text:contenidoFormulario.objetoContrato},
                                     '\n\n'
                                 ],bold: false},
                                 
                                 {text:[ {text:'PLAZO DE EJECUCIÓN:',style: 'titulo'},' El plazo de ejecución del presente contrato será de ',
-                                {text:contenidoFormulario.plazoEjecucionLiteral,color: 'red'},
+                                {text:contenidoFormulario.plazoEjecucionLiteral},
                                 '(',// numero ingresado por el ususario, tambien obtener su valor en letras 
-                                {text:contenidoFormulario.plazoEjecucion,color: 'red'},// numero ingresado por el ususario, tambien obtener su calor en letras 
+                                {text:contenidoFormulario.plazoEjecucion},// numero ingresado por el ususario, tambien obtener su calor en letras 
                                 ') DÍAS CALENDARIO contados a partir de la suscripción del acta de inicio y cumplimiento de requisitos establecidos en el artículo 41 de la Ley 80 de 1993 modificada por el artículo 23 de la Ley 1150 de 2007, y en todo caso el acuerdo de voluntades a suscribir no podrá exceder la vigencia fiscal ',
                                 {text:contenidoFormulario.vigenciaFiscal},
                                 '.\n\n'
@@ -297,29 +297,29 @@ formulario.addEventListener('submit', function(e){
                                 {text:[
                                         {text:'LUGAR DE EJECUCIÓN:',style:'titulo'},
                                         {text:' El lugar de ejecución del presente contrato será en '},
-                                        {text:contenidoFormulario.ubicacion, color: 'red'},
+                                        {text:contenidoFormulario.ubicacion},
                                         {text:'.\n\n'}
                                 ],bold: false},/// ubicacion de realizacion de contrato
                                 {text:[
                                     {text:'VALOR Y FORMA DE PAGO: ',style:'titulo'},
                                     'El valor del presente contrato asciende a la suma de ',
-                                    {text:contenidoFormulario.valorContratoLiteral,color: 'red'},
+                                    {text:contenidoFormulario.valorContratoLiteral},
                                     'DE PESOS (',// valor del contrato en letras
-                                    {text:contenidoFormulario.valorContrato,color:'red'},// valor del contrato en numeros
+                                    {text:contenidoFormulario.valorContrato},// valor del contrato en numeros
                                     '), incluido IVA, impuestos o descuentos. ',
                                     {text: 'FORMA DE PAGO:',style: 'titulo'},
                                     ' El Departamento del Quindío cancelará el valor del futuro contrato mediante ',
-                                    {text:contenidoFormulario.cantidadCuotasLiteral,color:'red'},
+                                    {text:contenidoFormulario.cantidadCuotasLiteral},
                                     ' (',// cantidad de pagos en numero y letras
-                                    {text:contenidoFormulario.catidadCuotas,color:'red'},// cantidad de pagos en numero y letras
+                                    {text:contenidoFormulario.catidadCuotas},// cantidad de pagos en numero y letras
                                     ') pagos cada ',
-                                    {text:contenidoFormulario.frecuenciaPagosLiteral,color:'red'},
+                                    {text:contenidoFormulario.frecuenciaPagosLiteral},
                                     ' (',
-                                    {text:contenidoFormulario.frecuenciaPagos,color:'red'}, // forma de pago
+                                    {text:contenidoFormulario.frecuenciaPagos}, // forma de pago
                                     ') DÍAS CALENDARIO, cada uno por valor de ',
-                                    {text:contenidoFormulario.valorCuotaLiteral,color:'red'},
+                                    {text:contenidoFormulario.valorCuotaLiteral},
                                     'DE PESOS (',// valor de cada aporte
-                                    {text:contenidoFormulario.valorCuota,color:'red'},// valor de cada aporte
+                                    {text:contenidoFormulario.valorCuota},// valor de cada aporte
                                     '), incluido IVA, impuestos o descuentos, previa presentación del informe de actividades ejecutadas durante cada mes de prestación de servicios o periodo prestado, en el que debe de constar la acreditación del pago de aportes a seguridad social, pensión y riesgos laborales por el porcentaje señalado en la Ley.',
                                     '\n\n'
                                     ],bold: false},
@@ -327,9 +327,9 @@ formulario.addEventListener('submit', function(e){
                                     {text:'CERTIFICADO DE DISPONIBILIDAD PRESUPUESTAL PARA ASUMIR LAS OBLIGACIONES ECONÓMICAS ANTES REFERIDAS:',style:'titulo'},
                                     ' Para soportar el gasto antes referido, y garantizar el pago de las obligaciones económicas a cargo de esta Entidad derivadas del contrato a suscribirse; se ha solicitado el correspondiente ',
                                     {text:'Certificado de Disponibilidad Presupuestal Nro. ',style: 'titulo'},
-                                    {text: contenidoFormulario.cdp,color:'red'},// numero cdp proporcionado por elusuario
+                                    {text: contenidoFormulario.cdp},// numero cdp proporcionado por elusuario
                                     ' expedido el día ',
-                                    {text:contenidoFormulario.fechaCdp,color:'red'},//fecha que fue proporcionado el cdp
+                                    {text:contenidoFormulario.fechaCdp},//fecha que fue proporcionado el cdp
                                     ' por la Secretaria de Hacienda y Finanzas Públicas del Departamento del Quindío.',
                                     '\n\n'
                                     
@@ -337,9 +337,9 @@ formulario.addEventListener('submit', function(e){
                                 {text:[
                                     {text:'SUPERVISIÓN DEL CONTRATO:',style:'titulo'},
                                     ' El control vigilancia y seguimiento del Contrato de Prestación de Servicios se realizará a través del ',
-                                    {text:contenidoFormulario.cargoFuncionario,color:'red'},
+                                    {text:contenidoFormulario.cargoFuncionario},
                                     ' de grado ',
-                                    {text:contenidoFormulario.gradoFuncionario,color:'red'},// cargo y grado select proporcionado por el usuario
+                                    {text:contenidoFormulario.gradoFuncionario},// cargo y grado select proporcionado por el usuario
                                     ' quien tendrá a cargo todas las facultades, deberes, responsabilidades y obligaciones contenidas en el artículo 84 de la Ley 1474 de 2011.',
                                     '\n\n'
                                 ],bold: false},
@@ -433,7 +433,7 @@ formulario.addEventListener('submit', function(e){
                     'La escogencia del contratista se efectuará a través de la modalidad de selección denominada: ',
                     {text:'“Contratación Directa” consagrada en el artículo 2º numeral 4º de la Ley 1150 de 2007 invocando como causal para su celebración la descrita en el Literal H: “prestación de servicios profesionales y de apoyo a la gestión”',italics:true},
                     '; reglamentada por el Decreto 1082 del año 2015, en su artículo 2.2.1.2.1.4.9, el cual determina:',
-                    {text:'“…Las entidades estatales pueden contratar bajo la modalidad de contratación directa la prestación de servicios profesionales y de apoyo a la gestión con la persona natural o jurídica que esté en capacidad de ejecutar el objeto del contrato, siempre y cuando la entidad estatal verifique la idoneidad o experiencia requerida y relacionada con el área de que se trate. En este caso, no es necesario que la entidad estatal haya obtenido previamente varias ofertas, de lo cual el ordenador del gasto debe dejar constancia escrita…” Los servicios la Ley 1150 del año 2007 en su y de apoyo a la gestión corresponden a aquellos de naturaleza intelectual diferentes a los de consultoría',italics:true},{text:'1',sup:true,italics:true},{text:', que se derivan del cumplimiento de las funciones de la entidad estatal, así como los relacionados con actividades operativas, logísticas, o asistenciales.',italics:true},
+                    {text:'“…Las entidades estatales pueden contratar bajo la modalidad de contratación directa la prestación de servicios profesionales y de apoyo a la gestión con la persona natural o jurídica que esté en capacidad de ejecutar el objeto del contrato, siempre y cuando la entidad estatal verifique la idoneidad o experiencia requerida y relacionada con el área de que se trate. En este caso, no es necesario que la entidad estatal haya obtenido previamente varias ofertas, de lo cual el ordenador del gasto debe dejar constancia escrita…” Los servicios profesionales y de apoyo a la gestión corresponden a aquellos de naturaleza intelectual diferentes a los de consultoría',italics:true},{text:'1',sup:true,italics:true},{text:', que se derivan del cumplimiento de las funciones de la entidad estatal, así como los relacionados con actividades operativas, logísticas, o asistenciales.',italics:true},
                     '\n\n',
                 ],style:'defecto',
                 
@@ -446,9 +446,9 @@ formulario.addEventListener('submit', function(e){
             {
                 text:[
                     'El valor del contrato a celebrar se fija de conformidad con las distintas variables mencionadas en el Estudio del Sector, esto conforme con los requisitos de idoneidad y experiencia solicitados en el presente Estudio Previo. Así las cosas, se ha determinado que el valor de los honorarios a cancelar al futuro contratista ascenderá a la suma de: ',
-                    {text:contenidoFormulario.valorContratoLiteral,color:'red'},
+                    {text:contenidoFormulario.valorContratoLiteral},
                     ' DE PESOS (',
-                    {text:contenidoFormulario.valorContrato,color:'red'},
+                    {text:contenidoFormulario.valorContrato},
                     '), incluido IVA, impuestos o descuentos.\n\n'
                 ],style:'defecto'
             },
@@ -466,12 +466,12 @@ formulario.addEventListener('submit', function(e){
                         ol:[
                         {text:[
                                 {text:'IDONEIDAD:',style:'titulo'},{text:' El futuro contratista deberá de acreditar ',bold:false},
-                                {text:contenidoFormulario.idoneidad,color:'red'},
+                                {text:contenidoFormulario.idoneidad},
                                 '.\n\n'// datos ingresados por el usuario
                             ]},
                             {text:[
                                 {text:'EXPERIENCIA:',style:'titulo'},{text:' El futuro contratista deberá de acreditar experiencia ',bold:false},
-                                {text:contenidoFormulario.experiencia,color:'red'},
+                                {text:contenidoFormulario.experiencia},
                                 '.\n\n'// datos ingresados por el usuario
                             ]}
                         ]
@@ -553,8 +553,12 @@ formulario.addEventListener('submit', function(e){
             },
             {
                 text:[
-                'Proyectó:\n',
-                'Revisó:\n\n\n\n'
+                'Proyectó:',
+                {},
+                '\n',
+                'Revisó:',
+                {},
+                '\n\n\n\n'
                 ,{
                     
                 }
@@ -582,7 +586,7 @@ formulario.addEventListener('submit', function(e){
                                 text:[
                                     {text:'Elaborado por:',alignment:'left'},
                                     '\n\n\n',
-                                    {text:'Leidy Cecilia Valencia Camargo',alignment:'center'},
+                                    {text:'Juan Carlos Alfaro Garcia',alignment:'center'},
                                 ],fontSize: 9
                             }
                         ],
