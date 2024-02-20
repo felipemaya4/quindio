@@ -80,6 +80,11 @@ agregarObligacion.addEventListener('click', function(e){
 //obtener datos del formulario
 formulario.addEventListener('submit', function(e){
     e.preventDefault();
+    if(document.getElementsByTagName('li').length == 0){
+        console.log('agregue al menos una obligación');
+    }
+    else
+    {
     let fechaRealizacion = new Date();
     let mesRealizacion = mesNombre(fechaRealizacion.getMonth());
     let fechaRealizacionLetras = fechaRealizacion.getDate().toString()+' de '+ mesRealizacion  +' de '+fechaRealizacion.getFullYear().toString();
@@ -636,5 +641,6 @@ formulario.addEventListener('submit', function(e){
     ///////////////////////////////////////////////////////////////
     const pdfDocGenerator = pdfMake.createPdf(pdfDocumet);   
     pdfDocGenerator.open();
-    //pdfDocGenerator.download('estudios previos.pdf');
+
+}    //pdfDocGenerator.download('estudios previos.pdf');
 });
