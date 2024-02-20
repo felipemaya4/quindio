@@ -82,6 +82,7 @@ formulario.addEventListener('submit', function(e){
     e.preventDefault();
     if(document.getElementsByTagName('li').length == 0){
         console.log('agregue al menos una obligación');
+        obligacionesContratista.focus();
     }
     else
     {
@@ -119,10 +120,13 @@ formulario.addEventListener('submit', function(e){
         fechaCdp : fechaFormat(document.getElementById('fechaCdp').value),
         cargoFuncionario : document.getElementById('cargoFuncionario').value,
         gradoFuncionario : document.getElementById('gradoFuncionario').value,
+        codigoFuncionario: document.getElementById('codigoFuncionario').value,
         listaObligaciones : listaObligaciones,
         idoneidad : document.getElementById('idoneidad').value,
         experiencia : document.getElementById('experiencia').value,
         nombreOrdenador : document.getElementById('nombreOrdenador').value,
+        nombreProyector: document.getElementById('proyector').value,
+        nombreRevisor: document.getElementById('revisor').value ,
         vigenciaFiscal : new Date().getFullYear().toString(),
         ubicacion : 'el Departamento del Quidío',
     }
@@ -278,10 +282,11 @@ formulario.addEventListener('submit', function(e){
                             separator:['2.','.'],
                             ol:[
 
-                                {text:[{text:'TIPO DE CONTRATO A CELEBRAR:',style:'titulo'},' De conformidad con las actividades u obligaciones que ejecutará el futuro contratista, y en razón a que serán realizadas con autonomía e independencia, se trata en este caso de la tipología contractual de ',{text:'CONTRATO DE PRESTACIÓN DE SERVICIOS ',style:'titulo'},
-                                    {text:contenidoFormulario.tipoContrato,bold:true},/// insercion de datos del formulario
-                                    ' nominado el numeral 3º del artículo 32 de la Ley 80 del año 1993, como también nominado en el artículo 2.2.1.2.1.4.9 del Decreto 1082 del año 2015, el cual determina: ',{text:'"Los servicios profesionales y de apoyo a la gestión corresponden a aquellos de naturaleza intelectual diferentes a los de consultoría que se derivan del cumplimiento de las funciones de la Entidad Estatal, así como los relacionados con actividades operativas, logísticas, o asistenciales".\n\n',
-                                    italics:true}
+                                {text:[ {text:'TIPO DE CONTRATO A CELEBRAR:',style:'titulo'},' De conformidad con las actividades u obligaciones que ejecutará el futuro contratista, y en razón a que serán realizadas con autonomía e independencia, se trata en este caso de la tipología contractual de ',
+                                        {text:'CONTRATO DE PRESTACIÓN DE SERVICIOS ',style:'titulo'},
+                                        {text:contenidoFormulario.tipoContrato.toUpperCase(),bold:true},/// insercion de datos del formulario
+                                        ' nominado el numeral 3º del artículo 32 de la Ley 80 del año 1993, como también nominado en el artículo 2.2.1.2.1.4.9 del Decreto 1082 del año 2015, el cual determina: ',{text:'"Los servicios profesionales y de apoyo a la gestión corresponden a aquellos de naturaleza intelectual diferentes a los de consultoría que se derivan del cumplimiento de las funciones de la Entidad Estatal, así como los relacionados con actividades operativas, logísticas, o asistenciales".\n\n',
+                                        italics:true}
                                 ],bold: false},
                                 
                                 {text:[{text:'OBJETO DEL CONTRATO A CELEBRAR: ',style:'titulo'},
@@ -307,22 +312,22 @@ formulario.addEventListener('submit', function(e){
                                 {text:[
                                     {text:'VALOR Y FORMA DE PAGO: ',style:'titulo'},
                                     'El valor del presente contrato asciende a la suma de ',
-                                    {text:contenidoFormulario.valorContratoLiteral},
-                                    'DE PESOS (',// valor del contrato en letras
+                                    {text:contenidoFormulario.valorContratoLiteral},// valor del contrato en letras
+                                    ' PESOS ($',
                                     {text:contenidoFormulario.valorContrato},// valor del contrato en numeros
                                     '), incluido IVA, impuestos o descuentos. ',
                                     {text: 'FORMA DE PAGO:',style: 'titulo'},
                                     ' El Departamento del Quindío cancelará el valor del futuro contrato mediante ',
                                     {text:contenidoFormulario.cantidadCuotasLiteral},
-                                    ' (',// cantidad de pagos en numero y letras
-                                    {text:contenidoFormulario.catidadCuotas},// cantidad de pagos en numero y letras
+                                    ' (',// cantidad de pagos en letras
+                                    {text:contenidoFormulario.catidadCuotas},// cantidad de pagos en numero
                                     ') pagos cada ',
                                     {text:contenidoFormulario.frecuenciaPagosLiteral},
                                     ' (',
                                     {text:contenidoFormulario.frecuenciaPagos}, // forma de pago
                                     ') DÍAS CALENDARIO, cada uno por valor de ',
                                     {text:contenidoFormulario.valorCuotaLiteral},
-                                    'DE PESOS (',// valor de cada aporte
+                                    ' PESOS ($',// valor de cada aporte
                                     {text:contenidoFormulario.valorCuota},// valor de cada aporte
                                     '), incluido IVA, impuestos o descuentos, previa presentación del informe de actividades ejecutadas durante cada mes de prestación de servicios o periodo prestado, en el que debe de constar la acreditación del pago de aportes a seguridad social, pensión y riesgos laborales por el porcentaje señalado en la Ley.',
                                     '\n\n'
@@ -343,8 +348,10 @@ formulario.addEventListener('submit', function(e){
                                     ' El control vigilancia y seguimiento del Contrato de Prestación de Servicios se realizará a través del ',
                                     {text:contenidoFormulario.cargoFuncionario},
                                     ' de grado ',
-                                    {text:contenidoFormulario.gradoFuncionario},// cargo y grado select proporcionado por el usuario
-                                    ' quien tendrá a cargo todas las facultades, deberes, responsabilidades y obligaciones contenidas en el artículo 84 de la Ley 1474 de 2011.',
+                                    {text:contenidoFormulario.gradoFuncionario},
+                                    'con código ',
+                                    {text: contenidoFormulario.codigoFuncionario},// cargo y grado select proporcionado por el usuario
+                                    ', quien tendrá a cargo todas las facultades, deberes, responsabilidades y obligaciones contenidas en el artículo 84 de la Ley 1474 de 2011.',
                                     '\n\n'
                                 ],bold: false},
                                 {text:[
@@ -451,7 +458,7 @@ formulario.addEventListener('submit', function(e){
                 text:[
                     'El valor del contrato a celebrar se fija de conformidad con las distintas variables mencionadas en el Estudio del Sector, esto conforme con los requisitos de idoneidad y experiencia solicitados en el presente Estudio Previo. Así las cosas, se ha determinado que el valor de los honorarios a cancelar al futuro contratista ascenderá a la suma de: ',
                     {text:contenidoFormulario.valorContratoLiteral},
-                    ' DE PESOS (',
+                    ' PESOS ($',
                     {text:contenidoFormulario.valorContrato},
                     '), incluido IVA, impuestos o descuentos.\n\n'
                 ],style:'defecto'
@@ -470,12 +477,12 @@ formulario.addEventListener('submit', function(e){
                         ol:[
                         {text:[
                                 {text:'IDONEIDAD:',style:'titulo'},{text:' El futuro contratista deberá de acreditar ',bold:false},
-                                {text:contenidoFormulario.idoneidad},
+                                {text:contenidoFormulario.idoneidad,bold:false},
                                 '.\n\n'// datos ingresados por el usuario
                             ]},
                             {text:[
                                 {text:'EXPERIENCIA:',style:'titulo'},{text:' El futuro contratista deberá de acreditar experiencia ',bold:false},
-                                {text:contenidoFormulario.experiencia},
+                                {text:contenidoFormulario.experiencia,bold:false},
                                 '.\n\n'// datos ingresados por el usuario
                             ]}
                         ]
@@ -557,16 +564,13 @@ formulario.addEventListener('submit', function(e){
             },
             {
                 text:[
-                'Proyectó:',
-                {},
-                '\n',
-                'Revisó:',
-                {},
-                '\n\n\n\n'
-                ,{
-                    
-                }
-                ],fontSize:10,alignment:'left',headlineLevel: 1
+                        'Proyectó: ',
+                        {text: contenidoFormulario.nombreProyector},
+                        '.\n',
+                        'Revisó: ',
+                        {text: contenidoFormulario.nombreRevisor},
+                        '.\n\n\n\n'
+                        ],fontSize:10,alignment:'left',headlineLevel: 1
             },
             {
                 table:{

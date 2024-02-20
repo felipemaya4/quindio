@@ -167,7 +167,7 @@ function generarNumeroEnletras(n){
         switch (index) {
             case 0:
                 if(value.includes('un')){
-                   // arreglo[0] = value+'o'; // si el ultimo numero es uno se adicioano al o para que diga uno en lgar de 'un'
+                   // arreglo[0] = value+'o'; // si el ultimo numero es uno se adicioano al o para que diga uno en lugar de 'un'
                 }
                 break;
             case 1:
@@ -237,6 +237,36 @@ function generarNumeroEnletras(n){
         }
         
     });
+    // segun sea el caso adicionar o no la plabra "de" para escribir la expresion "de pesos" o "pesos"
+    const [last] = valorFinal.slice(-1)
+    switch (last) {
+        case 'millones':
+            valorFinal.push('de');
+            break;
+        case 'billones':
+            valorFinal.push('de');
+            break;
+        case 'trillones':
+            valorFinal.push('de');
+            break;
+        case 'cuatrillones':
+            valorFinal.push('de');
+            break;
+        case 'millón':
+            valorFinal.push('de');
+            break;
+        case 'billón':
+            valorFinal.push('de');
+            break;
+        case 'trillón':
+            valorFinal.push('de');
+            break;
+        case 'cuatrillón':
+            valorFinal.push('de');
+            break;
+        default:
+            break;
+    }
     res = valorFinal.join(' ');
     return res.toUpperCase();
 }
