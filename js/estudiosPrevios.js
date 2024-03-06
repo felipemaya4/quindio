@@ -264,7 +264,7 @@ formulario.addEventListener('submit', function(e){
                     {text:contenidoFormulario.vigenciaFiscal},
                     '.\n\n',
                     'Finalmente, y en consonancia con lo desarrollado en el presente acápite, por tratarse de un Contrato de Prestación de Servicios ',
-                    {text:contenidoFormulario.tipoContrato,color:'red'},
+                    {text:contenidoFormulario.tipoContrato},
                     ', NO se requiere la obtención de varias ofertas, conforme a lo dispuesto por el articulo 2.2.1.2.1.4.9 del Decreto 1082 del año 2015, situación revalidada por el Honorable Consejo de Estado en la Sentencia Nro. 37044 de fecha 07 de marzo del año 2011, por lo tanto, bastará con recibir únicamente la oferta de la persona natural o jurídica a quien la Entidad le haya enviado la Invitación respectiva. No obstante, la selección del futuro contratista debe obedecer a criterios de Idoneidad (formación académica) y de experiencia (laboral o profesional) del oferente para ejecutar el objeto, las obligaciones específicas y generales que se han determinado en el Estudio Previo, mismas que obedecerán a las que se plasmen en el contrato o minuta contractual.',
                     '\n\n',
                 ],
@@ -468,7 +468,7 @@ formulario.addEventListener('submit', function(e){
             {
                 text:[
                     'Por tratarse de Contratos de Prestación de Servicios ',
-                    {text:contenidoFormulario.tipoContrato,color:'red'},
+                    {text:contenidoFormulario.tipoContrato},
                     ', no es necesario obtener varias ofertas y la selección se realizará teniendo en cuenta la experiencia y/o idoneidad del proponente para ejecutar el objeto contractual. Por lo tanto, en este caso, de acuerdo con el objeto del futuro contrato y las obligaciones específicas a cumplir, la Gobernación del Quindío determina que la persona natural oferente a contratar deberá acreditar los siguientes requisitos o perfil para proceder a la celebración del contrato:\n\n'
                      ],style:'defecto'
             },
