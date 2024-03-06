@@ -212,7 +212,7 @@ formulario.addEventListener('submit', function(e){
             },
             {
             text:[
-                'El Departamento del Quindío, en cumplimiento de lo señalado el Estatuto General de Contratación de la Administración Pública y en especial lo preceptuado en el literal b) del numeral 3º del artículo 11 de la Ley 80 de 1993, así como lo indicado en los numerales 6º, 7º y 12º del artículo 25 ibidem, este último numeral modificado por el artículo 87 de la Ley 1474 de 2011 y atendiendo lo señalado en los artículos 2.2.1.1.2.1.1 y 2.2.1.2.1.4.9 del Decreto 1082 de 2015 como lo referido en el Manual de Contratación de esta entidad territorial del orden Departamental, la secretaria ',
+                'El Departamento del Quindío, en cumplimiento de lo señalado el Estatuto General de Contratación de la Administración Pública y en especial lo preceptuado en el literal b) del numeral 3º del artículo 11 de la Ley 80 de 1993, así como lo indicado en los numerales 6º, 7º y 12º del artículo 25 ibidem, este último numeral modificado por el artículo 87 de la Ley 1474 de 2011 y atendiendo lo señalado en los artículos 2.2.1.1.2.1.1 y 2.2.1.2.1.4.9 del Decreto 1082 de 2015, así como lo referido en el Manual de Contratación de esta entidad territorial del orden Departamental, la secretaria ',
                 {text:contenidoFormulario.dependencia}, // select secretarias existentes
                 ' del Departamento del Quindío, procede a elaborar los presentes estudios previos para justificar la celebración de un Contrato de Prestación de Servicios ',
                 {text:contenidoFormulario.tipoContrato},// select entre esas dos opciones
@@ -228,7 +228,7 @@ formulario.addEventListener('submit', function(e){
                 //alignment: 'justify',
             },
             {
-                text: [ 'De conformidad con lo consagrado en la Constitución Política de Colombia, donde en su artículo 286 menciona: “Son ',
+                text: [ 'De conformidad con lo consagrado en la Constitución Política de Colombia, cuyo artículo 286 menciona: “Son ',
                 { text:'entidades territoriales los departamentos',bold:true},
                 ', los distritos, los municipios y los territorios indígenas (…)” seguidamente en su artículo 287 se estableció que las Entidades Territoriales gozan de autonomía para la gestión de sus intereses, y dentro de los límites de la Constitución y la Ley. En tal virtud tendrán los siguientes derechos: “2. Ejercer las competencias que les correspondan”.\n\n',
                 'Con el fin de garantizar lo anterior, en el marco de lo contemplado en el artículo 2º numeral 3º y artículo 3º de la Ley 80 de 1993, se colige que articulado indicado anteriormente atiende lo relacionado con los deberes constitucionales, los fines de la Contratación Estatal corresponde al cumplimiento de los fines estatales y la continua y eficiente prestación de los servicios públicos, trayéndose a colación los siguientes presupuestos constitucionales:\n\n'
@@ -249,17 +249,9 @@ formulario.addEventListener('submit', function(e){
             {
                 text:[
                     'El Estatuto General de Contratación de la Administración Pública establece en sus artículos 24, 25 y 26 los Principios de: Transparencia en conexidad con el principio de Publicidad, Economía y Responsabilidad, respectivamente, y de manera específica en lo que concierne a la expedición del presente estudio previo, se debe dar plena aplicación a lo allí establecido en el sentido de motivar, justificar y describir de manera clara y precisa la necesidad que se pretende satisfacer con la celebración del contrato que resultará del presente documento precontractual.\n\n',
-                    'A su vez, el Decreto 1082 de 2015, por medio del cual se expide el decreto único reglamentario del sector administrativo de planeación nacional, estableció en el Artículo 2.2.1.2.1.4.9 que:\n\n',
                 ],
                 style: 'defecto',
 
-            },
-            {
-                text:[
-                    {text:'“Las Entidades Estatales pueden contratar bajo la modalidad de contratación directa la prestación de servicios profesionales y de apoyo a la gestión con la persona natural o jurídica que esté en capacidad de ejecutar el objeto del contrato',bold:true},
-                    ', siempre y cuando la Entidad Estatal verifique la idoneidad o experiencia requerida y relacionada con el área de que se trate. En este caso, no es necesario que la Entidad Estatal haya obtenido previamente varias ofertas, de lo cual el ordenador del gasto debe dejar constancia escrita”.\n\n'
-                ],
-                style: 'comillas'
             },
             {
                 text:[
@@ -267,10 +259,13 @@ formulario.addEventListener('submit', function(e){
                     {text: contenidoFormulario.justificacion},
                     {text:'.'}, // datos    que ingresa el usuario
                     '\n\nAunado a lo anterior y de conformidad con lo dispuesto en el numeral 3° del artículo 32 de la Ley 80 de 1993, el Director (a)  Administrativo (a) de Talento Humano del Departamento el Quindío, certifica que en la Planta actual de personal de la entidad, no se dispone de personal suficiente que puedan ejecutar el objeto y las obligaciones del contrato que se pretende celebrar, por lo que se considera procedente celebrar en forma directa Contrato de Prestación de Servicios con una persona que acredite la idoneidad y experiencia necesaria para cumplir con las obligaciones contractuales.\n\n',
+// OJO CONTRATOS CON OBJETO IGUAL pendiente agregar parrafo de modificacion
                     'Es necesario indicar que, dando cumplimiento a lo señalado en el artículo 74 de la Ley 1474 de 2011 y conforme con lo expresado en el artículo 2.2.1.1.1.4.1 del Decreto de 1082 de 2015 que hablan con respecto a los Planes de Acciones de las entidades Públicas y los planes anuales de adquisiones, es necesario indicar que la presente contratación se encuentra debidamente incluida en el Plan Anual de Adquisiciones del Departamento del Quindío para la vigencia fiscal ',
                     {text:contenidoFormulario.vigenciaFiscal},
                     '.\n\n',
-                    'Finalmente, y en consonancia con lo desarrollado en el presente acápite, por tratarse de un Contrato de Prestación de Servicios, NO se requiere la obtención de varias ofertas, conforme a lo dispuesto por el articulo 2.2.1.2.1.4.9 del Decreto 1082 del año 2015, situación revalidada por el Honorable Consejo de Estado en la Sentencia Nro. 37044 de fecha 07 de marzo del año 2011, por lo tanto, bastará con recibir únicamente la oferta de la persona natural o jurídica a quien la Entidad le haya enviado la Invitación respectiva. No obstante, la selección del futuro contratista debe obedecer a criterios de Idoneidad (formación académica) y de experiencia (laboral o profesional) del oferente para ejecutar el objeto, las obligaciones específicas y generales que se han determinado en el Estudio Previo, mismas que obedecerán a las que se plasmen en el contrato o minuta contractual.',
+                    'Finalmente, y en consonancia con lo desarrollado en el presente acápite, por tratarse de un Contrato de Prestación de Servicios ',
+                    {text:contenidoFormulario.tipoContrato,color:'red'},
+                    ', NO se requiere la obtención de varias ofertas, conforme a lo dispuesto por el articulo 2.2.1.2.1.4.9 del Decreto 1082 del año 2015, situación revalidada por el Honorable Consejo de Estado en la Sentencia Nro. 37044 de fecha 07 de marzo del año 2011, por lo tanto, bastará con recibir únicamente la oferta de la persona natural o jurídica a quien la Entidad le haya enviado la Invitación respectiva. No obstante, la selección del futuro contratista debe obedecer a criterios de Idoneidad (formación académica) y de experiencia (laboral o profesional) del oferente para ejecutar el objeto, las obligaciones específicas y generales que se han determinado en el Estudio Previo, mismas que obedecerán a las que se plasmen en el contrato o minuta contractual.',
                     '\n\n',
                 ],
                 style: 'defecto'
@@ -349,7 +344,7 @@ formulario.addEventListener('submit', function(e){
                                     {text:contenidoFormulario.cargoFuncionario},
                                     ' de grado ',
                                     {text:contenidoFormulario.gradoFuncionario},
-                                    'con código ',
+                                    ' con código ',
                                     {text: contenidoFormulario.codigoFuncionario},// cargo y grado select proporcionado por el usuario
                                     ', quien tendrá a cargo todas las facultades, deberes, responsabilidades y obligaciones contenidas en el artículo 84 de la Ley 1474 de 2011.',
                                     '\n\n'
@@ -444,7 +439,9 @@ formulario.addEventListener('submit', function(e){
                     'La escogencia del contratista se efectuará a través de la modalidad de selección denominada: ',
                     {text:'“Contratación Directa” consagrada en el artículo 2º numeral 4º de la Ley 1150 de 2007 invocando como causal para su celebración la descrita en el Literal H: “prestación de servicios profesionales y de apoyo a la gestión”',italics:true},
                     '; reglamentada por el Decreto 1082 del año 2015, en su artículo 2.2.1.2.1.4.9, el cual determina:',
-                    {text:'“…Las entidades estatales pueden contratar bajo la modalidad de contratación directa la prestación de servicios profesionales y de apoyo a la gestión con la persona natural o jurídica que esté en capacidad de ejecutar el objeto del contrato, siempre y cuando la entidad estatal verifique la idoneidad o experiencia requerida y relacionada con el área de que se trate. En este caso, no es necesario que la entidad estatal haya obtenido previamente varias ofertas, de lo cual el ordenador del gasto debe dejar constancia escrita…” Los servicios profesionales y de apoyo a la gestión corresponden a aquellos de naturaleza intelectual diferentes a los de consultoría',italics:true},{text:'1',sup:true,italics:true},{text:', que se derivan del cumplimiento de las funciones de la entidad estatal, así como los relacionados con actividades operativas, logísticas, o asistenciales.',italics:true},
+                    {text:'“…Las entidades estatales pueden contratar bajo la modalidad de contratación directa la prestación de servicios profesionales y de apoyo a la gestión con la persona natural o jurídica que esté en capacidad de ejecutar el objeto del contrato, siempre y cuando la entidad estatal verifique la idoneidad o experiencia requerida y relacionada con el área de que se trate. En este caso, no es necesario que la entidad estatal haya obtenido previamente varias ofertas, de lo cual el ordenador del gasto debe dejar constancia escrita…” Los servicios profesionales y de apoyo a la gestión corresponden a aquellos de naturaleza intelectual diferentes a los de consultoría',italics:true},
+                    {text:'1',sup:true,italics:true},
+                    {text:', que se derivan del cumplimiento de las funciones de la entidad estatal, así como los relacionados con actividades operativas, logísticas, o asistenciales.',italics:true},
                     '\n\n',
                 ],style:'defecto',
                 
@@ -456,7 +453,7 @@ formulario.addEventListener('submit', function(e){
             },
             {
                 text:[
-                    'El valor del contrato a celebrar se fija de conformidad con las distintas variables mencionadas en el Estudio del Sector, esto conforme con los requisitos de idoneidad y experiencia solicitados en el presente Estudio Previo. Así las cosas, se ha determinado que el valor de los honorarios a cancelar al futuro contratista ascenderá a la suma de: ',
+                    'El valor del contrato a celebrar se fija de conformidad con las distintas variables mencionadas en el Estudio del Sector, esto conforme con los requisitos de idoneidad y experiencia solicitados en el presente Estudio Previo. Así las cosas, se ha determinado que el valor total de los honorarios a cancelar al futuro contratista ascenderá a la suma de: ',
                     {text:contenidoFormulario.valorContratoLiteral},
                     ' PESOS ($',
                     {text:contenidoFormulario.valorContrato},
@@ -469,7 +466,11 @@ formulario.addEventListener('submit', function(e){
                 ],style:'defecto',bold:true
             },
             {
-                text:['Por tratarse de Contratos de Prestación de Servicios, no es necesario obtener varias ofertas y la selección se realizará teniendo en cuenta la experiencia y/o idoneidad del proponente para ejecutar el objeto contractual. Por lo tanto, en este caso, de acuerdo con el objeto del futuro contrato y las obligaciones específicas a cumplir, la Gobernación del Quindío determina que la persona natural oferente a contratar deberá acreditar los siguientes requisitos o perfil para proceder a la celebración del contrato:\n\n'],style:'defecto'
+                text:[
+                    'Por tratarse de Contratos de Prestación de Servicios ',
+                    {text:contenidoFormulario.tipoContrato,color:'red'},
+                    ', no es necesario obtener varias ofertas y la selección se realizará teniendo en cuenta la experiencia y/o idoneidad del proponente para ejecutar el objeto contractual. Por lo tanto, en este caso, de acuerdo con el objeto del futuro contrato y las obligaciones específicas a cumplir, la Gobernación del Quindío determina que la persona natural oferente a contratar deberá acreditar los siguientes requisitos o perfil para proceder a la celebración del contrato:\n\n'
+                     ],style:'defecto'
             },
             {   
                 ol:[
@@ -490,34 +491,10 @@ formulario.addEventListener('submit', function(e){
                 ],style:'defecto',bold:true
             },
             {
-                text:'Además de lo anterior, debe cumplir con los siguientes requisitos:\n\n',style:'defecto'
-            },
-            {
                 ol:[
-                    {   separator:['',')'],
-                        type: 'upper-alpha',
-                        ol:[
-                        {bold:false,text:'Propuesta técnica y económica.'},
-                        {bold:false,text:'Fotocopia de la cédula de ciudadanía. '},
-                        {bold:false,text:'Libreta'},
-                        {bold:false,text:'Formato único de hoja de vida de la Función Pública Sigep II. '},
-                        {bold:false,text:'Publicación proactiva declaración de bienes y rentas y registro de conflictos de interés de la Ley 2013 de 2019.'},
-                        {bold:false,text:'Fotocopia del Registro Único Tributario (RUT).'},
-                        {bold:false,text:'Fotocopia del diploma y/o acta de grado y tarjeta profesional.'},
-                        {bold:false,text:'Certificaciones de experiencia.'},
-                        {bold:false,text:'Certificado de antecedentes judiciales, disciplinarios, fiscales, medidas correctivas, Delitos Sexuales, Registro de Deudores Alimentarios Morosos (REDAM), Boletín de Deudores Morosos del Estado).'},
-                        {bold:false,text:'Antecedentes de la profesión.'},
-                        {bold:false,text:'Entrevista de conocimiento sobre posibles inhabilidades e incompatibilidades.'},
-                        {bold:false,text:'Examen medico preocupacional.'},
-                        {bold:false,text:'Los demás documentos solicitados en la invitación pública y lista de chequeo para contratos de prestación de servicios.\n\n'}
-                        
-                        ]
+                    {text:'TIPIFICACIÓN, ESTIMACIÓN, ASIGNACIÓN Y CUANTIFICACIÓN DE LOS RIESGOS PREVISIBLES QUE PUEDAN AFECTAR EL EQUILIBRIO ECONÓMICO DURANTE LA EJECUCIÓN DEL CONTRATO \n\n',
+                    style:'titulo',counter:6
                     }
-                ],style:'defecto',bold:true
-            },
-            {
-                ol:[
-                    {text:'TIPIFICACIÓN, ESTIMACIÓN, ASIGNACIÓN Y CUANTIFICACIÓN DE LOS RIESGOS PREVISIBLES QUE PUEDAN AFECTAR EL EQUILIBRIO ECONÓMICO DURANTE LA EJECUCIÓN DEL CONTRATO \n\n',style:'titulo',counter:6}
                 ],style:'defecto',bold:true
             },
             {
@@ -618,9 +595,6 @@ formulario.addEventListener('submit', function(e){
             }
 
         ],
-        pageBreakBefore: function(currentNode, followingNodesOnPage, nodesOnNextPage, previousNodesOnPage) {
-            return currentNode.headlineLevel === 1 && followingNodesOnPage.length === 0;
-         },
         styles:{
             titulo:{
                 fontSize: 12,
