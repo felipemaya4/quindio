@@ -51,15 +51,28 @@ let pdfDocumet = {
         {
             text:[  {text:'nombre y cédula de contratista'},
                     '\n\n',
-                    {text:'Asunto: INVITACIÓN PARA PROCESO DE CONTATACIÓN DIRECTA'}
+                    {text:'Asunto: INVITACIÓN PARA PROCESO DE CONTATACIÓN DIRECTA'},
+                    '\n\n\n',
                 ],
             alignment: 'left',bold:'true'
+        },
+        {
+            text:[
+                {text:'EL DEPARTAMENTO DEL QUINDIO, de conformidad con lo dispuesto en el artículo 2, numeral 4), literal h) de la ley 1150 de 2007, en concordancia con lo establecido en el artículo 2.2.1.2.1.4.9 del Decreto 1082 del 2015, se permite invitarlo a presentar oferta para participar en el proceso de contratación Directa para el Contrato, cuyo objeto es'},
+                {text:'objeto del contrato',collor:'red'},// objeto del contrato del estudio previo
+                '\n\n',
+                {text:'SU OFERTA DEBERA SUJETARSE A LOS SIGUIENTES PARAMETROS:'}
+                ],
+            alignment: 'justify'
+        },
+        {
+            
         }
     ],
     defaultStyle:{
 
-        fontSize: 11,
-        lineHeight: 0.9
+        fontSize: 11.5,
+        lineHeight: 1
     },
     styles:{
         
