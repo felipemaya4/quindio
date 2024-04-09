@@ -108,6 +108,29 @@ let pdfDocumet = {
                 ]
             }
         },
+        {
+            text:[
+                '\n\n',
+                {text:'GARANTÍAS QUE DEBERÁN CONSTITUIRSE',bold:'true'},
+                '\n\n',
+                {text:'En consideración al tipo de procedimiento de selección, esto es Contratación Directa, teniendo en cuenta lo señalado en el artículo 2.2.1.2.1.4.5 del Decreto 1082 de 2015 y lo estipulado en los Estudios Previos en el presente caso No se requerirá de la constitución de Garantía Única.'},
+                '\n\n',
+                {text:'VERIFICACIÓN DE IDONEIDAD Y EXPERIENCIA:',bold:'true'},
+                '\n\n',
+                {text:'Para el presente proceso de contratación directa, de conformidad con el objeto del contrato a desarrollar y de acuerdo con lo indicado en los estudios previos, el oferente deberá acreditar con los documentos señalados las condiciones requeridas para el ejercicio de su contrato.'},
+                '\n\n',
+                {text:'IDONEIDAD',bold:'true',color:'red'},
+                '\n\n',
+                {text:'EXPERIENCIA',bold:'true',color:'red'},
+                '\n\n',
+                {text:'Tales condiciones serán verificadas por la entidad al momento de analizar la oferta y podrán ser solicitadas aclaraciones a los documentos no presentados o la presentación de documentos no incluidos en la oferta. En caso de no cumplir con las condiciones señaladas en la presente invitación la oferta será rechazada. Atentamente,'},
+                '\n\n',
+                {text:'nombre secretario',color:'red'},
+                '\n',
+                {text:'nombre de secretaria',color:'red'}
+
+            ]
+        }
     ],
     defaultStyle:{
 
