@@ -102,7 +102,7 @@ let pdfInvitacion = {
                 {text:'Tales condiciones serán verificadas por la entidad al momento de analizar la oferta y podrán ser solicitadas aclaraciones a los documentos no presentados o la presentación de documentos no incluidos en la oferta. En caso de no cumplir con las condiciones señaladas en la presente invitación la oferta será rechazada. Atentamente,'},
                 '\n\n',
                 {text:'nombre secretario',color:'red'},
-                '\n',
+                '\nSecretario',
                 {text:'nombre de secretaria',color:'red'}
 
             ]
