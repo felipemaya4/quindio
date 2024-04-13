@@ -3,27 +3,16 @@ let pdfMinuta={
     pageMargins: [ 83, 145, 83, 80 ],// [left, top, right, bottom]
     footer:function(currentPage, pageCount, pageSize){
     // let footerContent=[]
-        if(currentPage == (pageCount-2)){
+        if(currentPage == 1 && false){
             return[{
                 text:[
-                    '_____________________________________\n',
+                    
                     {text:'1',sup:true},
-                    {text: ' Ley 1150 del 2007 Artículo 2 Numeral 3.'},
-                ],margin:[83,0,83,10],fontSize:8, alignment: 'left'
-            }]
-        }
-        else if(currentPage == pageCount){
-            return[{
-                text:[
-                    '_____________________________________\n',
-                    {text:'2',sup:true},
-                    {text: ' www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=77653',color:'blue',link:true},
-                    '\n',
-                    {text:'3',sup:true},
-                    {text: ' colombiacompra.gov.co/sites/cce_public/files/cce_documents/manual_manejo_de_acuerdos_comerciales_24nov2021_1.pdf',color:'blue',link:true},
-                ],
-                margin:[83,0,83,10],fontSize:8, alignment: 'left'
-            }]
+                ],fontSize:8, alignment: 'justify',margin:[83,0,83,10]
+            },
+        ]
+        }else{
+            
         }
     },
     header: function(currentPage, pageCount, pageSize) {
@@ -97,18 +86,30 @@ let pdfMinuta={
                 {text:'numero y fecha de acta de posesion',color:'red'},
                 {text:', quien se encuentra debidamente autorizado para celebrar el presente contrato conforme con las facultadas otorgadas por el Sr. Gobernador '},
                 {text:'JUAN MIGUEL GALVIS BEDOYA',bold:'true'},
-                {text:'A, identificado con cédula de ciudadanía Nro. 89.006.347 de Armenia Q., quien actúa en nombre y representación del Departamento del Quindío conforme con el Acta de Posesión Nro. 001 del 01 de enero de 2024 emitida por la Asamblea Departamental del Quindío y acorde con la autorización y competencia contenida en el Estatuto General de Contratación de la Administración Pública que permite a los Gobernadores celebrar contratos tal y como lo dispone el numeral 3, literal b) del artículo 11 de la Ley 80 de 1993, ello en concordancia con lo señalado en el numeral 9 del artículo 300 de la Carta Política, con en el numeral 31 del artículo 19 de la Ley 2200 de 2022, y el artículo 104 de la Ordenanza 022 de 2014, '},
+                {text:', identificado con cédula de ciudadanía Nro. 89.006.347 de Armenia Q., quien actúa en nombre y representación del Departamento del Quindío conforme con el Acta de Posesión Nro. 001 del 01 de enero de 2024 emitida por la Asamblea Departamental del Quindío y acorde con la autorización y competencia contenida en el Estatuto General de Contratación de la Administración Pública que permite a los Gobernadores celebrar contratos tal y como lo dispone el numeral 3, literal b) del artículo 11 de la Ley 80 de 1993, ello en concordancia con lo señalado en el numeral 9 del artículo 300 de la Carta Política, con en el numeral 31 del artículo 19 de la Ley 2200 de 2022, y el artículo 104 de la Ordenanza 022 de 2014, '},
                 {text:'“por medio del cual se actualiza y adopta el estatuto orgánico del presupuesto del nivel central y sus entidades descentralizadas del Departamento del Quindío”,',style:'comillas'},
                 {text:'en el que señala:'},
                 {text:'“la afectación para las apropiaciones para gastos estará a cargo del Gobernador en el Departamento, del presidente de la asamblea departamental, del contralor en el organismo a su cargo, y del representante legal en las entidades descentralizadas como ordenadores. El Gobernador podrá delegar en los secretarios de despacho y jefes de dependencias en el ámbito de las respectivas competencias, de acuerdo con las normas vigentes y las necesidades del servicio”',style:'comillas'},
-                {text:' (Negrilla fuera de texto), así como lo que al respecto ha venido estableciendo el Consejo de Estado, órgano de cierre de la jurisdicción contenciosa administrativa1, y teniendo en cuenta el Decreto de Delegación Nro. 00262 del 11 de enero de 2024, quien en adelante y para efectos del presente acuerdo contractual se denominará'},
+                {text:' (Negrilla fuera de texto), así como lo que al respecto ha venido estableciendo el Consejo de Estado, órgano de cierre de la jurisdicción contenciosa administrativa'},
                 {text:'1',sup:true},
-                {text:'y teniendo en cuenta el Decreto de Delegación Nro. 00262 del 11 de enero de 2024, quien en adelante y para efectos del presente acuerdo contractual se denominará'},
+                {text:', y teniendo en cuenta el Decreto de Delegación Nro. 00262 del 11 de enero de 2024, quien en adelante y para efectos del presente acuerdo contractual se'}
+
+            ],alignment:'justify'
+        },
+        {
+            text:[ {text:'_____________________________________\n'},
+            {text:'1',sup:true},
+            {text:'Consejo de Estado,Sala de lo Contencioso Administrativo. Sección Tercera. Subsección C. Radicado 55.878 del 8 de agosto de  2023, M.P Guillermo Sánchez Luque. “ 7. El Consejo de Estado ha señalado que la autorización general para contratar,  en  el  caso  de  los  departamentos,  estácontenida  en  la  Ley  80  de  1993  (art.  11),  en  el  Estatuto  Orgánico  del Presupuesto (art. 110) y en la aprobación anual que hacen las asambleas departamentales del presupuesto general de la entidad territorial (art. 300.5). La autorización a que alude el artículo 300-9 de la Constitución solamente puede tener carácter excepcional y para los casos en que la leylo exija expresamente. Consejo de Estado. Sala de lo Contencioso Administrativo. Sección Tercera. Subsección B. Radicado 67250. Fallo del 16 de agosto del 2022. M.P. Alberto Montaña Plata. “19. A fin de determinar el alcance del artículo 300, numeral 9, superior, corresponde, necesariamente, realizar una interpretación armónica de varias disposiciones de nuestro ordenamiento jurídico relativas a la autorización de gobernadores para suscribir contratos. En primer lugar, la ya referida autorización general contenida en el Estatuto General de Contratación Pública permite a los gobernadores dirigir licitaciones y celebrar contratos. Además, el artículo 110 del Estatuto Orgánico del Presupuesto dispone que el jefe de cada órgano tiene la capacidad de contratar y comprometer a nombre de la persona jurídica de la cual hace parte, y ordenar el gasto en desarrollo de las apropiaciones incorporadas en la respectiva sección;lo cual es aplicable a las entidades territoriales y, por tanto, a los gobernadores. Por último, el artículo 25, numeral 11, de la Ley 80 de 1993 señalaexpresamente que “las corporaciones de elección popular y los organismos de control y vigilancia no intervendrán  en  los procesos de contratación.',fontSize:8,alignment:'justify'}
+            ]
+        },
+        {
+            text:[
+                {text:'denominará '},
                 {text:'EL DEPARTAMENTO',bold:true},
                 {text:', de una parte y por la otra,'},
                 {text:'nombre de contratista',color:'red',bold:true},
                 {text:', mayor de edad, vecino de la ciudad de Armenia, Q., identificado con cédula de ciudadanía Nro.'},
-                {text:'numero y cuidad de residencia',color:'red'},
+                {text:'numero y cuidad de residencia',color:'red'}, 
                 {text:'., persona natural, quien en adelante para efectos de este contrato se llamará'},
                 {text:'EL CONTRATISTA',bold:true},
                 {text:'A, hemos convenido celebrar el presente Contrato de Prestación de Servicios de Apoyo a la Gestión, conforme a las cláusulas que a continuación se señalan, previas las siguientes'},
@@ -132,8 +133,8 @@ let pdfMinuta={
                 {text:'para que presentara la oferta bajo los parámetros señalados en la invitación emitida; '},
                 {text:'7)',bold:true},
                 {text:' Que, una vez presentada la oferta y verificados los documentos aportados por la oferente, se verificó que EL CONTRATISTA cumple con las condiciones requeridas, así mismo, que cuenta con la idoneidad y experiencia suficientes para desarrollar el objeto del contrato y que su ofrecimiento en términos económicos resulta estar acorde con el presupuesto oficial determinado por la entidad;'},
-                {text:'8)',bold:true},
-                {text:') Que, en cumplimiento de lo establecido por el artículo 2.2.1.2.1.4.9 del Decreto 1082 de 2015, la delegada por el Contratante, ha dejado constancia escrita en el expediente contractual a través del '},
+                {text:' 8)',bold:true},
+                {text:' Que, en cumplimiento de lo establecido por el artículo 2.2.1.2.1.4.9 del Decreto 1082 de 2015, la delegada por el Contratante, ha dejado constancia escrita en el expediente contractual a través del '},
                 {text:'nombre de secretaria',color:'red'},
                 {text:', que el oferente, es idóneo para cumplir con el objeto del contrato;'},
                 {text:'9)',bold:true},
@@ -277,15 +278,62 @@ let pdfMinuta={
                 {text:'De conformidad con lo señalado en el artículo 7º de la Ley 527 de 1999, Decreto 2364 de 2012 como las diferentes guías para el uso y manejo del Secop II para entidades Estatales y proveedores, la suscripción del contrato será realizada a través de los flujos de aprobación y firmas electrónicas establecidas en el Sistema Electrónico de Contratación Pública Secop II, por lo tanto, su aprobación indicará expresamente que acepta todas las condiciones y obligaciones contenidas dentro del presente contrato.'},
                 {text:'\n\nAprobación del contrato y Firma Electrónica: ',bold:true},
                 {text:'La Plataforma del SECOP II maneja para los procesos de selección y los contratos celebrados la firma electrónica. El SECOP II se rige por las normas que regulan y se aplican dentro del Sistema de Compras Públicas y por aquellos que rigen el comercio electrónico. Así las cosas, quien se inscribe en tal sistema, obtiene una firma electrónica con su usuario y contraseña, la cual es '},
-                {text:'personal  e intransferible,',bold:true,decoration:'underline'},
-                {text:'y obliga por medio de esta firma a quien suscriba el presente contrato, o a la persona a la que el firmante representa. La firma electrónica que manejan los usuarios del SECOP II cumple con los requisitos de confiabilidad de las firmas electrónicas exigidos en  el  artículo  4º  del  Decreto  2364  de  2012,  como  que  los  datos  de  creación  de  la  firma corresponden exclusivamente al firmante. En consecuencia, es posible detectar cualquier alteración no permitida posterior al momento de la firma o suscripción electrónica, gracias al sello y constancia de tiempo real que contiene el Sistema Electrónico de Contratación Pública Secop II.'},
+                {text:'personal  e intransferible',bold:true,decoration:'underline'},
+                {text:', y obliga por medio de esta firma a quien suscriba el presente contrato, o a la persona a la que el firmante representa. La firma electrónica que manejan los usuarios del SECOP II cumple con los requisitos de confiabilidad de las firmas electrónicas exigidos en  el  artículo  4º  del  Decreto  2364  de  2012,  como  que  los  datos  de  creación  de  la  firma corresponden exclusivamente al firmante. En consecuencia, es posible detectar cualquier alteración no permitida posterior al momento de la firma o suscripción electrónica, gracias al sello y constancia de tiempo real que contiene el Sistema Electrónico de Contratación Pública Secop II.'},
                 {text:'2',sup:true},
-                {text:''},
+                {text:'\n\n'},
             ],
-            alignment:'justify'
+            alignment:'justify',headlineLevel:2
         },
         {
-            
+            text:[
+                {text:'Revisó: Leidy Cecilia Valencia Camargo -Directora Administrativa de Contratación.\n'},
+                {text:'Aprobó: Juan Carlos Alfaro García -Secretario Jurídico y de Contratación\n\n\n\n'}
+            ],fontSize: 10,alignment:'left'
+        },
+        {
+            table:{
+                widths:['*','*','*'],headlineLevel: 1,
+                body:[
+                    [{text:'ELABORACIÓN',bold:true,fontSize:9},{text:'REVISIÓN',bold:true,fontSize:9},{text:'APROBACIÓN',bold:true,fontSize:9}],
+                    [
+                        {text:[
+                            {text:'Elaborado por:',alignment:'left'},
+                            '\n\n\n',
+                            {text:'Andrés Felipe Duarte Rojas',alignment:'center'},
+                            ],fontSize: 9
+                        },
+                        {text:[
+                            {text:'Revisado por:',alignment:'left'},
+                            '\n\n\n',
+                            {text:'Leidy Cecilia Valencia Camargo',alignment:'center'},
+                            ],fontSize: 9
+                        },
+                        {
+                            text:[
+                                {text:'Elaborado por:',alignment:'left'},
+                                '\n\n\n',
+                                {text:'Juan Carlos Alfaro Garcia',alignment:'center'},
+                            ],fontSize: 9
+                        }
+                    ],
+                    [
+                    {text:'Cargo: Jefe de Estudios Previos',fontSize:9},
+                    {text:'Cargo: Directora de Contratación',fontSize:9},
+                    {text:'Cargo: Secretaria de Despacho',fontSize:9}
+                    ]
+                ]
+                
+            },
+            layout: {
+                    // Definir el estilo de los bordes
+                    hLineWidth: function (i, node) {
+                        return (i === 0 || i === node.table.body.length) ? 0.5 : 0.5;
+                    },
+                    vLineWidth: function (i, node) {
+                        return (i === 0 || i === node.table.widths.length) ? 0.5 : 0.5;
+                    },
+            }
         }
 
 
