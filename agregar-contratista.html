@@ -3,21 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <!--pdfmake-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.9/pdfmake.min.js" integrity="sha512-5wC3oH3tojdOtHBV6B4TXjlGc0E2uk3YViSrWnv1VUmmVlQDAs1lcupsqqpwjh8jIuodzADYK5xCL5Dkg/ving==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.9/vfs_fonts.min.js" integrity="sha512-EFlschXPq/G5zunGPRSYqazR1CMKj0cQc8v6eMrQwybxgIbhsfoO5NAMQX3xFDQIbFlViv53o7Hy+yCWw6iZxA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!--css-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!--js and bundle-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <!--pdfmake library
+    <script type="text/javascript" src="pdfmake.min.js"></script>
+    <script src="vfs_fonts.min.js"></script>
+    -->
+
+    <!-- imagenes en base 64 -->
+    <script type="text/javascript" src="js/imagenes_base64.js"></script>
+    
+    <!--supabase library-->
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <!--conexion DB-->
+    <script type="text/javascript" src="/js/conexionDB.js"></script>
+    <!--
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    -->
+
+
     <title>agregar contratista</title>
 </head>
 <body>
     <div>
-        <form action="">
+        <form action="" id="formContratista">
             <h3>Datos parsonales </h3>
             <label for="">nombres</label>
-            <label for="">apellidos</label>
-            <label for="">tipo de documento</label>
-            <label for="">numero de documento</label>
-            <label for="">lugar de expedición</label>
-            <label for="">direccion</label>
+            <input type="text" name="" id="nombre">
             
-
+            <label for="">apellidos</label>
+            <input type="text" name="" id="apellido">
+            
+            <label for="">tipo de documento</label>
+            <input type="text" name="" id="tipoDocumento">
+            
+            <label for="">numero de documento</label>
+            <input type="text" name="" id="numeroIdentificacion">
+            
+            <label for="">lugar de expedición</label>
+            <input type="text" name="" id="expDocumento">
+            
+            <label for="">direccion</label>
+            <input type="text" name="" id="direccion">
+            
+            <input type="submit" id="agregarContratista" value="Agregar contratista">
+            
+            
         </form>
     </div>
+    <!---->
+    <script type="text/javascript" src="/js/contratista.js"></script>
 </body>
 </html>

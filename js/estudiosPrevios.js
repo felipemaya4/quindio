@@ -1,18 +1,18 @@
 
-
 let formulario =document.getElementById('formulario');
 let agregarObligacion = document.getElementById('agregarObligacion');
 let obligacionesContratista = document.getElementById('obligacionesContratista');
 let listaObligaciones = document.getElementById('listaObligaciones');
 let obligacionesValues = [];
 let indice = 0;
-//funcion para calcular valor de cuota de pago
+
 let cantidadDeCuotas = document.getElementById('cantidadCuotas');
 let valorContrato = document.getElementById('valorContrato');
 let valorCuota = document.getElementById('valorCuota');
-
+//funcion para calcular valor de cuota de pago
 //recibe dos valores en string, comprueba que no esten vacios o con numero 0 luego los convierte a number y los opera y retorna
 function calcularValorCuota(total,cantidad) {
+    //limpia las comas del valor mostrado en el campo
     let totalClean = total.replaceAll(',','');
     let cantidadClean = cantidad.replaceAll(',','');
 
@@ -23,10 +23,11 @@ function calcularValorCuota(total,cantidad) {
         
         let res = parseInt(totalClean,0)/parseInt(cantidadClean,0);
         res = Math.trunc(res)
-        return  String(formatNumber(String(res)));
+        return  String(formatNumber(String(res))); // vuelve a colorcar las comas con la funcion formatNumber
     }
     
 }
+//toma los valores de valor contrato y cantidad de cuotas para pasarlo a la funcion calcularValorCuota
 cantidadDeCuotas.addEventListener('input', function (e){
     e.preventDefault()
    valorCuota.value = calcularValorCuota(valorContrato.value,this.value);
@@ -39,7 +40,7 @@ valorContrato.addEventListener('input',function (e) {
 console.log(generarNumeroEnletras('101,202,001,000,001'));
 // mostrar el valor de cada cuota en el campo
 
-//agregar item a la lista de obligaciones conboton de borrar
+//agregar item a la lista de obligaciones con boton de borrar
 agregarObligacion.addEventListener('click', function(e){
     e.preventDefault();
     console.log(e);
@@ -97,7 +98,7 @@ formulario.addEventListener('submit', function(e){
         listaObligaciones.push({text:[{text:text,bold:false},{text:'\n'}]});
     })
 
-    let contenidoFormulario ={
+    const contenidoFormulario ={
 
         numeroPrecontractual : document.getElementById('numeroPrecontractual').value,
         fechaRealizacion : fechaRealizacionLetras,
@@ -130,7 +131,7 @@ formulario.addEventListener('submit', function(e){
         ubicacion : 'el Departamento del Quidío',
     }
     console.log('contenidoFormulario :>> ', contenidoFormulario);
-
+    insertEstudioPrevio(contenidoFormulario);
     /////////////////////////////////////////////////////////////
     let pdfDocumet = {
         pageSize: 'FOLIO',
