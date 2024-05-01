@@ -1,4 +1,18 @@
+const contenidoInvitacion= {
+    nombre: 'nombre contratista',
+    apellido: 'apellido',
+    fechaCreacionEstudio: 'igual al estudio previo',
+    identificacionContratista:'identificacion contratista',
+    objetoContrato:'objeto de contrato',
+    plazoEjecucion: 'plazo de ejecucion',
+    valorFormadePago: 'valor y forma de pago',
+    obligacionesContrato: 'obligaciones de contrato',
+    idoneidadContrato: 'idoneidad',
+    experienciaContrato: 'experiencia',
+    nombreSecretario: 'nombre de secretario encargado',
+    nombreDeSecretaria: 'nombre de secretaria'
 
+}
 let pdfInvitacion = {
     pageSize: 'FOLIO',
     pageMargins: [ 83, 100, 83, 80 ],
@@ -18,7 +32,7 @@ let pdfInvitacion = {
         {
             text:[
                     {text:'Armenia,Q. '},
-                    {text:'Fecha de creacion estudios previos.',color: 'red'},
+                    {text:contenidoInvitacion.fechaCreacionEstudio,color: 'red'},
                     '\n\nSeñor(a).\n\n'
                 ],
             alignment: 'left'
