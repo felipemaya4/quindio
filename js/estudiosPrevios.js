@@ -76,63 +76,7 @@ agregarObligacion.addEventListener('click', function(e){
     }
    
 })
-
-//obtener datos del formulario
-formulario.addEventListener('submit', function(e){
-    e.preventDefault();
-    if(document.getElementsByTagName('li').length == 0){
-        console.log('agregue al menos una obligación');
-        obligacionesContratista.focus();
-    }
-    else
-    {
-    let fechaRealizacion = new Date();
-    let mesRealizacion = mesNombre(fechaRealizacion.getMonth());
-    let fechaRealizacionLetras = fechaRealizacion.getDate().toString()+' de '+ mesRealizacion  +' de '+fechaRealizacion.getFullYear().toString();
-    let lista = document.querySelectorAll('li');
-    let listaObligaciones = [];
-
-    // obtener los valores de la lista de obligaciones para insertar en el objeto del formulario
-    lista.forEach((li)=> {
-        let text = li.firstChild.textContent; 
-        listaObligaciones.push({text:[{text:text,bold:false},{text:'\n'}]});
-    })
-
-    const contenidoFormulario ={
-
-        numeroPrecontractual : document.getElementById('numeroPrecontractual').value,
-        fechaRealizacion : fechaRealizacionLetras,
-        dependencia :document.getElementById('dependencia').value,
-        tipoContrato : document.getElementById('tipoContrato').value,
-        justificacion : document.getElementById('justificacion').value,
-        objetoContrato : document.getElementById('objetoContrato').value,
-        plazoEjecucion : document.getElementById('plazoEjecucion').value,
-        plazoEjecucionLiteral: generarNumeroEnletras(document.getElementById('plazoEjecucion').value),
-        valorContrato : document.getElementById('valorContrato').value,
-        valorContratoLiteral:generarNumeroEnletras(document.getElementById('valorContrato').value),
-        catidadCuotas : document.getElementById('cantidadCuotas').value,
-        cantidadCuotasLiteral:generarNumeroEnletras(document.getElementById('cantidadCuotas').value),
-        frecuenciaPagos : document.getElementById('frecuenciaPagos').value,
-        frecuenciaPagosLiteral: generarNumeroEnletras(document.getElementById('frecuenciaPagos').value),
-        valorCuota: document.getElementById('valorCuota').value,
-        valorCuotaLiteral: generarNumeroEnletras(document.getElementById('valorCuota').value),
-        cdp : document.getElementById('cdp').value,
-        fechaCdp : fechaFormat(document.getElementById('fechaCdp').value),
-        cargoFuncionario : document.getElementById('cargoFuncionario').value,
-        gradoFuncionario : document.getElementById('gradoFuncionario').value,
-        codigoFuncionario: document.getElementById('codigoFuncionario').value,
-        listaObligaciones : listaObligaciones,
-        idoneidad : document.getElementById('idoneidad').value,
-        experiencia : document.getElementById('experiencia').value,
-        nombreOrdenador : document.getElementById('nombreOrdenador').value,
-        nombreProyector: document.getElementById('proyector').value,
-        nombreRevisor: document.getElementById('revisor').value ,
-        vigenciaFiscal : new Date().getFullYear().toString(),
-        ubicacion : 'el Departamento del Quidío',
-    }
-    console.log('contenidoFormulario :>> ', contenidoFormulario);
-    insertEstudioPrevio(contenidoFormulario);
-    /////////////////////////////////////////////////////////////
+async function descargarEstudio (arguments) {
     let pdfDocumet = {
         pageSize: 'FOLIO',
         pageMargins: [ 83, 145, 83, 80 ],// [left, top, right, bottom]
@@ -616,6 +560,63 @@ formulario.addEventListener('submit', function(e){
         }
         
 }
+}
+//obtener datos del formulario
+formulario.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(document.getElementsByTagName('li').length == 0){
+        console.log('agregue al menos una obligación');
+        obligacionesContratista.focus();
+    }
+    else
+    {
+    let fechaRealizacion = new Date();
+    let mesRealizacion = mesNombre(fechaRealizacion.getMonth());
+    let fechaRealizacionLetras = fechaRealizacion.getDate().toString()+' de '+ mesRealizacion  +' de '+fechaRealizacion.getFullYear().toString();
+    let lista = document.querySelectorAll('li');
+    let listaObligaciones = [];
+
+    // obtener los valores de la lista de obligaciones para insertar en el objeto del formulario
+    lista.forEach((li)=> {
+        let text = li.firstChild.textContent; 
+        listaObligaciones.push({text:[{text:text,bold:false},{text:'\n'}]});
+    })
+
+    const contenidoFormulario ={
+
+        numeroPrecontractual : document.getElementById('numeroPrecontractual').value,
+        fechaRealizacion : fechaRealizacionLetras,
+        dependencia :document.getElementById('dependencia').value,
+        tipoContrato : document.getElementById('tipoContrato').value,
+        justificacion : document.getElementById('justificacion').value,
+        objetoContrato : document.getElementById('objetoContrato').value,
+        plazoEjecucion : document.getElementById('plazoEjecucion').value,
+        plazoEjecucionLiteral: generarNumeroEnletras(document.getElementById('plazoEjecucion').value),
+        valorContrato : document.getElementById('valorContrato').value,
+        valorContratoLiteral:generarNumeroEnletras(document.getElementById('valorContrato').value),
+        catidadCuotas : document.getElementById('cantidadCuotas').value,
+        cantidadCuotasLiteral:generarNumeroEnletras(document.getElementById('cantidadCuotas').value),
+        frecuenciaPagos : document.getElementById('frecuenciaPagos').value,
+        frecuenciaPagosLiteral: generarNumeroEnletras(document.getElementById('frecuenciaPagos').value),
+        valorCuota: document.getElementById('valorCuota').value,
+        valorCuotaLiteral: generarNumeroEnletras(document.getElementById('valorCuota').value),
+        cdp : document.getElementById('cdp').value,
+        fechaCdp : fechaFormat(document.getElementById('fechaCdp').value),
+        cargoFuncionario : document.getElementById('cargoFuncionario').value,
+        gradoFuncionario : document.getElementById('gradoFuncionario').value,
+        codigoFuncionario: document.getElementById('codigoFuncionario').value,
+        listaObligaciones : listaObligaciones,
+        idoneidad : document.getElementById('idoneidad').value,
+        experiencia : document.getElementById('experiencia').value,
+        nombreOrdenador : document.getElementById('nombreOrdenador').value,
+        nombreProyector: document.getElementById('proyector').value,
+        nombreRevisor: document.getElementById('revisor').value ,
+        vigenciaFiscal : new Date().getFullYear().toString(),
+        ubicacion : 'el Departamento del Quidío',
+    }
+    console.log('contenidoFormulario :>> ', contenidoFormulario);
+    insertEstudioPrevio(contenidoFormulario);
+    /////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////
     const pdfDocGenerator = pdfMake.createPdf(pdfDocumet);   
     pdfDocGenerator.open();
