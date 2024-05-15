@@ -25,8 +25,10 @@ async function getEstudioPrevio(numeroPrecontractual) {
     .select()
     .eq('numero_estudio', numeroPrecontractual)
     
-    console.log(error);
-    console.log(data);
+    console.log("error",error);
+    console.log("data",data);
+
+    return data;
 }
 
 async function getEstudioList() {
