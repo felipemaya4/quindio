@@ -1,6 +1,6 @@
 
 //devuelve en letras el mes dado en numeros
-function mesNombre(m){
+function mesNombre(m) {
     switch (m) {
         case '01':
             return 'enero'
@@ -38,54 +38,54 @@ function mesNombre(m){
         case '12':
             return 'diciembre'
             break;
-        case 0  :
+        case 0:
             return 'enero'
             break;
-        case 1  :
+        case 1:
             return 'febrero'
             break;
-        case 2  :
+        case 2:
             return 'marzo'
             break;
-        case 3  :
+        case 3:
             return 'abril'
             break;
-        case 4  :
+        case 4:
             return 'mayo'
             break;
-        case 5  :
+        case 5:
             return 'junio'
             break;
-        case 6  :
+        case 6:
             return 'julio'
             break;
-        case 7  :
+        case 7:
             return 'agosto'
             break;
-        case 8  :
+        case 8:
             return 'septiembre'
             break;
-        case 9  :
+        case 9:
             return 'octubre'
             break;
-        case 10 :
+        case 10:
             return 'noviembre'
             break;
-        case 11 :
+        case 11:
             return 'diciembre'
             break;
         default:
-             break;
+            break;
     }
 }
 // fecha en formato " dia de mes de año"
 function fechaFormat(fecha) {
 
-    let year = fecha.slice(0,4);
-    let month = fecha.slice(5,7);
+    let year = fecha.slice(0, 4);
+    let month = fecha.slice(5, 7);
     let day = fecha.slice(8);
     let fechaFormat;
     let mesLetras = mesNombre(month);
-    fechaFormat = day + ' de '+mesLetras+' de '+ year;
+    fechaFormat = day + ' de ' + mesLetras + ' de ' + year;
     return fechaFormat
 }

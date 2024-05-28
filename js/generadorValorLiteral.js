@@ -3,42 +3,42 @@
 
 function valorEnLetras(numero) {
     let cadenaNumero = Array.from(numero).reverse();
-    let valorEnLetras =[];
+    let valorEnLetras = [];
     let unidad = cadenaNumero[0];
     let decena = cadenaNumero[1];
     let centena = cadenaNumero[2];
     switch (unidad) {
         case '0':
-            
+
             break;
         case '1':
             if (decena == '1') {
                 break;
-            }else
+            } else
                 valorEnLetras.unshift('un');
             break;
         case '2':
             if (decena == '1') {
                 break;
-            }else
+            } else
                 valorEnLetras.unshift('dos');
             break;
         case '3':
             if (decena == '1') {
                 break;
-            }else
+            } else
                 valorEnLetras.unshift('tres');
             break;
         case '4':
             if (decena == '1') {
                 break;
-            }else
+            } else
                 valorEnLetras.unshift('cuatro');
             break;
         case '5':
             if (decena == '1') {
                 break;
-            }else
+            } else
                 valorEnLetras.unshift('cinco');
             break;
         case '6':
@@ -67,7 +67,7 @@ function valorEnLetras(numero) {
                     break;
                 case '2':
                     valorEnLetras.unshift('doce');
-                     break;
+                    break;
                 case '3':
                     valorEnLetras.unshift('trece');
                     break;
@@ -83,40 +83,40 @@ function valorEnLetras(numero) {
             }
             break;
         case '2':
-            unidad == '0' ? valorEnLetras.unshift('veinte'): valorEnLetras.unshift('venti');
+            unidad == '0' ? valorEnLetras.unshift('veinte') : valorEnLetras.unshift('venti');
             break;
         case '3':
-            unidad == '0'? valorEnLetras.unshift('treinta'): valorEnLetras.unshift('treinta y ');
+            unidad == '0' ? valorEnLetras.unshift('treinta') : valorEnLetras.unshift('treinta y ');
             break;
         case '4':
-            unidad == '0'? valorEnLetras.unshift('cuarenta'): valorEnLetras.unshift('cuarenta y ');
-            break;            
+            unidad == '0' ? valorEnLetras.unshift('cuarenta') : valorEnLetras.unshift('cuarenta y ');
+            break;
         case '5':
-            unidad == '0'? valorEnLetras.unshift('cincuenta'): valorEnLetras.unshift('cincuenta y ');
-            break;            
+            unidad == '0' ? valorEnLetras.unshift('cincuenta') : valorEnLetras.unshift('cincuenta y ');
+            break;
         case '6':
-            unidad == '0'? valorEnLetras.unshift('sesenta'): valorEnLetras.unshift('sesenta y ');
-            break;            
+            unidad == '0' ? valorEnLetras.unshift('sesenta') : valorEnLetras.unshift('sesenta y ');
+            break;
         case '7':
-            unidad == '0'? valorEnLetras.unshift('setenta'): valorEnLetras.unshift('setenta y ');
-            break;            
+            unidad == '0' ? valorEnLetras.unshift('setenta') : valorEnLetras.unshift('setenta y ');
+            break;
         case '8':
-            unidad == '0'? valorEnLetras.unshift('ochenta'): valorEnLetras.unshift('ochenta y ');
-            break;            
+            unidad == '0' ? valorEnLetras.unshift('ochenta') : valorEnLetras.unshift('ochenta y ');
+            break;
         case '9':
-            unidad == '0'? valorEnLetras.unshift('noventa'): valorEnLetras.unshift('noventa y ');
+            unidad == '0' ? valorEnLetras.unshift('noventa') : valorEnLetras.unshift('noventa y ');
             break;
         case '0':
 
-            break;            
+            break;
         default:
             break;
     }
     switch (centena) {
         case '1':
-            if(decena == '0' && unidad == '0'){
+            if (decena == '0' && unidad == '0') {
                 valorEnLetras.unshift('cien ');
-            }else
+            } else
                 valorEnLetras.unshift('ciento ');
             break;
         case '2':
@@ -152,22 +152,22 @@ function valorEnLetras(numero) {
     return res
 }
 //funcion que genera el valor de un  numero de hasta 24 cifras en su valor literal
-function generarNumeroEnletras(n){
+function generarNumeroEnletras(n) {
     let arregloNumero = n.split(','); // separa el string en un arreglo de las cifras del numero a convertir
     let enLetras = [];
-    let separador =[];
-    let valorFinal =[];
+    let separador = [];
+    let valorFinal = [];
     let res;
     arregloNumero.forEach(element => {
         enLetras.push(valorEnLetras(element)); // se llama la funcion 
     });
     enLetras.reverse();
-    enLetras.forEach((value,index) => {
+    enLetras.forEach((value, index) => {
         // coloca el orden de cada cifra.. mil millones billones trillones cuatrillones
         switch (index) {
             case 0:
-                if(value.includes('un')){
-                   // arreglo[0] = value+'o'; // si el ultimo numero es uno se adicioano al o para que diga uno en lugar de 'un'
+                if (value.includes('un')) {
+                    // arreglo[0] = value+'o'; // si el ultimo numero es uno se adicioano al o para que diga uno en lugar de 'un'
                 }
                 break;
             case 1:
@@ -200,8 +200,8 @@ function generarNumeroEnletras(n){
     }
     );
     enLetras.reverse();
-    enLetras.forEach((value,index,arreglo) =>{ // si el primer valor es uno se cambia a valor singular la expresion
-        if( index === 0 && value === 'un'){
+    enLetras.forEach((value, index, arreglo) => { // si el primer valor es uno se cambia a valor singular la expresion
+        if (index === 0 && value === 'un') {
             switch (separador[0]) {
                 case 'cuatrillones':
                     valorFinal.push(value);
@@ -225,17 +225,17 @@ function generarNumeroEnletras(n){
                     break;
             }
         }
-        else if(value == '' && arreglo[index-1]== ''){ // si no hay valores en dos cifras contiguas se el omite el valor de 'millones' o 'billones' etc
+        else if (value == '' && arreglo[index - 1] == '') { // si no hay valores en dos cifras contiguas se el omite el valor de 'millones' o 'billones' etc
 
         }
-        else if(value == '' && separador[index]=='mil'){ // si en un orden de mil no tiene valor se omite la insercion de 'mil'
+        else if (value == '' && separador[index] == 'mil') { // si en un orden de mil no tiene valor se omite la insercion de 'mil'
 
-            }
-        else{
+        }
+        else {
             valorFinal.push(arreglo[index]);
             valorFinal.push(separador[index]);
         }
-        
+
     });
     // segun sea el caso adicionar o no la plabra "de" para escribir la expresion "de pesos" o "pesos"
     const [last] = valorFinal.slice(-1)
