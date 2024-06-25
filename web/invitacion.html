@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Invitación</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+     <!--pdfmake-->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.9/pdfmake.min.js"
+     integrity="sha512-5wC3oH3tojdOtHBV6B4TXjlGc0E2uk3YViSrWnv1VUmmVlQDAs1lcupsqqpwjh8jIuodzADYK5xCL5Dkg/ving=="
+     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.9/vfs_fonts.min.js"
+     integrity="sha512-EFlschXPq/G5zunGPRSYqazR1CMKj0cQc8v6eMrQwybxgIbhsfoO5NAMQX3xFDQIbFlViv53o7Hy+yCWw6iZxA=="
+     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+ <!--fin pdf make-->
+</head>
+
+<body>
+  <header class="p-1 mb-0 border-bottom">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-start">
+        <ul class="nav col-12 col-sm-auto me-sm-auto mb-2 justify-content-left mb-sm-0">
+          <li><a href="estudio.html" class="nav-link px-2 link-secondary">Estudio</a></li>
+          <li><a href="invitacion.html" class="nav-link px-2 link-body-emphasis">Invitacion</a></li>
+          <li><a href="minuta.html" class="nav-link px-2 link-secondary">Minuta</a></li>
+          <li><a href="actainicio.html" class="nav-link px-2 link-secondary">Acta de inicio</a></li>
+          <li><a href="certificado.html" class="nav-link px-2 link-secondary">Certificado</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <nav class="py-1 bg-body-tertiary border-bottom">
+    <div class="container d-flex flex-wrap">
+      <ul class="nav me-auto">
+        <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2 active" aria-current="page">Nuevo</a>
+        </li>
+        <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">Buscar</a></li>
+        <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">Modificar</a></li>
+        <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">FAQs</a></li>
+        <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">About</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <!-- formulario de creacion de invitacion -->
+  <div class="container d-grid gap-3">
+    <h1 class="h5 text-center mt-3 mb-3">Creacion de invitacion </h1>
+    <form action="" method="post">
+      <div class="row justify-content-lg-left border rounded p-3">
+        <div class="col-12 col-md-4 mb-3">
+          <label for="numeroPrecontractual">Planeacion Precontractual </label>
+          <input class="form-control" type="number" name="numeroPrecontractual" id="numeroPrecontractual"
+            placeholder="Número de estudio" required>
+        </div>
+        <div class="row justify-content-lg-left mb-3">
+          <div class="mb-2">
+            <label for="formaPago">Datos presonales de futuro contratista</label>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="cdp">identificación</label>
+            <input class="form-control" type="number" maxlength="10" max="999999999" min="0" pattern="[0-9]"
+              name="cedula" id="cedula" placeholder="Cédula de cuidadania" required>
+          </div>
+          <div class="row justify-content-lg-left mb-3">
+            <div class="mb-2">
+              <label for="">Nombres y apellidos</label>
+            </div>
+            <div class="col-md-6 mb-3">
+              <input class="form-control mb-3" type="text" placeholder="primer nombre" required>
+              <input class="form-control" type="text" placeholder="primer apellido" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <input class="form-control mb-3" type="text" placeholder="segundo nombre">
+              <input class="form-control" type="text" placeholder="segundo apellido">
+            </div>
+          </div>
+
+        </div>
+        <div class="mb-3 text-center">
+            <input class="btn btn-outline-secondary" id="crearInvitacion" type="submit" value="Crear invitacion">
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- fin formulario  -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

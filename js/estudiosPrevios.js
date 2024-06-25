@@ -1,4 +1,5 @@
 
+ console.log("estudios previos");
 let formulario = document.getElementById('formulario');
 let agregarObligacion = document.getElementById('agregarObligacion');
 let obligacionesContratista = document.getElementById('obligacionesContratista');
