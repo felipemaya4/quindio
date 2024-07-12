@@ -12,7 +12,11 @@ async function insertEstudioPrevio(dataDocument) {
 
     const { data, error } = await ClienteSupabase
         .from('estudios_Previos')
-        .insert({ numero_estudio: dataDocument.numeroPrecontractual, contenido: dataDocument })
+        .insert(
+        { 
+            numero_estudio: dataDocument.numeroPrecontractual,
+            contenido: dataDocument 
+        })
         .select()
 
     console.log(error);
@@ -20,20 +24,17 @@ async function insertEstudioPrevio(dataDocument) {
 }
 //funcion para obtener un estudio previo de la tabla
 async function getEstudioPrevio(numeroPrecontractual) {
-    const { data, error } = await ClienteSupabase
+    const { data: estudios_Previos, error } = await ClienteSupabase
         .from('estudios_Previos')
         .select()
         .eq('numero_estudio', numeroPrecontractual)
 
-    console.log("error", error);
-    console.log("data", data);
-
-    return data;
+    return estudios_Previos;
 }
 
 async function UpdateEstudioPrevio(dataDocument){
 
-    const { data, error } = await supabase
+    const { data, error } = await ClienteSupabase
       .from('estudios_Previos')
       .update({ other_column: 'otherValue' })
       .eq('id', dataDocument.id )
@@ -63,15 +64,40 @@ async function getEstudioList() {
     return consulta
 
 }
-
-//funcion para obtener todos los contratistas de la tabla
-async function getContratistasList() {
+// funcion para insertar un nuevo contratista
+async function insertContratista(contratista) {
 
     const { data, error } = await ClienteSupabase
-        .from('contratista')
-        .select('*')
-
+    .from('contratista')
+    .insert([
+    { 
+        identificacion: contratista.identificacion, 
+        tipo_documento: contratista.tipo_documento,
+        lugar_expedicion: contratista.lugar_expedicion,
+        direccion: contratista.direccion,
+        lugar_residencia: contratista.lugar_residencia,
+        nombre: contratista.nombre,
+        apellido:contratista.apellido,
+    },
+    ])
+    .select()
+    
     console.log(error);
     console.log(data);
+    
+}
+
+//funcion para obtener un contratista de la tabla
+async function getContratista(idContratista) {
+
+    const { data: contratista, error } = await ClienteSupabase
+        .from('contratista')
+        .select('*')
+        .eq('identificacion', idContratista)
+
+    console.log(error);
+    console.log(contratista);
+
+    return contratista;
 }
 

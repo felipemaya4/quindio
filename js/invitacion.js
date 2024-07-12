@@ -1,4 +1,4 @@
-const contenidoInvitacion = {
+let contenidoInvitacion = {
     nombre: 'nombre contratista',
     apellido: 'apellido',
     fechaCreacionEstudio: 'igual al estudio previo',
