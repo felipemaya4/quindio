@@ -15,6 +15,8 @@ async function insertEstudioPrevio(dataDocument) {
         .insert(
         { 
             numero_estudio: dataDocument.numeroPrecontractual,
+            tipo_contrato: dataDocument.tipoContrato,
+            dependencia: dataDocument.dependencia,
             contenido: dataDocument 
         })
         .select()
